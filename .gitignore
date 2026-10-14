@@ -1,0 +1,13 @@
+node_modules/
+research/private/
+captures/
+*.log
+tmp/
+public/icons/skills/
+research/recording-validation.json
+research/live-capture-validation.json
+.env
+.env.*
+*.pcap
+*.pcapng
+*.ndjson

@@ -1,0 +1,19 @@
+{
+  "name": "aion-dps-lab",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Local Aion 2 combat protocol research and DPS meter prototype",
+  "scripts": {
+    "start": "node src/server.mjs",
+    "test": "node --test test/*.test.mjs",
+    "analyze": "node scripts/inspect-install.mjs",
+    "update:skills": "node scripts/update-skill-catalog.mjs",
+    "validate:recordings": "node scripts/validate-recordings.mjs",
+    "validate:npcap": "node scripts/validate-npcap-loopback.mjs",
+    "test:ui": "node scripts/ui-smoke.mjs"
+  },
+  "engines": { "node": ">=22" },
+  "dependencies": { "koffi": "2.15.2" },
+  "devDependencies": { "prettier": "3.6.2" }
+}

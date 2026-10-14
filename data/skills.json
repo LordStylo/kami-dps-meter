@@ -1,0 +1,1453 @@
+{
+  "source": "https://questlog.gg/aion-2/api/trpc/skillBuilder.getSkills?input=%7B%22language%22%3A%22en-nc%22%7D",
+  "sourcePage": "https://questlog.gg/aion-2/en-nc/db/skills",
+  "retrievedAt": "2026-10-14T02:21:00.392Z",
+  "language": "en-nc",
+  "skills": {
+    "1001": {
+      "name": "Glide"
+    },
+    "1002": {
+      "name": "Flight"
+    },
+    "1004": {
+      "name": "Mount"
+    },
+    "1005": {
+      "name": "Substance Morph"
+    },
+    "1006": {
+      "name": "Daevanion"
+    },
+    "1008": {
+      "name": "Sprint",
+      "icon": "/icons/skills/ICON_CO_SKILL_003.webp"
+    },
+    "1009": {
+      "name": "Divine Heal"
+    },
+    "1101": {
+      "name": "Dash"
+    },
+    "1102": {
+      "name": "Quick Gliding"
+    },
+    "1201": {
+      "name": "Divine Power Increase"
+    },
+    "1202": {
+      "name": "Divine Heal Increase"
+    },
+    "1203": {
+      "name": "Divine Power Boost"
+    },
+    "9865": {
+      "name": "Vicious Strike",
+      "icon": "/icons/skills/ICON_TE_SKILL_001.webp"
+    },
+    "9866": {
+      "name": "Decisive Strike",
+      "icon": "/icons/skills/ICON_TE_SKILL_002.webp"
+    },
+    "9867": {
+      "name": "Desperate Strike",
+      "icon": "/icons/skills/ICON_TE_SKILL_003.webp"
+    },
+    "9868": {
+      "name": "Pummel",
+      "icon": "/icons/skills/ICON_TE_SKILL_006.webp"
+    },
+    "9869": {
+      "name": "Punishing Strike",
+      "icon": "/icons/skills/ICON_TE_SKILL_014.webp"
+    },
+    "9871": {
+      "name": "Punishing Benediction",
+      "icon": "/icons/skills/ICON_TE_SKILL_Passive_003.webp"
+    },
+    "11010000": {
+      "name": "Rending Blow",
+      "icon": "/icons/skills/ICON_GL_SKILL_001.webp"
+    },
+    "11020000": {
+      "name": "Keen Strike",
+      "icon": "/icons/skills/ICON_GL_SKILL_002.webp"
+    },
+    "11030000": {
+      "name": "Rupture Strike",
+      "icon": "/icons/skills/ICON_GL_SKILL_003.webp"
+    },
+    "11040000": {
+      "name": "Wrathful Strike",
+      "icon": "/icons/skills/ICON_GL_SKILL_004.webp"
+    },
+    "11050000": {
+      "name": "Crushing Wave",
+      "icon": "/icons/skills/ICON_GL_SKILL_005.webp"
+    },
+    "11060000": {
+      "name": "Frenzied Wave",
+      "icon": "/icons/skills/ICON_GL_SKILL_006.webp"
+    },
+    "11080000": {
+      "name": "Blade Toss",
+      "icon": "/icons/skills/ICON_GL_SKILL_008.webp"
+    },
+    "11090000": {
+      "name": "Blade Dance",
+      "icon": "/icons/skills/ICON_GL_SKILL_009.webp"
+    },
+    "11100000": {
+      "name": "Ruinous Blow",
+      "icon": "/icons/skills/ICON_GL_SKILL_010.webp"
+    },
+    "11110000": {
+      "name": "Focused Block",
+      "icon": "/icons/skills/ICON_GL_SKILL_011.webp"
+    },
+    "11130000": {
+      "name": "Armor of Balance",
+      "icon": "/icons/skills/ICON_GL_SKILL_013.webp"
+    },
+    "11170000": {
+      "name": "Overhead Slam",
+      "icon": "/icons/skills/ICON_GL_SKILL_017.webp"
+    },
+    "11190000": {
+      "name": "Leaping Slam",
+      "icon": "/icons/skills/ICON_GL_SKILL_019.webp"
+    },
+    "11200000": {
+      "name": "Ankle Slice",
+      "icon": "/icons/skills/ICON_GL_SKILL_020.webp"
+    },
+    "11240000": {
+      "name": "Wrath Wave",
+      "icon": "/icons/skills/ICON_GL_SKILL_007.webp"
+    },
+    "11250000": {
+      "name": "Zikel's Blessing",
+      "icon": "/icons/skills/ICON_GL_SKILL_040.webp"
+    },
+    "11260000": {
+      "name": "Defiance",
+      "icon": "/icons/skills/ICON_CO_SKILL_002.webp"
+    },
+    "11280000": {
+      "name": "Sword Aura Rampage",
+      "icon": "/icons/skills/ICON_TE_SKILL_034.webp"
+    },
+    "11290000": {
+      "name": "Mocking Blade",
+      "icon": "/icons/skills/ICON_GL_SKILL_028.webp"
+    },
+    "11300000": {
+      "name": "Aerial Snare",
+      "icon": "/icons/skills/ICON_GL_SKILL_015.webp"
+    },
+    "11340000": {
+      "name": "Lifestealing Blade",
+      "icon": "/icons/skills/ICON_GL_SKILL_034.webp"
+    },
+    "11360000": {
+      "name": "Rush Strike",
+      "icon": "/icons/skills/ICON_GL_SKILL_036.webp"
+    },
+    "11380000": {
+      "name": "Tenaciousness",
+      "icon": "/icons/skills/ICON_GL_SKILL_038.webp"
+    },
+    "11390000": {
+      "name": "Rage Burst",
+      "icon": "/icons/skills/ICON_GL_SKILL_039.webp"
+    },
+    "11400000": {
+      "name": "Lunge Stance",
+      "icon": "/icons/skills/ICON_GL_SKILL_024.webp"
+    },
+    "11410000": {
+      "name": "Wave Armor",
+      "icon": "/icons/skills/ICON_GL_SKILL_041.webp"
+    },
+    "11420000": {
+      "name": "Smashing Blow",
+      "icon": "/icons/skills/ICON_GL_SKILL_042.webp"
+    },
+    "11430000": {
+      "name": "Forced Restraint",
+      "icon": "/icons/skills/ICON_GL_SKILL_043.webp"
+    },
+    "11450000": {
+      "name": "Fracturing Rush",
+      "icon": "/icons/skills/ICON_GL_SKILL_045.webp"
+    },
+    "11700000": {
+      "name": "Assault Strike",
+      "icon": "/icons/skills/ICON_CO_SKILL_003.webp"
+    },
+    "11710000": {
+      "name": "Survival Stance",
+      "icon": "/icons/skills/ICON_GL_SKILL_Passive_001.webp"
+    },
+    "11720000": {
+      "name": "Protection Armor",
+      "icon": "/icons/skills/ICON_GL_SKILL_Passive_002.webp"
+    },
+    "11730000": {
+      "name": "Blood Absorption",
+      "icon": "/icons/skills/ICON_GL_SKILL_Passive_003.webp"
+    },
+    "11740000": {
+      "name": "Identify Weakness",
+      "icon": "/icons/skills/ICON_GL_SKILL_Passive_004.webp"
+    },
+    "11750000": {
+      "name": "Attack Preparation",
+      "icon": "/icons/skills/ICON_GL_SKILL_Passive_005.webp"
+    },
+    "11760000": {
+      "name": "Impact Hit",
+      "icon": "/icons/skills/ICON_GL_SKILL_Passive_006.webp"
+    },
+    "11770000": {
+      "name": "Destructive Impulse",
+      "icon": "/icons/skills/ICON_GL_SKILL_Passive_007.webp"
+    },
+    "11780000": {
+      "name": "Experienced Counterstrike",
+      "icon": "/icons/skills/ICON_GL_SKILL_Passive_008.webp"
+    },
+    "11790000": {
+      "name": "Survival Willpower",
+      "icon": "/icons/skills/ICON_GL_SKILL_Passive_009.webp"
+    },
+    "11800000": {
+      "name": "Murderous Burst",
+      "icon": "/icons/skills/ICON_GL_SKILL_Passive_010.webp"
+    },
+    "12010000": {
+      "name": "Vicious Strike",
+      "icon": "/icons/skills/ICON_TE_SKILL_001.webp"
+    },
+    "12020000": {
+      "name": "Decisive Strike",
+      "icon": "/icons/skills/ICON_TE_SKILL_002.webp"
+    },
+    "12030000": {
+      "name": "Desperate Strike",
+      "icon": "/icons/skills/ICON_TE_SKILL_003.webp"
+    },
+    "12040000": {
+      "name": "Pummel",
+      "icon": "/icons/skills/ICON_TE_SKILL_006.webp"
+    },
+    "12060000": {
+      "name": "Punishing Strike",
+      "icon": "/icons/skills/ICON_TE_SKILL_014.webp"
+    },
+    "12070000": {
+      "name": "Doom Shield",
+      "icon": "/icons/skills/ICON_TE_SKILL_007.webp"
+    },
+    "12090000": {
+      "name": "Punishment",
+      "icon": "/icons/skills/ICON_TE_SKILL_009.webp"
+    },
+    "12100000": {
+      "name": "Shield Smite",
+      "icon": "/icons/skills/ICON_TE_SKILL_010.webp"
+    },
+    "12110000": {
+      "name": "Shield of Protection",
+      "icon": "/icons/skills/ICON_TE_SKILL_011.webp"
+    },
+    "12120000": {
+      "name": "Taunt",
+      "icon": "/icons/skills/ICON_TE_SKILL_012.webp"
+    },
+    "12130000": {
+      "name": "Poach",
+      "icon": "/icons/skills/ICON_TE_SKILL_013.webp"
+    },
+    "12190000": {
+      "name": "Second Skin",
+      "icon": "/icons/skills/ICON_TE_SKILL_018.webp"
+    },
+    "12200000": {
+      "name": "Armor of Balance",
+      "icon": "/icons/skills/ICON_GL_SKILL_013.webp"
+    },
+    "12220000": {
+      "name": "Grapple",
+      "icon": "/icons/skills/ICON_TE_SKILL_021.webp"
+    },
+    "12230000": {
+      "name": "Noble Armor",
+      "icon": "/icons/skills/ICON_TE_SKILL_022.webp"
+    },
+    "12240000": {
+      "name": "Judgment",
+      "icon": "/icons/skills/ICON_TE_SKILL_004.webp"
+    },
+    "12250000": {
+      "name": "Comrade in Arms",
+      "icon": "/icons/skills/ICON_TE_SKILL_024.webp"
+    },
+    "12260000": {
+      "name": "Defiance",
+      "icon": "/icons/skills/ICON_CO_SKILL_002.webp"
+    },
+    "12270000": {
+      "name": "Debilitating Smash",
+      "icon": "/icons/skills/ICON_TE_SKILL_025.webp"
+    },
+    "12300000": {
+      "name": "Annihilate",
+      "icon": "/icons/skills/ICON_TE_SKILL_028.webp"
+    },
+    "12310000": {
+      "name": "Empyrean Lord's Punishment",
+      "icon": "/icons/skills/ICON_TE_SKILL_029.webp"
+    },
+    "12320000": {
+      "name": "Nezekan's Shield",
+      "icon": "/icons/skills/ICON_TE_SKILL_030.webp"
+    },
+    "12340000": {
+      "name": "Flash Rampage",
+      "icon": "/icons/skills/ICON_GL_SKILL_027.webp"
+    },
+    "12350000": {
+      "name": "Warding Strike",
+      "icon": "/icons/skills/ICON_TE_SKILL_035.webp"
+    },
+    "12410000": {
+      "name": "Executing Blade",
+      "icon": "/icons/skills/ICON_TE_SKILL_041.webp"
+    },
+    "12430000": {
+      "name": "Shield Rush",
+      "icon": "/icons/skills/ICON_TE_SKILL_015.webp"
+    },
+    "12450000": {
+      "name": "Battlefield Banner",
+      "icon": "/icons/skills/ICON_TE_SKILL_045.webp"
+    },
+    "12700000": {
+      "name": "Assault Fury",
+      "icon": "/icons/skills/ICON_CO_SKILL_003.webp"
+    },
+    "12710000": {
+      "name": "Enhance Health",
+      "icon": "/icons/skills/ICON_TE_SKILL_Passive_001.webp"
+    },
+    "12720000": {
+      "name": "Warding Shield",
+      "icon": "/icons/skills/ICON_TE_SKILL_Passive_002.webp"
+    },
+    "12730000": {
+      "name": "Punishing Benediction",
+      "icon": "/icons/skills/ICON_TE_SKILL_Passive_003.webp"
+    },
+    "12740000": {
+      "name": "Ironclad Defense",
+      "icon": "/icons/skills/ICON_TE_SKILL_Passive_004.webp"
+    },
+    "12750000": {
+      "name": "Guarding Seal",
+      "icon": "/icons/skills/ICON_TE_SKILL_Passive_005.webp"
+    },
+    "12760000": {
+      "name": "Impact Hit",
+      "icon": "/icons/skills/ICON_GL_SKILL_Passive_006.webp"
+    },
+    "12770000": {
+      "name": "Insulting Roar",
+      "icon": "/icons/skills/ICON_TE_SKILL_Passive_007.webp"
+    },
+    "12780000": {
+      "name": "Fury",
+      "icon": "/icons/skills/ICON_TE_SKILL_Passive_008.webp"
+    },
+    "12790000": {
+      "name": "Survival Willpower",
+      "icon": "/icons/skills/ICON_GL_SKILL_Passive_009.webp"
+    },
+    "12800000": {
+      "name": "Block Pain",
+      "icon": "/icons/skills/ICON_TE_SKILL_Passive_010.webp"
+    },
+    "13010000": {
+      "name": "Quick Slice",
+      "icon": "/icons/skills/ICON_AS_SKILL_001.webp"
+    },
+    "13020000": {
+      "name": "Throw Shadowblade",
+      "icon": "/icons/skills/ICON_AS_SKILL_031.webp"
+    },
+    "13030000": {
+      "name": "Breaking Slice",
+      "icon": "/icons/skills/ICON_AS_SKILL_003.webp"
+    },
+    "13040000": {
+      "name": "Swift Slice",
+      "icon": "/icons/skills/ICON_AS_SKILL_004.webp"
+    },
+    "13050000": {
+      "name": "Flash Slice",
+      "icon": "/icons/skills/ICON_AS_SKILL_005.webp"
+    },
+    "13060000": {
+      "name": "Ambush",
+      "icon": "/icons/skills/ICON_AS_SKILL_006.webp"
+    },
+    "13070000": {
+      "name": "Shadowstrike",
+      "icon": "/icons/skills/ICON_AS_SKILL_007.webp"
+    },
+    "13080000": {
+      "name": "Evasion Stance",
+      "icon": "/icons/skills/ICON_AS_SKILL_024.webp"
+    },
+    "13100000": {
+      "name": "Savage Roar",
+      "icon": "/icons/skills/ICON_AS_SKILL_009.webp"
+    },
+    "13110000": {
+      "name": "Savage Back Kick",
+      "icon": "/icons/skills/ICON_AS_SKILL_010.webp"
+    },
+    "13120000": {
+      "name": "Savage Smash",
+      "icon": "/icons/skills/ICON_AS_SKILL_011.webp"
+    },
+    "13130000": {
+      "name": "Insignia Explosion",
+      "icon": "/icons/skills/ICON_AS_SKILL_013.webp"
+    },
+    "13140000": {
+      "name": "Shadowstep",
+      "icon": "/icons/skills/ICON_AS_SKILL_014.webp"
+    },
+    "13180000": {
+      "name": "Shadow Walk",
+      "icon": "/icons/skills/ICON_AS_SKILL_016.webp"
+    },
+    "13210000": {
+      "name": "Whirlwind Slice",
+      "icon": "/icons/skills/ICON_AS_SKILL_019.webp"
+    },
+    "13220000": {
+      "name": "Shadow Fall",
+      "icon": "/icons/skills/ICON_AS_SKILL_020.webp"
+    },
+    "13230000": {
+      "name": "Aerial Bind",
+      "icon": "/icons/skills/ICON_AS_SKILL_026.webp"
+    },
+    "13250000": {
+      "name": "Smoke Bomb",
+      "icon": "/icons/skills/ICON_AS_SKILL_023.webp"
+    },
+    "13260000": {
+      "name": "Defiance",
+      "icon": "/icons/skills/ICON_CO_SKILL_002.webp"
+    },
+    "13270000": {
+      "name": "Savage Fang",
+      "icon": "/icons/skills/ICON_AS_SKILL_025.webp"
+    },
+    "13280000": {
+      "name": "Spiral Slice",
+      "icon": "/icons/skills/ICON_AS_SKILL_022.webp"
+    },
+    "13300000": {
+      "name": "Triniel's Dagger",
+      "icon": "/icons/skills/ICON_AS_SKILL_028.webp"
+    },
+    "13310000": {
+      "name": "Illusive Clone",
+      "icon": "/icons/skills/ICON_AS_SKILL_029.webp"
+    },
+    "13340000": {
+      "name": "Storm Rampage",
+      "icon": "/icons/skills/ICON_AS_SKILL_034.webp"
+    },
+    "13350000": {
+      "name": "Heart Gore",
+      "icon": "/icons/skills/ICON_AS_SKILL_035.webp"
+    },
+    "13360000": {
+      "name": "Infiltrate",
+      "icon": "/icons/skills/ICON_AS_SKILL_036.webp"
+    },
+    "13370000": {
+      "name": "Evasion Contract",
+      "icon": "/icons/skills/ICON_AS_SKILL_039.webp"
+    },
+    "13390000": {
+      "name": "Swift Contract",
+      "icon": "/icons/skills/ICON_AS_SKILL_037.webp"
+    },
+    "13700000": {
+      "name": "Assault Ambush",
+      "icon": "/icons/skills/ICON_CO_SKILL_003.webp"
+    },
+    "13710000": {
+      "name": "Heightened Sixth Sense",
+      "icon": "/icons/skills/ICON_AS_SKILL_Passive_001.webp"
+    },
+    "13720000": {
+      "name": "Exploit Weakness",
+      "icon": "/icons/skills/ICON_AS_SKILL_Passive_002.webp"
+    },
+    "13730000": {
+      "name": "Apply Poison",
+      "icon": "/icons/skills/ICON_AS_SKILL_Passive_003.webp"
+    },
+    "13740000": {
+      "name": "Rear Smite",
+      "icon": "/icons/skills/ICON_AS_SKILL_Passive_004.webp"
+    },
+    "13750000": {
+      "name": "Assault Stance",
+      "icon": "/icons/skills/ICON_AS_SKILL_Passive_006.webp"
+    },
+    "13760000": {
+      "name": "Impact Hit",
+      "icon": "/icons/skills/ICON_AS_SKILL_Passive_011.webp"
+    },
+    "13770000": {
+      "name": "Ambush Stance",
+      "icon": "/icons/skills/ICON_AS_SKILL_Passive_007.webp"
+    },
+    "13780000": {
+      "name": "Defense Break",
+      "icon": "/icons/skills/ICON_AS_SKILL_Passive_008.webp"
+    },
+    "13790000": {
+      "name": "Revitalization Contract",
+      "icon": "/icons/skills/ICON_AS_SKILL_Passive_009.webp"
+    },
+    "13800000": {
+      "name": "Determination",
+      "icon": "/icons/skills/ICON_AS_SKILL_Passive_010.webp"
+    },
+    "14010000": {
+      "name": "Deadshot",
+      "icon": "/icons/skills/ICON_RA_SKILL_002.webp"
+    },
+    "14020000": {
+      "name": "Snipe",
+      "icon": "/icons/skills/ICON_RA_SKILL_001.webp"
+    },
+    "14030000": {
+      "name": "Rapid Fire",
+      "icon": "/icons/skills/ICON_RA_SKILL_003.webp"
+    },
+    "14040000": {
+      "name": "Spiral Arrow",
+      "icon": "/icons/skills/ICON_RA_SKILL_004.webp"
+    },
+    "14050000": {
+      "name": "Drill Dart",
+      "icon": "/icons/skills/ICON_RA_SKILL_005.webp"
+    },
+    "14060000": {
+      "name": "Griffon Arrow",
+      "icon": "/icons/skills/ICON_RA_SKILL_006.webp"
+    },
+    "14070000": {
+      "name": "Suppressing Arrow",
+      "icon": "/icons/skills/ICON_RA_SKILL_007.webp"
+    },
+    "14080000": {
+      "name": "Burst Arrow",
+      "icon": "/icons/skills/ICON_RA_SKILL_008.webp"
+    },
+    "14090000": {
+      "name": "Marking Shot",
+      "icon": "/icons/skills/ICON_RA_SKILL_031.webp"
+    },
+    "14110000": {
+      "name": "Gale Arrow",
+      "icon": "/icons/skills/ICON_RA_SKILL_011.webp"
+    },
+    "14120000": {
+      "name": "Ambush Kick",
+      "icon": "/icons/skills/ICON_RA_SKILL_012.webp"
+    },
+    "14130000": {
+      "name": "Snare Shot",
+      "icon": "/icons/skills/ICON_RA_SKILL_013.webp"
+    },
+    "14150000": {
+      "name": "Illusory Arrow",
+      "icon": "/icons/skills/ICON_RA_SKILL_015.webp"
+    },
+    "14160000": {
+      "name": "Sealing Arrow",
+      "icon": "/icons/skills/ICON_RA_SKILL_016.webp"
+    },
+    "14170000": {
+      "name": "Explosion Trap",
+      "icon": "/icons/skills/ICON_RA_SKILL_017.webp"
+    },
+    "14180000": {
+      "name": "Ensnaring Trap",
+      "icon": "/icons/skills/ICON_RA_SKILL_018.webp"
+    },
+    "14190000": {
+      "name": "Stealth",
+      "icon": "/icons/skills/ICON_RA_SKILL_019.webp"
+    },
+    "14220000": {
+      "name": "Bow of Blessing",
+      "icon": "/icons/skills/ICON_RA_SKILL_030.webp"
+    },
+    "14260000": {
+      "name": "Defiance",
+      "icon": "/icons/skills/ICON_CO_SKILL_002.webp"
+    },
+    "14270000": {
+      "name": "Arrow Storm",
+      "icon": "/icons/skills/ICON_RA_SKILL_026.webp"
+    },
+    "14310000": {
+      "name": "Vaizel's Authority",
+      "icon": "/icons/skills/ICON_RA_SKILL_022.webp"
+    },
+    "14330000": {
+      "name": "Arrow Scattershot",
+      "icon": "/icons/skills/ICON_RA_SKILL_033.webp"
+    },
+    "14340000": {
+      "name": "Tempest Shot",
+      "icon": "/icons/skills/ICON_RA_SKILL_034.webp"
+    },
+    "14350000": {
+      "name": "Mother Nature's Breath",
+      "icon": "/icons/skills/ICON_RA_SKILL_035.webp"
+    },
+    "14360000": {
+      "name": "Explosive Arrow",
+      "icon": "/icons/skills/ICON_RA_SKILL_023.webp"
+    },
+    "14380000": {
+      "name": "Supporting Fire",
+      "icon": "/icons/skills/ICON_RA_SKILL_038.webp"
+    },
+    "14700000": {
+      "name": "Assault Smite",
+      "icon": "/icons/skills/ICON_CO_SKILL_003.webp"
+    },
+    "14710000": {
+      "name": "Vigilant Eye",
+      "icon": "/icons/skills/ICON_RA_SKILL_Passive_004.webp"
+    },
+    "14720000": {
+      "name": "Concentrated Fire",
+      "icon": "/icons/skills/ICON_RA_SKILL_Passive_003.webp"
+    },
+    "14730000": {
+      "name": "Wind Vigor",
+      "icon": "/icons/skills/ICON_RA_SKILL_Passive_006.webp"
+    },
+    "14740000": {
+      "name": "Focused Eye",
+      "icon": "/icons/skills/ICON_RA_SKILL_Passive_001.webp"
+    },
+    "14750000": {
+      "name": "Hunter's Resolve",
+      "icon": "/icons/skills/ICON_RA_SKILL_Passive_011.webp"
+    },
+    "14760000": {
+      "name": "Unyielding Resolve",
+      "icon": "/icons/skills/ICON_RA_SKILL_Passive_012.webp"
+    },
+    "14770000": {
+      "name": "Rooting Eye",
+      "icon": "/icons/skills/ICON_RA_SKILL_Passive_008.webp"
+    },
+    "14780000": {
+      "name": "Melee Fire",
+      "icon": "/icons/skills/ICON_RA_SKILL_Passive_013.webp"
+    },
+    "14790000": {
+      "name": "Revitalization Contract",
+      "icon": "/icons/skills/ICON_AS_SKILL_Passive_009.webp"
+    },
+    "14800000": {
+      "name": "Hunter's Soul",
+      "icon": "/icons/skills/ICON_RA_SKILL_Passive_007.webp"
+    },
+    "15010000": {
+      "name": "Flame Scattershot",
+      "icon": "/icons/skills/ICON_SO_SKILL_001.webp"
+    },
+    "15030000": {
+      "name": "Burst",
+      "icon": "/icons/skills/ICON_SO_SKILL_003.webp"
+    },
+    "15040000": {
+      "name": "Firestorm",
+      "icon": "/icons/skills/ICON_SO_SKILL_004.webp"
+    },
+    "15050000": {
+      "name": "Blaze",
+      "icon": "/icons/skills/ICON_SO_SKILL_005.webp"
+    },
+    "15060000": {
+      "name": "Hellfire",
+      "icon": "/icons/skills/ICON_SO_SKILL_006.webp"
+    },
+    "15090000": {
+      "name": "Ice Chain",
+      "icon": "/icons/skills/ICON_SO_SKILL_009.webp"
+    },
+    "15100000": {
+      "name": "Cold Wave",
+      "icon": "/icons/skills/ICON_SO_SKILL_010.webp"
+    },
+    "15110000": {
+      "name": "Winter's Shackles",
+      "icon": "/icons/skills/ICON_SO_SKILL_011.webp"
+    },
+    "15120000": {
+      "name": "Glacial Smite",
+      "icon": "/icons/skills/ICON_SO_SKILL_012.webp"
+    },
+    "15130000": {
+      "name": "Soul Freeze",
+      "icon": "/icons/skills/ICON_SO_SKILL_013.webp"
+    },
+    "15140000": {
+      "name": "Curse: Tree",
+      "icon": "/icons/skills/ICON_SO_SKILL_014.webp"
+    },
+    "15150000": {
+      "name": "Frost",
+      "icon": "/icons/skills/ICON_SO_SKILL_015.webp"
+    },
+    "15160000": {
+      "name": "Steel Barrier",
+      "icon": "/icons/skills/ICON_SO_SKILL_016.webp"
+    },
+    "15200000": {
+      "name": "Cold Storm",
+      "icon": "/icons/skills/ICON_SO_SKILL_019.webp"
+    },
+    "15210000": {
+      "name": "Flame Arrow",
+      "icon": "/icons/skills/ICON_SO_SKILL_020.webp"
+    },
+    "15220000": {
+      "name": "Frost Burst",
+      "icon": "/icons/skills/ICON_SO_SKILL_022.webp"
+    },
+    "15230000": {
+      "name": "Arctic Armor",
+      "icon": "/icons/skills/ICON_SO_SKILL_021.webp"
+    },
+    "15240000": {
+      "name": "Defiance",
+      "icon": "/icons/skills/ICON_CO_SKILL_002.webp"
+    },
+    "15250000": {
+      "name": "Pyroclasm",
+      "icon": "/icons/skills/ICON_SO_SKILL_023.webp"
+    },
+    "15280000": {
+      "name": "Bittercold Wind",
+      "icon": "/icons/skills/ICON_SO_SKILL_025.webp"
+    },
+    "15300000": {
+      "name": "Lumiel's Space",
+      "icon": "/icons/skills/ICON_SO_SKILL_027.webp"
+    },
+    "15310000": {
+      "name": "Wish of Concentration",
+      "icon": "/icons/skills/ICON_SO_SKILL_028.webp"
+    },
+    "15320000": {
+      "name": "Delayed Explosion",
+      "icon": "/icons/skills/ICON_SO_SKILL_032.webp"
+    },
+    "15360000": {
+      "name": "Divine Burst",
+      "icon": "/icons/skills/ICON_SO_SKILL_036.webp"
+    },
+    "15390000": {
+      "name": "Fire Wall",
+      "icon": "/icons/skills/ICON_SO_SKILL_039.webp"
+    },
+    "15400000": {
+      "name": "Element Enhancement",
+      "icon": "/icons/skills/ICON_SO_SKILL_040.webp"
+    },
+    "15410000": {
+      "name": "Hibernation",
+      "icon": "/icons/skills/ICON_SO_SKILL_041.webp"
+    },
+    "15700000": {
+      "name": "Assault Bombardment",
+      "icon": "/icons/skills/ICON_CO_SKILL_003.webp"
+    },
+    "15710000": {
+      "name": "Fire Mark",
+      "icon": "/icons/skills/ICON_SO_SKILL_Passive_002.webp"
+    },
+    "15720000": {
+      "name": "Robe of Earth",
+      "icon": "/icons/skills/ICON_SO_SKILL_Passive_006.webp"
+    },
+    "15730000": {
+      "name": "Cold Snap",
+      "icon": "/icons/skills/ICON_SO_SKILL_Passive_003.webp"
+    },
+    "15740000": {
+      "name": "Robe of Flame",
+      "icon": "/icons/skills/ICON_SO_SKILL_Passive_004.webp"
+    },
+    "15750000": {
+      "name": "Robe of Cold",
+      "icon": "/icons/skills/ICON_SO_SKILL_Passive_005.webp"
+    },
+    "15760000": {
+      "name": "Absorb Essence",
+      "icon": "/icons/skills/ICON_SO_SKILL_Passive_001.webp"
+    },
+    "15770000": {
+      "name": "Grace of Resistance",
+      "icon": "/icons/skills/ICON_SO_SKILL_038.webp"
+    },
+    "15780000": {
+      "name": "Grace of Enhancement",
+      "icon": "/icons/skills/ICON_SO_SKILL_Passive_007.webp"
+    },
+    "15790000": {
+      "name": "Revitalization Contract",
+      "icon": "/icons/skills/ICON_AS_SKILL_Passive_009.webp"
+    },
+    "15800000": {
+      "name": "Vitality Evaporation",
+      "icon": "/icons/skills/ICON_SO_SKILL_Passive_008.webp"
+    },
+    "16010000": {
+      "name": "Cold Shock",
+      "icon": "/icons/skills/ICON_EL_SKILL_001.webp"
+    },
+    "16020000": {
+      "name": "Vacuum Explosion",
+      "icon": "/icons/skills/ICON_EL_SKILL_002.webp"
+    },
+    "16030000": {
+      "name": "Earth Tremor",
+      "icon": "/icons/skills/ICON_EL_SKILL_003.webp"
+    },
+    "16040000": {
+      "name": "Combustion",
+      "icon": "/icons/skills/ICON_EL_SKILL_004.webp"
+    },
+    "16060000": {
+      "name": "Siphon",
+      "icon": "/icons/skills/ICON_EL_SKILL_006.webp"
+    },
+    "16070000": {
+      "name": "Soul's Cry",
+      "icon": "/icons/skills/ICON_EL_SKILL_007.webp"
+    },
+    "16080000": {
+      "name": "Cry of Terror",
+      "icon": "/icons/skills/ICON_EL_SKILL_008.webp"
+    },
+    "16100000": {
+      "name": "Summon: Fire Spirit",
+      "icon": "/icons/skills/ICON_EL_SKILL_010.webp"
+    },
+    "16110000": {
+      "name": "Summon: Water Spirit",
+      "icon": "/icons/skills/ICON_EL_SKILL_011.webp"
+    },
+    "16120000": {
+      "name": "Summon: Wind Spirit",
+      "icon": "/icons/skills/ICON_EL_SKILL_012.webp"
+    },
+    "16130000": {
+      "name": "Summon: Earth Spirit",
+      "icon": "/icons/skills/ICON_EL_SKILL_013.webp"
+    },
+    "16140000": {
+      "name": "Jointstrike: Curse",
+      "icon": "/icons/skills/ICON_EL_SKILL_014.webp"
+    },
+    "16150000": {
+      "name": "Jointstrike: Corrode",
+      "icon": "/icons/skills/ICON_EL_SKILL_015.webp"
+    },
+    "16170000": {
+      "name": "Command: Proxy",
+      "icon": "/icons/skills/ICON_EL_SKILL_017.webp"
+    },
+    "16190000": {
+      "name": "Enhance: Spirit's Benediction",
+      "icon": "/icons/skills/ICON_EL_SKILL_019.webp"
+    },
+    "16200000": {
+      "name": "Defiance",
+      "icon": "/icons/skills/ICON_CO_SKILL_002.webp"
+    },
+    "16220000": {
+      "name": "Cursed Cloud",
+      "icon": "/icons/skills/ICON_EL_SKILL_022.webp"
+    },
+    "16230000": {
+      "name": "Seize Magic",
+      "icon": "/icons/skills/ICON_EL_SKILL_023.webp"
+    },
+    "16240000": {
+      "name": "Jointstrike: Destructive Attack",
+      "icon": "/icons/skills/ICON_EL_SKILL_024.webp"
+    },
+    "16250000": {
+      "name": "Summon: Ancient Spirit",
+      "icon": "/icons/skills/ICON_EL_SKILL_025.webp"
+    },
+    "16260000": {
+      "name": "Magic Block",
+      "icon": "/icons/skills/ICON_EL_SKILL_026.webp"
+    },
+    "16300000": {
+      "name": "Elemental Fusion",
+      "icon": "/icons/skills/ICON_EL_SKILL_030.webp"
+    },
+    "16330000": {
+      "name": "Dimensional Control",
+      "icon": "/icons/skills/ICON_EL_SKILL_033.webp"
+    },
+    "16340000": {
+      "name": "Rapid Scattershot",
+      "icon": "/icons/skills/ICON_EL_SKILL_034.webp"
+    },
+    "16360000": {
+      "name": "Kaisinel's Power",
+      "icon": "/icons/skills/ICON_EL_SKILL_036.webp"
+    },
+    "16370000": {
+      "name": "Flame Blessing",
+      "icon": "/icons/skills/ICON_EL_SKILL_037.webp"
+    },
+    "16700000": {
+      "name": "Assault Terror",
+      "icon": "/icons/skills/ICON_CO_SKILL_003.webp"
+    },
+    "16710000": {
+      "name": "Spirit Strike",
+      "icon": "/icons/skills/ICON_EL_SKILL_Passive_004.webp"
+    },
+    "16720000": {
+      "name": "Spirit Protection",
+      "icon": "/icons/skills/ICON_EL_SKILL_Passive_002.webp"
+    },
+    "16730000": {
+      "name": "Spirit's Descent",
+      "icon": "/icons/skills/ICON_EL_SKILL_Passive_003.webp"
+    },
+    "16740000": {
+      "name": "Corrode",
+      "icon": "/icons/skills/ICON_EL_SKILL_Passive_012.webp"
+    },
+    "16750000": {
+      "name": "Spirit Revitalization",
+      "icon": "/icons/skills/ICON_EL_SKILL_Passive_011.webp"
+    },
+    "16760000": {
+      "name": "Mental Focus",
+      "icon": "/icons/skills/ICON_EL_SKILL_Passive_006.webp"
+    },
+    "16770000": {
+      "name": "Spirit Communion",
+      "icon": "/icons/skills/ICON_EL_SKILL_Passive_007.webp"
+    },
+    "16780000": {
+      "name": "Element Unification",
+      "icon": "/icons/skills/ICON_EL_SKILL_Passive_008.webp"
+    },
+    "16790000": {
+      "name": "Revitalization Contract",
+      "icon": "/icons/skills/ICON_AS_SKILL_Passive_009.webp"
+    },
+    "16800000": {
+      "name": "Consecutive Countercurrent",
+      "icon": "/icons/skills/ICON_EL_SKILL_Passive_013.webp"
+    },
+    "17010000": {
+      "name": "Earth's Retribution",
+      "icon": "/icons/skills/ICON_CL_SKILL_001.webp"
+    },
+    "17020000": {
+      "name": "Thunder and Lightning",
+      "icon": "/icons/skills/ICON_CL_SKILL_002.webp"
+    },
+    "17030000": {
+      "name": "Discharge",
+      "icon": "/icons/skills/ICON_CL_SKILL_003.webp"
+    },
+    "17040000": {
+      "name": "Judgment Thunder",
+      "icon": "/icons/skills/ICON_CL_SKILL_004.webp"
+    },
+    "17050000": {
+      "name": "Divine Punishment",
+      "icon": "/icons/skills/ICON_CL_SKILL_005.webp"
+    },
+    "17060000": {
+      "name": "Bolt",
+      "icon": "/icons/skills/ICON_CL_SKILL_006.webp"
+    },
+    "17070000": {
+      "name": "Chain of Torment",
+      "icon": "/icons/skills/ICON_CL_SKILL_007.webp"
+    },
+    "17080000": {
+      "name": "Debilitating Mark",
+      "icon": "/icons/skills/ICON_CL_SKILL_008.webp"
+    },
+    "17090000": {
+      "name": "Light of Regeneration",
+      "icon": "/icons/skills/ICON_CL_SKILL_009.webp"
+    },
+    "17100000": {
+      "name": "Healing Light",
+      "icon": "/icons/skills/ICON_CL_SKILL_010.webp"
+    },
+    "17120000": {
+      "name": "Radiant Recovery",
+      "icon": "/icons/skills/ICON_CL_SKILL_012.webp"
+    },
+    "17150000": {
+      "name": "Divine Aura",
+      "icon": "/icons/skills/ICON_CL_SKILL_015.webp"
+    },
+    "17160000": {
+      "name": "Benevolence",
+      "icon": "/icons/skills/ICON_CL_SKILL_047.webp"
+    },
+    "17190000": {
+      "name": "Root",
+      "icon": "/icons/skills/ICON_CL_SKILL_019.webp"
+    },
+    "17240000": {
+      "name": "Defiance",
+      "icon": "/icons/skills/ICON_CO_SKILL_002.webp"
+    },
+    "17270000": {
+      "name": "Salvation",
+      "icon": "/icons/skills/ICON_CL_SKILL_026.webp"
+    },
+    "17280000": {
+      "name": "Power Burst",
+      "icon": "/icons/skills/ICON_CL_SKILL_027.webp"
+    },
+    "17290000": {
+      "name": "Absolution",
+      "icon": "/icons/skills/ICON_CL_SKILL_028.webp"
+    },
+    "17300000": {
+      "name": "Voice of Doom",
+      "icon": "/icons/skills/ICON_CL_SKILL_029.webp"
+    },
+    "17350000": {
+      "name": "Condemnation",
+      "icon": "/icons/skills/ICON_CL_SKILL_035.webp"
+    },
+    "17370000": {
+      "name": "Lightning Strike Scattershot",
+      "icon": "/icons/skills/ICON_CL_SKILL_037.webp"
+    },
+    "17390000": {
+      "name": "Summon Resurrection",
+      "icon": "/icons/skills/ICON_CL_SKILL_039.webp"
+    },
+    "17400000": {
+      "name": "Earth Punishment",
+      "icon": "/icons/skills/ICON_CL_SKILL_040.webp"
+    },
+    "17410000": {
+      "name": "Light of Protection",
+      "icon": "/icons/skills/ICON_CL_SKILL_041.webp"
+    },
+    "17420000": {
+      "name": "Yustiel's Power",
+      "icon": "/icons/skills/ICON_CL_SKILL_042.webp"
+    },
+    "17430000": {
+      "name": "Prayer of Amplification",
+      "icon": "/icons/skills/ICON_CL_SKILL_044.webp"
+    },
+    "17440000": {
+      "name": "Noble Aura",
+      "icon": "/icons/skills/ICON_CL_SKILL_046.webp"
+    },
+    "17700000": {
+      "name": "Assault Mark",
+      "icon": "/icons/skills/ICON_CO_SKILL_003.webp"
+    },
+    "17710000": {
+      "name": "Warm Benediction",
+      "icon": "/icons/skills/ICON_CL_SKILL_Passive_001.webp"
+    },
+    "17720000": {
+      "name": "Empyrean Lords' Benediction",
+      "icon": "/icons/skills/ICON_CL_SKILL_Passive_002.webp"
+    },
+    "17730000": {
+      "name": "Empyrean Lord's Grace",
+      "icon": "/icons/skills/ICON_CL_SKILL_Passive_012.webp"
+    },
+    "17740000": {
+      "name": "Healing Enhancement",
+      "icon": "/icons/skills/ICON_CL_SKILL_Passive_003.webp"
+    },
+    "17750000": {
+      "name": "Immortal Veil",
+      "icon": "/icons/skills/ICON_CL_SKILL_Passive_011.webp"
+    },
+    "17760000": {
+      "name": "Heal Block",
+      "icon": "/icons/skills/ICON_CL_SKILL_Passive_005.webp"
+    },
+    "17770000": {
+      "name": "Prayer of Concentration",
+      "icon": "/icons/skills/ICON_CL_SKILL_Passive_006.webp"
+    },
+    "17780000": {
+      "name": "Earth's Grace",
+      "icon": "/icons/skills/ICON_CL_SKILL_Passive_008.webp"
+    },
+    "17790000": {
+      "name": "Survival Willpower",
+      "icon": "/icons/skills/ICON_GL_SKILL_Passive_009.webp"
+    },
+    "17800000": {
+      "name": "Radiant Benediction",
+      "icon": "/icons/skills/ICON_CL_SKILL_Passive_007.webp"
+    },
+    "18010000": {
+      "name": "Onslaught",
+      "icon": "/icons/skills/ICON_CH_SKILL_001.webp"
+    },
+    "18020000": {
+      "name": "Resonance Crush",
+      "icon": "/icons/skills/ICON_CH_SKILL_002.webp"
+    },
+    "18030000": {
+      "name": "Bolt Crush",
+      "icon": "/icons/skills/ICON_CH_SKILL_003.webp"
+    },
+    "18040000": {
+      "name": "Incandescent Blow",
+      "icon": "/icons/skills/ICON_CH_SKILL_004.webp"
+    },
+    "18050000": {
+      "name": "Bursting Blow",
+      "icon": "/icons/skills/ICON_CH_SKILL_005.webp"
+    },
+    "18060000": {
+      "name": "Impactful Crush",
+      "icon": "/icons/skills/ICON_CH_SKILL_006.webp"
+    },
+    "18080000": {
+      "name": "Wave Blow",
+      "icon": "/icons/skills/ICON_CH_SKILL_008.webp"
+    },
+    "18090000": {
+      "name": "Rushing Smash",
+      "icon": "/icons/skills/ICON_CH_SKILL_009.webp"
+    },
+    "18100000": {
+      "name": "Dark Crush",
+      "icon": "/icons/skills/ICON_CH_SKILL_010.webp"
+    },
+    "18120000": {
+      "name": "Recuperation",
+      "icon": "/icons/skills/ICON_CH_SKILL_013.webp"
+    },
+    "18130000": {
+      "name": "Fracturing Blow",
+      "icon": "/icons/skills/ICON_CH_SKILL_043.webp"
+    },
+    "18140000": {
+      "name": "Focused Defense",
+      "icon": "/icons/skills/ICON_CH_SKILL_014.webp"
+    },
+    "18150000": {
+      "name": "Heat Wave Blow",
+      "icon": "/icons/skills/ICON_CH_SKILL_015.webp"
+    },
+    "18160000": {
+      "name": "Sprint Mantra",
+      "icon": "/icons/skills/ICON_CH_SKILL_016.webp"
+    },
+    "18170000": {
+      "name": "Healing Touch",
+      "icon": "/icons/skills/ICON_CH_SKILL_017.webp"
+    },
+    "18190000": {
+      "name": "Undefeated Mantra",
+      "icon": "/icons/skills/ICON_CH_SKILL_019.webp"
+    },
+    "18200000": {
+      "name": "Defiance",
+      "icon": "/icons/skills/ICON_CO_SKILL_002.webp"
+    },
+    "18210000": {
+      "name": "Tremor Crush",
+      "icon": "/icons/skills/ICON_CH_SKILL_021.webp"
+    },
+    "18220000": {
+      "name": "Obliterate",
+      "icon": "/icons/skills/ICON_CH_SKILL_022.webp"
+    },
+    "18230000": {
+      "name": "Ensnaring Mark",
+      "icon": "/icons/skills/ICON_CH_SKILL_023.webp"
+    },
+    "18240000": {
+      "name": "Impeding Authority",
+      "icon": "/icons/skills/ICON_CH_SKILL_024.webp"
+    },
+    "18250000": {
+      "name": "Power of the Storm",
+      "icon": "/icons/skills/ICON_CH_SKILL_025.webp"
+    },
+    "18290000": {
+      "name": "Spinning Strike",
+      "icon": "/icons/skills/ICON_CH_SKILL_029.webp"
+    },
+    "18300000": {
+      "name": "Gust Rampage",
+      "icon": "/icons/skills/ICON_CH_SKILL_030.webp"
+    },
+    "18330000": {
+      "name": "Marchutan's Wrath",
+      "icon": "/icons/skills/ICON_CH_SKILL_033.webp"
+    },
+    "18420000": {
+      "name": "Guardian Blessing",
+      "icon": "/icons/skills/ICON_CH_SKILL_042.webp"
+    },
+    "18440000": {
+      "name": "Barrier Spell",
+      "icon": "/icons/skills/ICON_CH_SKILL_044.webp"
+    },
+    "18700000": {
+      "name": "Assault Shock",
+      "icon": "/icons/skills/ICON_CO_SKILL_003.webp"
+    },
+    "18710000": {
+      "name": "Blessing of Life",
+      "icon": "/icons/skills/ICON_CH_SKILL_Passive_012.webp"
+    },
+    "18720000": {
+      "name": "Crossguard",
+      "icon": "/icons/skills/ICON_CH_SKILL_Passive_002.webp"
+    },
+    "18730000": {
+      "name": "Protection Circle",
+      "icon": "/icons/skills/ICON_CH_SKILL_Passive_001.webp"
+    },
+    "18740000": {
+      "name": "Inspiring Spell",
+      "icon": "/icons/skills/ICON_CH_SKILL_Passive_011.webp"
+    },
+    "18750000": {
+      "name": "Attack Preparation",
+      "icon": "/icons/skills/ICON_GL_SKILL_Passive_005.webp"
+    },
+    "18760000": {
+      "name": "Impact Hit",
+      "icon": "/icons/skills/ICON_GL_SKILL_Passive_006.webp"
+    },
+    "18770000": {
+      "name": "Raging Spell",
+      "icon": "/icons/skills/ICON_CH_SKILL_Passive_007.webp"
+    },
+    "18780000": {
+      "name": "Earth's Promise",
+      "icon": "/icons/skills/ICON_CH_SKILL_Passive_010.webp"
+    },
+    "18790000": {
+      "name": "Survival Willpower",
+      "icon": "/icons/skills/ICON_GL_SKILL_Passive_009.webp"
+    },
+    "18800000": {
+      "name": "Wind's Promise",
+      "icon": "/icons/skills/ICON_CH_SKILL_Passive_008.webp"
+    },
+    "19010000": {
+      "name": "Flurry",
+      "icon": "/icons/skills/ICON_GT_SKILL_001.webp"
+    },
+    "19020000": {
+      "name": "Torrent",
+      "icon": "/icons/skills/ICON_GT_SKILL_002.webp"
+    },
+    "19030000": {
+      "name": "Beatdown",
+      "icon": "/icons/skills/ICON_GT_SKILL_003.webp"
+    },
+    "19040000": {
+      "name": "Roundhouse",
+      "icon": "/icons/skills/ICON_GT_SKILL_004.webp"
+    },
+    "19050000": {
+      "name": "Cross Hook",
+      "icon": "/icons/skills/ICON_GT_SKILL_005.webp"
+    },
+    "19060000": {
+      "name": "Haymaker",
+      "icon": "/icons/skills/ICON_GT_SKILL_006.webp"
+    },
+    "19070000": {
+      "name": "Whirlwind",
+      "icon": "/icons/skills/ICON_GT_SKILL_007.webp"
+    },
+    "19090000": {
+      "name": "Ground Smash",
+      "icon": "/icons/skills/ICON_GT_SKILL_009.webp"
+    },
+    "19130000": {
+      "name": "Rampage",
+      "icon": "/icons/skills/ICON_GT_SKILL_013.webp"
+    },
+    "19160000": {
+      "name": "Ascending Blow",
+      "icon": "/icons/skills/ICON_GT_SKILL_016.webp"
+    },
+    "19170000": {
+      "name": "Sweeping Kick",
+      "icon": "/icons/skills/ICON_GT_SKILL_017.webp"
+    },
+    "19200000": {
+      "name": "Exploding Fist",
+      "icon": "/icons/skills/ICON_GT_SKILL_020.webp"
+    },
+    "19230000": {
+      "name": "Shoulder Tackle",
+      "icon": "/icons/skills/ICON_GT_SKILL_023.webp"
+    },
+    "19250000": {
+      "name": "Typhoon Flurry",
+      "icon": "/icons/skills/ICON_GT_SKILL_025.webp"
+    },
+    "19270000": {
+      "name": "Hurricane Kick",
+      "icon": "/icons/skills/ICON_GT_SKILL_027.webp"
+    },
+    "19280000": {
+      "name": "Ferocity",
+      "icon": "/icons/skills/ICON_GT_SKILL_028.webp"
+    },
+    "19290000": {
+      "name": "Surging Cleave",
+      "icon": "/icons/skills/ICON_GT_SKILL_029.webp"
+    },
+    "19300000": {
+      "name": "Quake",
+      "icon": "/icons/skills/ICON_GT_SKILL_030.webp"
+    },
+    "19310000": {
+      "name": "Pulverize",
+      "icon": "/icons/skills/ICON_GT_SKILL_031.webp"
+    },
+    "19320000": {
+      "name": "Sever Bloodstream",
+      "icon": "/icons/skills/ICON_GT_SKILL_032.webp"
+    },
+    "19330000": {
+      "name": "Phantom",
+      "icon": "/icons/skills/ICON_GT_SKILL_033.webp"
+    },
+    "19350000": {
+      "name": "Focused Block",
+      "icon": "/icons/skills/ICON_GT_SKILL_035.webp"
+    },
+    "19360000": {
+      "name": "Unstoppable",
+      "icon": "/icons/skills/ICON_GT_SKILL_036.webp"
+    },
+    "19370000": {
+      "name": "Full Force",
+      "icon": "/icons/skills/ICON_GT_SKILL_037.webp"
+    },
+    "19380000": {
+      "name": "Assault Blow",
+      "icon": "/icons/skills/ICON_CO_SKILL_003.webp"
+    },
+    "19390000": {
+      "name": "Discharge Energy",
+      "icon": "/icons/skills/ICON_GT_SKILL_039.webp"
+    },
+    "19400000": {
+      "name": "Time Bomb",
+      "icon": "/icons/skills/ICON_GT_SKILL_040.webp"
+    },
+    "19410000": {
+      "name": "Rewind",
+      "icon": "/icons/skills/ICON_GT_SKILL_041.webp"
+    },
+    "19420000": {
+      "name": "Chain Fist",
+      "icon": "/icons/skills/ICON_GT_SKILL_042.webp"
+    },
+    "19450000": {
+      "name": "Defiance",
+      "icon": "/icons/skills/ICON_CO_SKILL_002.webp"
+    },
+    "19460000": {
+      "name": "Flash Step",
+      "icon": "/icons/skills/ICON_GT_SKILL_046.webp"
+    },
+    "19710000": {
+      "name": "Hold the Line",
+      "icon": "/icons/skills/ICON_GT_SKILL_Passive_001.webp"
+    },
+    "19720000": {
+      "name": "Shatter Frontline",
+      "icon": "/icons/skills/ICON_GT_SKILL_Passive_002.webp"
+    },
+    "19730000": {
+      "name": "Mental Conversion",
+      "icon": "/icons/skills/ICON_GT_SKILL_Passive_003.webp"
+    },
+    "19740000": {
+      "name": "Dominance",
+      "icon": "/icons/skills/ICON_GT_SKILL_Passive_004.webp"
+    },
+    "19750000": {
+      "name": "Rampage Boost",
+      "icon": "/icons/skills/ICON_GT_SKILL_Passive_005.webp"
+    },
+    "19760000": {
+      "name": "Impact Hit",
+      "icon": "/icons/skills/ICON_GT_SKILL_Passive_006.webp"
+    },
+    "19770000": {
+      "name": "Massive Rage",
+      "icon": "/icons/skills/ICON_GT_SKILL_Passive_007.webp"
+    },
+    "19780000": {
+      "name": "Impact Blow",
+      "icon": "/icons/skills/ICON_GT_SKILL_Passive_008.webp"
+    },
+    "19790000": {
+      "name": "Revitalization Contract",
+      "icon": "/icons/skills/ICON_GT_SKILL_Passive_009.webp"
+    },
+    "19800000": {
+      "name": "Lightweight",
+      "icon": "/icons/skills/ICON_GT_SKILL_Passive_010.webp"
+    }
+  }
+}

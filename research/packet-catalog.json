@@ -1,0 +1,430 @@
+{
+  "sourceVersion": "0.1.24",
+  "packets": [
+    {
+      "name": "MapFrame_NT",
+      "opcode": 13824,
+      "hex": "0x3600"
+    },
+    {
+      "name": "Ping_RS",
+      "opcode": 13827,
+      "hex": "0x3603"
+    },
+    {
+      "name": "Login_RS",
+      "opcode": 13845,
+      "hex": "0x3615"
+    },
+    {
+      "name": "PrepareEnterMap_NT",
+      "opcode": 13857,
+      "hex": "0x3621"
+    },
+    {
+      "name": "MyCharAppear_NT",
+      "opcode": 13875,
+      "hex": "0x3633"
+    },
+    {
+      "name": "NpcAppear_NT",
+      "opcode": 13889,
+      "hex": "0x3641"
+    },
+    {
+      "name": "NpcDisappear_NT",
+      "opcode": 13890,
+      "hex": "0x3642"
+    },
+    {
+      "name": "CharAppear_NT",
+      "opcode": 13893,
+      "hex": "0x3645"
+    },
+    {
+      "name": "CharBarrierInfo_NT",
+      "opcode": 13894,
+      "hex": "0x3646"
+    },
+    {
+      "name": "CharDisappear_NT",
+      "opcode": 13895,
+      "hex": "0x3647"
+    },
+    {
+      "name": "CharAllStats_RS",
+      "opcode": 13897,
+      "hex": "0x3649"
+    },
+    {
+      "name": "CharStatsUpdate_NT",
+      "opcode": 13898,
+      "hex": "0x364a"
+    },
+    {
+      "name": "CharCombatPowerUpdate_NT",
+      "opcode": 13910,
+      "hex": "0x3656"
+    },
+    {
+      "name": "SkillStart_NT",
+      "opcode": 14338,
+      "hex": "0x3802"
+    },
+    {
+      "name": "SkillEffect_NT",
+      "opcode": 14340,
+      "hex": "0x3804"
+    },
+    {
+      "name": "SkillEffectByAbnormal_NT",
+      "opcode": 14341,
+      "hex": "0x3805"
+    },
+    {
+      "name": "SkillEnd_NT",
+      "opcode": 14342,
+      "hex": "0x3806"
+    },
+    {
+      "name": "SkillCastingStart_NT",
+      "opcode": 14345,
+      "hex": "0x3809"
+    },
+    {
+      "name": "SkillCastingStop_NT",
+      "opcode": 14348,
+      "hex": "0x380c"
+    },
+    {
+      "name": "Abnormal_Move_Start_NT",
+      "opcode": 14356,
+      "hex": "0x3814"
+    },
+    {
+      "name": "Abnormal_Move_Instant_NT",
+      "opcode": 14358,
+      "hex": "0x3816"
+    },
+    {
+      "name": "SkillChargingStart_NT",
+      "opcode": 14364,
+      "hex": "0x381c"
+    },
+    {
+      "name": "SkillChargingStop_NT",
+      "opcode": 14369,
+      "hex": "0x3821"
+    },
+    {
+      "name": "ImmuneAbnormal_NT",
+      "opcode": 14381,
+      "hex": "0x382d"
+    },
+    {
+      "name": "SkillRangeNoticeFilterLocation_NT",
+      "opcode": 14408,
+      "hex": "0x3848"
+    },
+    {
+      "name": "SkillCooltimeUpdate_NT",
+      "opcode": 14407,
+      "hex": "0x3847"
+    },
+    {
+      "name": "SkillAdd_NT",
+      "opcode": 14351,
+      "hex": "0x380f"
+    },
+    {
+      "name": "SkillLevelUpdate_NT",
+      "opcode": 14355,
+      "hex": "0x3813"
+    },
+    {
+      "name": "ChainSkillActiveList_NT",
+      "opcode": 14360,
+      "hex": "0x3818"
+    },
+    {
+      "name": "AbnormalAdd_NT",
+      "opcode": 14378,
+      "hex": "0x382a"
+    },
+    {
+      "name": "AbnormalChange_NT",
+      "opcode": 14379,
+      "hex": "0x382b"
+    },
+    {
+      "name": "AbnormalRemoveList_NT",
+      "opcode": 14380,
+      "hex": "0x382c"
+    },
+    {
+      "name": "SetMainTarget_RS",
+      "opcode": 14388,
+      "hex": "0x3834"
+    },
+    {
+      "name": "TargetUpdate_NT",
+      "opcode": 14389,
+      "hex": "0x3835"
+    },
+    {
+      "name": "SpecializedSkillLoad_NT",
+      "opcode": 14592,
+      "hex": "0x3900"
+    },
+    {
+      "name": "CharPhaseUpdate_NT",
+      "opcode": 16384,
+      "hex": "0x4000"
+    },
+    {
+      "name": "MySkillList_NT",
+      "opcode": 20736,
+      "hex": "0x5100"
+    },
+    {
+      "name": "ItemDepotList_RS",
+      "opcode": 22033,
+      "hex": "0x5611"
+    },
+    {
+      "name": "ItemModificationList_NT",
+      "opcode": 22043,
+      "hex": "0x561b"
+    },
+    {
+      "name": "ItemEquipChange_NT",
+      "opcode": 22044,
+      "hex": "0x561c"
+    },
+    {
+      "name": "WingList_NT",
+      "opcode": 22130,
+      "hex": "0x5672"
+    },
+    {
+      "name": "WingChange_NT",
+      "opcode": 22134,
+      "hex": "0x5676"
+    },
+    {
+      "name": "TitleList_NT",
+      "opcode": 22137,
+      "hex": "0x5679"
+    },
+    {
+      "name": "CustomizingPresetList_RS",
+      "opcode": 22174,
+      "hex": "0x569e"
+    },
+    {
+      "name": "PartyDungeonRewardMiddleBossKill_NT",
+      "opcode": 22318,
+      "hex": "0x572e"
+    },
+    {
+      "name": "DungeonState_NT",
+      "opcode": 24832,
+      "hex": "0x6100"
+    },
+    {
+      "name": "DungeonCompleteResult_NT",
+      "opcode": 24833,
+      "hex": "0x6101"
+    },
+    {
+      "name": "DungeonDeathLimit_NT",
+      "opcode": 24841,
+      "hex": "0x6109"
+    },
+    {
+      "name": "GuildDescUpdate_NT",
+      "opcode": 35379,
+      "hex": "0x8a33"
+    },
+    {
+      "name": "CharPointUpdate_NT",
+      "opcode": 36096,
+      "hex": "0x8d00"
+    },
+    {
+      "name": "CharDie_NT",
+      "opcode": 36100,
+      "hex": "0x8d04"
+    },
+    {
+      "name": "EventFuncAction_NT",
+      "opcode": 36117,
+      "hex": "0x8d15"
+    },
+    {
+      "name": "CombatStateUpdate_NT",
+      "opcode": 36129,
+      "hex": "0x8d21"
+    },
+    {
+      "name": "UseRebirth_NT",
+      "opcode": 36134,
+      "hex": "0x8d26"
+    },
+    {
+      "name": "NpcFirstAggro_NT",
+      "opcode": 36178,
+      "hex": "0x8d52"
+    },
+    {
+      "name": "RetrieveMyLatestSeasonRanking_RS",
+      "opcode": 36183,
+      "hex": "0x8d57"
+    },
+    {
+      "name": "BroadcastLevelUpdate_NT",
+      "opcode": 36241,
+      "hex": "0x8d91"
+    },
+    {
+      "name": "RideInitData_NT",
+      "opcode": 36864,
+      "hex": "0x9000"
+    },
+    {
+      "name": "WorldMapContentsInfo_RS",
+      "opcode": 37121,
+      "hex": "0x9101"
+    },
+    {
+      "name": "PartyInfo_NT",
+      "opcode": 37376,
+      "hex": "0x9200"
+    },
+    {
+      "name": "PartyAddMember_NT",
+      "opcode": 37389,
+      "hex": "0x920d"
+    },
+    {
+      "name": "PartyKickout_NT",
+      "opcode": 37401,
+      "hex": "0x9219"
+    },
+    {
+      "name": "PartyUpdateMemberHPMP_NT",
+      "opcode": 37403,
+      "hex": "0x921b"
+    },
+    {
+      "name": "PartyUpdateMemberStatus_NT",
+      "opcode": 37404,
+      "hex": "0x921c"
+    },
+    {
+      "name": "PartyDisband_NT",
+      "opcode": 37407,
+      "hex": "0x921f"
+    },
+    {
+      "name": "PartySetTargetByBoss_NT",
+      "opcode": 37408,
+      "hex": "0x9220"
+    },
+    {
+      "name": "PartyReconnectMember_NT",
+      "opcode": 37410,
+      "hex": "0x9222"
+    },
+    {
+      "name": "MapEventUpdateProgress_NT",
+      "opcode": 37421,
+      "hex": "0x922d"
+    },
+    {
+      "name": "MapEventJoin_NT",
+      "opcode": 37422,
+      "hex": "0x922e"
+    },
+    {
+      "name": "MapEventLeave_NT",
+      "opcode": 37423,
+      "hex": "0x922f"
+    },
+    {
+      "name": "PartyLeave_NT",
+      "opcode": 37663,
+      "hex": "0x931f"
+    },
+    {
+      "name": "ForceInfo_NT",
+      "opcode": 38402,
+      "hex": "0x9602"
+    },
+    {
+      "name": "ForceAddMember_NT",
+      "opcode": 38410,
+      "hex": "0x960a"
+    },
+    {
+      "name": "ForceDisband_NT",
+      "opcode": 38426,
+      "hex": "0x961a"
+    },
+    {
+      "name": "ForceReconnectMember_NT",
+      "opcode": 38427,
+      "hex": "0x961b"
+    },
+    {
+      "name": "ForceRemoveMember_NT",
+      "opcode": 38434,
+      "hex": "0x9622"
+    },
+    {
+      "name": "ForceUpdateMemberHPMP_NT",
+      "opcode": 38443,
+      "hex": "0x962b"
+    },
+    {
+      "name": "ForceUpdateMemberStatus_NT",
+      "opcode": 38444,
+      "hex": "0x962c"
+    },
+    {
+      "name": "ForceLeave_NT",
+      "opcode": 38446,
+      "hex": "0x962e"
+    },
+    {
+      "name": "UpdateGroggyInfo_NT",
+      "opcode": 57349,
+      "hex": "0xe005"
+    },
+    {
+      "name": "DaevanionBoardInfo_NT",
+      "opcode": 57894,
+      "hex": "0xe226"
+    },
+    {
+      "name": "StartNpcInteraction_RS",
+      "opcode": 57921,
+      "hex": "0xe241"
+    },
+    {
+      "name": "FinishNpcInteraction_RS",
+      "opcode": 57923,
+      "hex": "0xe243"
+    },
+    {
+      "name": "BattleScoreUpdate_NT",
+      "opcode": 58150,
+      "hex": "0xe326"
+    },
+    {
+      "name": "CutsceneComplete_RS",
+      "opcode": 58165,
+      "hex": "0xe335"
+    }
+  ]
+}
