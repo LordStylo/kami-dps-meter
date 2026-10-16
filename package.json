@@ -6,8 +6,10 @@
   "description": "Local Aion 2 combat protocol research and DPS meter prototype",
   "scripts": {
     "start": "node src/server.mjs",
+    "overlay:install": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/install-overlay.ps1",
     "test": "node --test test/*.test.mjs",
     "analyze": "node scripts/inspect-install.mjs",
+    "analyze:cube": "node scripts/analyze-cube.mjs",
     "update:skills": "node scripts/update-skill-catalog.mjs",
     "validate:recordings": "node scripts/validate-recordings.mjs",
     "validate:npcap": "node scripts/validate-npcap-loopback.mjs",

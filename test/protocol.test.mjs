@@ -77,6 +77,28 @@ test('random leading bytes do not manufacture hits', () => {
   stream.push(f.cat(Buffer.from([255,255,255,255,255]),f.heartbeat(),f.heartbeat(),f.direct()),1000);
   assert.equal(packets.flatMap(p=>p.events).length,1);
 });
+test('unsynchronized traffic scans each rejected offset once without starving game frames',()=>{
+  const packets=[],stream=new FrameStream(p=>packets.push(p));
+  let attempts=0;const probe=stream.probe.bind(stream);
+  stream.probe=(...args)=>{attempts++;return probe(...args);};
+  const noise=Buffer.alloc(280000,0x80);
+  for(let i=0;i<noise.length;i+=1000)stream.push(noise.subarray(i,i+1000),1000);
+  assert.ok(attempts<noise.length*1.02,`Repeated scanning: ${attempts}`);
+  assert.equal(packets.length,0);assert.ok(stream.buffer.length<=131072);
+  stream.push(f.cat(f.heartbeat(),f.heartbeat(),f.direct()),2000);
+  assert.equal(packets.flatMap(p=>p.events).filter(e=>e.type==='damage').length,1);
+});
+test('incremental synchronization retains split headers and split second anchors',()=>{
+  const raw=f.cat(Buffer.from([255,255,255,255,255]),f.heartbeat(),f.heartbeat(),f.direct());
+  for(let split=1;split<raw.length;split++){
+    const packets=[],stream=new FrameStream(p=>packets.push(p));
+    stream.push(raw.subarray(0,split),1000);stream.push(raw.subarray(split),1001);
+    assert.equal(packets.flatMap(p=>p.events).filter(e=>e.type==='damage').length,1,`split ${split}`);
+  }
+  const tiny=f.frame(0x961a,Buffer.alloc(0)),packets=[],stream=new FrameStream(p=>packets.push(p));
+  for(const byte of f.cat(tiny,tiny))stream.push(Buffer.from([byte]),2000);
+  assert.equal(packets.length,2,'A three-byte second anchor must not need a third frame');
+});
 test('an inexact message inside a valid bundle does not discard neighboring damage',()=>{
   const packets=[],issues=[],stream=new FrameStream(p=>packets.push(p),s=>issues.push(s));
   stream.push(f.cat(f.heartbeat(),f.heartbeat(),f.bundle(f.frame(0x3804,Buffer.from([1])),f.direct())),1000);

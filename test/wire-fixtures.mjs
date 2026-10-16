@@ -20,7 +20,10 @@ export function bundle(...frames) {
   if (remaining >= 0) { while (remaining >= 255) { sizes.push(255); remaining -= 255; } sizes.push(remaining); }
   return frame(0xffff, cat(i32(raw.length), u8(Math.min(15, raw.length) << 4), Buffer.from(sizes), raw));
 }
-export function state() { return cat(u16(0), Buffer.alloc(18), u8(1), vu(100000), vu(100000), Buffer.alloc(52)); }
+export function state(position = {x:0,y:0,z:0}) {
+  const spatial=Buffer.alloc(18);['x','y','z'].forEach((key,i)=>spatial.writeFloatLE(position[key],i*4));
+  return cat(u16(0), spatial, u8(1), vu(100000), vu(100000), Buffer.alloc(52));
+}
 export function player(entity = 7, name = 'Test') {
   return frame(0x3645, cat(vu(entity), i32(0), u8(1), str(name), i32(5), state(), Buffer.from([0,0,0])));
 }
@@ -34,9 +37,9 @@ function fMember() {
   return cat(u8(0),u8(1),i32(7),u16(1),u16(1),str('discard-me'),i64(123),str('Test'),i32(5),vu(10000),vu(20000),Buffer.alloc(24),i64(1),i32(1),Buffer.alloc(12),u8(7),i32(45),i32(0),i32(100),i64(1000),u8(0));
 }
 export function party() { return frame(0x9200,cat(u8(0),i64(1),i64(123),i32(5),Buffer.alloc(4),vu(1),partyMember(),u8(0))); }
-export function self() {
+export function self(position) {
   const detail=cat(u8(1),str('Ben'),u16(1),i32(5),Buffer.alloc(16),i64(0),i32(0),i64(0),vu(0),vu(0),Buffer.alloc(8),i64(0),u8(0));
-  return frame(0x3633,cat(vu(7),i32(0),detail,state(),Buffer.from([0,0,0])));
+  return frame(0x3633,cat(vu(7),i32(0),detail,state(position),Buffer.from([0,0,0])));
 }
 export function tcpPacket(payload, sequence = 100) {
   const packet = Buffer.alloc(14 + 20 + 20 + payload.length);

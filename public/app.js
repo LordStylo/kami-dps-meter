@@ -1,3 +1,5 @@
+import {createCubeAlerts} from './cube-alerts.js';
+const cubeAlerts=createCubeAlerts();
 const $=id=>document.getElementById(id);
 const fmt=n=>Number(n||0).toLocaleString('tr-TR',{maximumFractionDigits:0});
 const compact=n=>Number(n||0)>=1e6?(n/1e6).toLocaleString('tr-TR',{maximumFractionDigits:2})+' M':Number(n||0)>=1000?(n/1000).toLocaleString('tr-TR',{maximumFractionDigits:1})+' K':fmt(n);
@@ -10,12 +12,35 @@ $('skills').addEventListener('error',event=>{if(event.target.tagName==='IMG'){fa
 const colors=['#a9eccb','#9dbfee','#d9ac81','#c5a5e4','#e6aeae','#99d4d6'];
 async function action(data){try{const r=await fetch('/api/control',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});const result=await r.json();if(!r.ok)throw Error(result.error);render(result);}catch(e){$('toast').textContent=e.message;$('toast').hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').hidden=true,6000);}}
 $('start').onclick=()=>action({action:'live'});$('stop').onclick=()=>action({action:'stop'});$('demo').onclick=()=>action({action:'demo'});$('reset').onclick=()=>action({action:'reset'});
+for(const name of ['arm','found','opened','stop'])$('cube-'+name).onclick=()=>action({action:'cube-'+name});
+document.querySelectorAll('[data-cube-phase]').forEach(b=>b.onclick=()=>action({action:'cube-mark',phase:b.dataset.cubePhase}));
+function renderCube(s){
+  const r=s.research||{},running=r.armed||r.active;
+  $('cube-badge').textContent=r.active?'KAYDEDİLİYOR':r.armed?'ARAMA AÇIK':r.id?'KAYIT BİTTİ':'HAZIRLIK';
+  $('cube-arm').disabled=!!running;
+  $('cube-found').disabled=!running;$('cube-opened').disabled=!running;$('cube-stop').disabled=!running;
+  for(const id of ['demo','reset','replay'])$(id).disabled=!!running||(id==='replay'&&!$('recordings').value);
+  document.querySelectorAll('[data-cube-phase]').forEach(b=>b.disabled=!r.active);
+  const remaining=r.autoStopAt?Math.max(0,Math.ceil((r.autoStopAt-Date.now())/1000)):null;
+  $('cube-status').textContent=r.active?`${fmt(r.messages)} mesaj kaydedildi · ${remaining!==null?remaining+' sn sonra otomatik tamamlanacak':'Cube’u aldığında Açtım işaretini kullan.'}`:
+    r.armed?`Bellekte ${Math.floor((r.bufferMs||0)/1000)} sn · ${fmt(r.bufferMessages)} mesaj · ${r.hotkeys?.found&&r.hotkeys?.opened?'Oyun içi kısayollar hazır.':'Kısayol durumu kontrol ediliyor.'}`:
+    r.id?`Kayıt bitti · ${fmt(r.messages)} mesaj · captures/cube-research/${r.id}.ndjson`:'Arama kapalı.';
+  const warnings=[r.error,r.commandError,r.hotkeys?.error,r.bufferClipped?'Yoğun trafik nedeniyle önceki 60 saniyenin tamamı bellekte tutulamadı.':null,
+    r.armed&&s.capture.state!=='capturing'?'Oyun bağlantısı bekleniyor; henüz test verisi gelmeyebilir.':null,
+    r.armed&&!r.bufferMessages?'Bellekte henüz çözümlenmiş oyun mesajı yok; hareket ederek veri sayacını kontrol et.':null,
+    r.id&&!running&&!r.messages?'Bu kayıtta oyun mesajı yok.':null,
+    ['size-limit','time-limit'].includes(r.reason)?'Kayıt boyut veya süre sınırında durdu.':null].filter(Boolean);
+  $('cube-warning').hidden=!warnings.length;$('cube-warning').textContent=warnings.join(' ');
+  $('cube-markers').textContent=(r.markers||[]).map(m=>new Date(m.at).toLocaleTimeString('tr-TR')+' '+m.label).join(' · ');
+}
 document.querySelectorAll('[data-scope]').forEach(b=>b.onclick=()=>action({action:'filter',scope:b.dataset.scope,target:state?.target??null}));
 $('target').onchange=()=>action({action:'filter',scope:state.scope,target:$('target').value===''?null:Number($('target').value)});
 $('replay').onclick=async()=>{const id=$('recordings').value;if(!id)return;$('replay').disabled=true;try{await action({action:'replay',id});}finally{$('replay').disabled=false;}};
-const statusLabels={'starting':'Yakalama hazırlanıyor','waiting-for-game':'Oyun bekleniyor','waiting-for-connection':'Bağlantı bekleniyor','capturing':'Canlı yakalama açık','stopped':'Yakalama durdu','demo':'Örnek veri','replay':'Yerel savaş kaydı','error':'Yakalama sorunu'};
+const statusLabels={'starting':'Yakalama hazırlanıyor','waiting-for-game':'Oyun bekleniyor','waiting-for-connection':'Bağlantı bekleniyor','capturing':'Canlı yakalama açık','stalled':'Paket okuma yanıt vermiyor','delayed':'Paket okuma gecikiyor','stopped':'Yakalama durdu','demo':'Örnek veri','replay':'Yerel savaş kaydı','error':'Yakalama sorunu'};
 function render(s){
   state=s;const c=s.current.damage?s.current:s.last||s.current;
+  renderCube(s);
+  cubeAlerts.render(s);
   $('connection').textContent=statusLabels[s.capture.state]||s.capture.state;$('led').classList.toggle('live',s.capture.state==='capturing');
   $('stop').hidden=!['live','demo'].includes(s.mode);$('start').hidden=s.mode==='live';
   const notice=$('notice');notice.className='notice';
@@ -59,5 +84,5 @@ function drawChart(c){
   else svg+='<text x="400" y="72" fill="#657987" text-anchor="middle" font-size="12">Savaş başladığında grafik burada oluşacak.</text>';
   $('chart').innerHTML=svg;
 }
-async function recordings(){try{const r=await fetch('/api/encounters');const data=await r.json();$('recordings').innerHTML=data.length?data.map(x=>`<option value="${esc(x.id)}">${new Date(x.savedAt).toLocaleString('tr-TR',{timeZone:'Europe/Istanbul',day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'})} · ${time(x.seconds)} · ${x.players} oyuncu · ${compact(x.damage)}</option>`).join(''):'<option value="">Yerel kayıt bulunamadı</option>';$('replay').disabled=!data.length;}catch{$('recordings').innerHTML='<option>Kayıtlar okunamadı</option>';}}
-const stream=new EventSource('/api/events');stream.onmessage=e=>render(JSON.parse(e.data));stream.onerror=()=>{$('connection').textContent='Uygulama bağlantısı kesildi';$('led').classList.remove('live');};recordings();
+async function recordings(){try{const r=await fetch('/api/encounters');const data=await r.json();$('recordings').innerHTML=data.length?data.map(x=>`<option value="${esc(x.id)}">${new Date(x.savedAt).toLocaleString('tr-TR',{timeZone:'Europe/Istanbul',day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'})} · ${time(x.seconds)} · ${x.players} oyuncu · ${compact(x.damage)}</option>`).join(''):'<option value="">Yerel kayıt bulunamadı</option>';$('replay').disabled=!data.length;}catch{$('recordings').innerHTML='<option value="">Kayıtlar okunamadı</option>';}finally{if(state)renderCube(state);}}
+const stream=new EventSource('/api/events');stream.onmessage=e=>render(JSON.parse(e.data));stream.onerror=()=>{$('connection').textContent='Uygulama bağlantısı kesildi';$('led').classList.remove('live');cubeAlerts.disconnected();};recordings();

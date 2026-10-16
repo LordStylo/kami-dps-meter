@@ -3,6 +3,9 @@ research/private/
 captures/
 *.log
 tmp/
+dist/
+runtime/
+settings/
 public/icons/skills/
 research/recording-validation.json
 research/live-capture-validation.json

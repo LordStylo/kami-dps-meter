@@ -14,8 +14,8 @@ function description(r) {
   return { name, pcId, class: className(pcId) };
 }
 
-function state(r) {
-  const flags = r.u16(); r.vec(); r.f32(); r.u16();
+function state(r, includePosition = false) {
+  const flags = r.u16(), position = r.vec(); r.f32(); r.u16();
   optional(flags, 0, () => r.vec()); optional(flags, 1, () => r.f32()); optional(flags, 2, () => r.u16());
   optional(flags, 3, () => r.vec()); optional(flags, 4, () => r.vec());
   const target = optional(flags, 5, () => r.i32()); const live = r.u8();
@@ -24,7 +24,28 @@ function state(r) {
   optional(flags, 8, () => r.u8()); optional(flags, 9, () => r.u8());
   optional(flags, 10, () => r.vi32());
   for (let bit = 11; bit < 16; bit++) optional(flags, bit, () => r.i32());
-  return { hp, maxHp, target, live };
+  if (includePosition && !Object.values(position).every(Number.isFinite)) throw new WireError('Invalid self position');
+  return { hp, maxHp, target, live, ...(includePosition ? { position } : {}) };
+}
+
+// The self-appearance packet provides a reliable spawn position, not a stream
+// of current walking positions. Keep this separate from the live DPS events.
+export function readSelfPosition(payload) {
+  const r = new Reader(payload), entity = r.vi32(); r.u32(); ownDescription(r);
+  const { position } = state(r, true);
+  if (entity <= 0) throw new WireError('Invalid self entity');
+  return { entity, position };
+}
+
+// Spatial observations are kept separate from combat events and identity data.
+export function readNpcPosition(payload) {
+  const r = new Reader(payload), entity = r.vi32(), flags = r.u16();
+  const { pcId: template } = description(r), { position } = state(r, true);
+  r.list(abnormal);
+  optional(flags, 0, () => r.u8()); optional(flags, 1, () => r.u8());
+  const reason = optional(flags, 2, () => r.u8());
+  if (entity <= 0 || template <= 0) throw new WireError('Invalid NPC position');
+  return { entity, template, position, reason };
 }
 
 function abnormal(r) {

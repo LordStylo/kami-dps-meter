@@ -6,6 +6,30 @@
   <header><div class="wordmark">AION <span>DPS LAB</span><sup>PROTOTİP 0.1</sup></div><div class="connection"><i id="led"></i><span id="connection">Bağlanıyor</span><span class="local">YEREL</span></div></header>
   <section class="heading"><div><p class="eyebrow">SAVAŞ ANALİZİ</p><h1>Her vuruşun bir hikâyesi var.</h1><p class="subtitle">Partinin performansını, yeteneklerini ve savaşın ritmini takip et.</p></div><div class="actions"><button id="demo" class="subtle">Örnek savaş</button><button id="start" class="primary"><span>●</span> Canlı başlat</button><button id="stop" class="subtle" hidden>Durdur</button></div></section>
   <div id="notice" class="notice" role="status"></div>
+  <section class="cube-alert-panel" id="cube-alert-panel" aria-labelledby="cube-alert-title">
+    <div class="cube-alert-heading"><div><p class="eyebrow">DENEYSEL UYARI</p><h2 id="cube-alert-title">Tespit edilen cubelar <span id="cube-alert-count">—</span></h2><p id="cube-alert-state" role="status">Canlı yakalama bekleniyor</p></div><div class="cube-audio-controls"><button id="cube-sound-test" class="primary">Sesi aç ve dene</button><button id="cube-sound-mute" class="subtle" disabled>Sesi kapat</button><label>Ses <input id="cube-volume" type="range" min="10" max="100" value="45" aria-label="Cube uyarı ses seviyesi"></label></div></div>
+    <p id="cube-sound-status" class="cube-help" role="status">Ses kapalı.</p>
+    <p class="cube-help">Ses açıkken algılanan cube mevcut kaldığı sürece uyarı 3 saniyede bir tekrarlanır. Cube kaybolunca veya veri bağlantısı kesilince durur. Mesafeye göre ses değişimi şimdilik kapalı.</p>
+    <ul id="cube-detections" aria-label="Cube bildirimleri"><li class="cube-list-empty">Henüz cube bildirimi alınmadı.</li></ul>
+    <p class="cube-help">İlk kayıttaki cube türüne göre uyarır; diğer türler ve yakınlık mesafesi henüz doğrulanmadı. Cube kaybolduğunda alınmış veya görüş alanından çıkmış olabilir. Karşılaştırma için aşağıdan test kaydını açabilirsin.</p>
+  </section>
+  <details class="cube-panel" id="cube-panel">
+    <summary><span>◇ Hidden cube · test kaydı</span><span id="cube-badge">HAZIRLIK</span></summary>
+    <div class="cube-body">
+      <p>Aramadan önce test kaydını aç. Son 60 saniyeye kadar veri ve otomatik cube uyarılarının zamanı korunur. Buldum / Açtım işaretlerini yine kullanabilirsin.</p>
+      <div class="cube-actions">
+        <button id="cube-arm" class="primary">Aramayı başlat</button>
+        <button id="cube-found" disabled>Buldum <kbd>Ctrl + Shift + F8</kbd></button>
+        <button id="cube-opened" disabled>Açtım <kbd>Ctrl + Shift + F9</kbd></button>
+        <button id="cube-stop" class="subtle" disabled>Testi bitir</button>
+      </div>
+      <p id="cube-status" role="status">Arama kapalı.</p>
+      <p class="cube-help">Acele ediyorsan doğrudan “Açtım” yeterli. Kayıt 30 saniye sonra otomatik tamamlanır. Uzaklaşman gerekmiyor.</p>
+      <p id="cube-warning" class="cube-warning" role="alert" hidden></p>
+      <details class="cube-extra"><summary>Vakit varsa ek işaretler</summary><div class="cube-actions"><button data-cube-phase="approach" disabled>Yaklaşıyorum</button><button data-cube-phase="leave" disabled>Uzaklaşıyorum</button><button data-cube-phase="far" disabled>Uzaklaştım</button><button data-cube-phase="opening" disabled>Açmaya başlıyorum</button></div></details>
+      <p id="cube-markers" class="cube-help"></p>
+    </div>
+  </details>
   <section class="toolbar"><div class="tabs" aria-label="Oyuncu kapsamı"><button data-scope="party" class="selected">Partim</button><button data-scope="self">Yalnızca ben</button><button data-scope="all">Tüm oyuncular</button></div><div class="toolbar-right"><label class="select-label">HEDEF <select id="target"><option value="">Tüm hedefler</option></select></label><button id="reset" class="subtle">↻ Sıfırla</button><a class="subtle button" href="/api/export">↓ Rapor</a></div></section>
   <section class="metrics"><article class="metric lead"><span>TOPLAM DPS</span><div id="dps">—</div><small>Ortak savaş süresine göre</small></article><article class="metric"><span>TOPLAM HASAR</span><div id="damage">—</div><small id="target-count">Henüz hedef yok</small></article><article class="metric"><span>SAVAŞ SÜRESİ</span><div id="duration">00:00</div><small>İlk ve son hasar arasında</small></article><article class="metric"><span>OYUNCULAR</span><div id="players-count">0</div><small id="mode-label">Canlı veri bekleniyor</small></article></section>
   <section class="content-grid"><div class="panel ranking"><div class="panel-title"><h2>Hasar sıralaması</h2><span id="fight-label" class="pill">BEKLENİYOR</span></div><div class="table-head"><span>OYUNCU</span><span>HASAR</span><span>KRİTİK</span><span>DPS</span></div><div id="ranking"></div></div>

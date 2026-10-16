@@ -3,20 +3,26 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Worker } from 'node:worker_threads';
+import { randomUUID } from 'node:crypto';
 import { Meter } from './meter.mjs';
 import { listEncounters, replayEncounter } from './replay.mjs';
 import { packetCoverage } from './protocol/packets.mjs';
+import { captureHealth } from './capture/health.mjs';
 
 const port = Number(process.env.AION_METER_PORT || 4317);
 const base = path.resolve(fileURLToPath(new URL('..', import.meta.url)));
 let meter = new Meter(), mode = 'idle', capture = { state: 'stopped' }, worker, demoTimer;
 let comparison = null, source = null, scope = 'party', target = null, busy = false;
+let research = { active: false, id: null, messages: 0, markers: [] };
+let workerStatusAt = null;
+let cubes = {experimental:true,templates:[1200039],epoch:null,total:0,active:[],recent:[]};
+const invalidateCubes = () => { cubes={...cubes,active:[],recent:cubes.recent.map(c=>c.status==='present'?{...c,status:'uncertain',reason:'capture-stopped'}:c)}; };
 const clients = new Set();
 
 function view() {
   const live = meter.snapshot({ scope, target });
   const displayMeter = !meter.hits.length && meter.lastFight ? meter.lastFight : meter;
-  return { app: 'aion-dps-lab', mode, scope, target, capture, source, comparison, current: live,
+  return { app: 'aion-dps-lab', mode, scope, target, capture: captureHealth(capture,workerStatusAt), source, comparison, research, cubes, current: live,
     last: displayMeter !== meter ? displayMeter.snapshot({ scope, target }) : null,
     availableTargets: displayMeter.snapshot({ scope }).targets,
     history: meter.history.map(h => ({ id:h.id,damage:h.damage,seconds:h.seconds,reason:h.reason })),
@@ -33,22 +39,45 @@ async function stop() {
     const current = worker; worker = null;
     await new Promise(resolve => {
       const timeout = setTimeout(() => { current.terminate().then(resolve); }, 2000);
+      current.on('message', message => { if (message.type === 'stopped') { research = message.research; cubes=message.cubes||cubes; } });
       current.once('exit', () => { clearTimeout(timeout); resolve(); }); current.postMessage('stop');
     });
+    if (research.active || research.armed) research = { ...research, active: false, armed: false, reason: 'worker-stopped', error: 'Yakalama işlemi beklenmedik biçimde kapandı; kayıt eksik olabilir.' };
   }
   capture = { state:'stopped' };
+  invalidateCubes();
+}
+function researchCommand(action, phase) {
+  const current = worker;
+  if (!current || mode !== 'live') return Promise.reject(Error('Canlı yakalama açık değil.'));
+  return new Promise((resolve, reject) => {
+    const requestId = randomUUID();
+    const cleanup = () => { clearTimeout(timer); current.off('message', onMessage); current.off('exit', onExit); };
+    const onExit = () => { cleanup(); reject(Error('Yakalama işlemi kapandı.')); };
+    const onMessage = message => {
+      if (message.type !== 'research-result' || message.requestId !== requestId) return;
+      cleanup(); research = message.research;
+      if (message.error) reject(Error(message.error)); else resolve(research);
+    };
+    const timer = setTimeout(() => { cleanup(); reject(Error('Test kaydı işlemi zaman aşımına uğradı. Veri okuma durumunu kontrol et.')); }, 5000);
+    current.on('message', onMessage); current.once('exit', onExit);
+    current.postMessage({ type: 'research-command', requestId, action, phase, expiresAt: Date.now()+5000 });
+  });
 }
 async function live() {
   await stop(); meter = new Meter(); mode = 'live'; comparison = null; source = null; scope = 'party'; target = null;
   capture = { state:'starting' };
+  workerStatusAt = Date.now();
+  cubes={experimental:true,templates:[1200039],epoch:null,total:0,active:[],recent:[]};
   const current = new Worker(new URL('./capture/worker.mjs', import.meta.url)); worker = current;
   current.on('message', message => {
     if (worker !== current) return;
-    if (message.type === 'status') capture = message;
+    if (message.type === 'status') { workerStatusAt=Date.now();capture = message; research = message.research || research; cubes=message.cubes||cubes; }
+    else if (message.type === 'cube-status') { cubes=message.cubes;send(); }
     else if (message.type === 'events') for (const e of message.events) meter.ingest(e);
   });
-  current.on('error', error => { if (worker === current) capture = { state:'error',error:error.message }; });
-  current.on('exit', code => { if (worker === current) { worker = null; capture = { state:'error', error:`Yakalama işlemi kapandı (${code}). Canlı başlat ile tekrar deneyin.` }; } });
+  current.on('error', error => { if (worker === current) {capture = { state:'error',error:error.message };invalidateCubes();} });
+  current.on('exit', code => { if (worker === current) { worker = null;invalidateCubes(); if(research.active||research.armed)research={...research,active:false,armed:false,reason:'worker-exit',error:'Test kaydı eksik olabilir.'}; capture = { state:'error', error:`Yakalama işlemi kapandı (${code}). Canlı başlat ile tekrar deneyin.` }; } });
 }
 function demo() {
   mode='demo'; comparison=null; source=null; scope='party'; target=null; meter=new Meter(); capture={state:'demo'};
@@ -91,7 +120,13 @@ const server = http.createServer(async (req,res) => {
       if(busy) return json(res,{error:'İşlem devam ediyor'},409);
       const data=await body(req); busy=true;
       try {
-        if(data.action==='live') await live();
+        if((research.active||research.armed) && ['live','demo','replay','reset'].includes(data.action)) throw Error('Önce Hidden cube test kaydını bitir.');
+        if(['cube-start','cube-arm'].includes(data.action)) { if(mode!=='live'||!worker) await live(); await researchCommand(data.action==='cube-arm'?'arm':'start'); }
+        else if(data.action==='cube-found') await researchCommand('found');
+        else if(data.action==='cube-opened') await researchCommand('opened');
+        else if(data.action==='cube-mark') await researchCommand('mark',data.phase);
+        else if(data.action==='cube-stop') await researchCommand('stop');
+        else if(data.action==='live') await live();
         else if(data.action==='stop') { await stop(); mode='paused'; }
         else if(data.action==='shutdown') { setTimeout(shutdown,100); }
         else if(data.action==='demo') { await stop(); demo(); }
@@ -115,7 +150,7 @@ const server = http.createServer(async (req,res) => {
         res.writeHead(200, {'Content-Type':'image/webp','Cache-Control':'public, max-age=86400'});
         fs.createReadStream(file).pipe(res); return;
       }
-      const files={'/':'index.html','/app.js':'app.js','/style.css':'style.css'};
+      const files={'/':'index.html','/app.js':'app.js','/cube-alerts.js':'cube-alerts.js','/style.css':'style.css'};
       const file=files[url.pathname];
       if(file) {
         res.setHeader('Content-Security-Policy',"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' data:; object-src 'none'; frame-ancestors 'none'");
