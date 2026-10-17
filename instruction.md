@@ -60,13 +60,14 @@ Oyun yönetici olarak çalışıyorsa overlay de aynı yetkide açılmalıdır. 
 - Üç pencere var: kompakt DPS/HPS, kare küp paneli ve küçük dört kareli kontrol kutusu.
 - Normalde yalnızca oyun öndeyken görünürler. Tepside **Masaüstünde düzenle** seçilirse masaüstünde düzenlenebilirler.
 - **Alt basılıyken** başlıktan taşıma, köşeden boyutlandırma ve düğmeler çalışır. Alt bırakıldığında fare oyuna geçer.
-- DPS varsayılan **320×250**, en küçük **260×180** mantıksal piksel; sağ alt özel tutamaçla büyütülüp küçültülür. Satırlar gerektiğinde kayar.
+- DPS varsayılan **232×210**, en küçük **220×150** mantıksal piksel; sağ alt özel tutamaçla büyütülüp küçültülür. Parti / Ben ve Hasar / İyileştirme tek satırdadır; isim-DPS boşluğu daraltılmıştır. Satırlar gerektiğinde kayar.
 - **−/+** yalnızca başlık kalacak biçimde küçültür/açar. Küçük başlıkta DPS sayısı görünmez.
 - Dişlide arka plan şeffaflığı ve **Savaş dışında otomatik gizle** bulunur. Yazılar ve ikonlar şeffaflıkla solmaz.
 - **Party mode** parti sıralamasını, **Individual mode** yalnızca kendi değerlerini ve skill dökümünü gösterir. Karakter bilinmiyorsa başka oyuncu kendi karakterinmiş gibi seçilmez.
 - **Hasar / İyileştirme** aynı pencerede DPS ve HPS görünümünü değiştirir.
 - Kontrol kutusu DPS/küp görünürlüğünü yönetir. **DPS’yi göster**, savaş dışında son sonucu geçici açar; **Otomatik gizlemeye dön** bunu iptal eder. Yeni savaş geçici gösterimi temizler.
 - Kalıcı otomatik gizleme tercihi, mod, şeffaflık, boyut ve konum `settings/overlay-4317/layout.json` içindedir. Geçici DPS gösterimi kalıcı değildir.
+- `compactVersion:1` eski büyük DPS boyutunu bir kez 232×210'a geçirir; konum ve diğer tercihler korunur. Marker geldikten sonra kullanıcının yeni boyutlandırmasını her açılışta sıfırlama.
 - Manuel gizleme ve oyun odağı kuralları otomatik göstermeden önceliklidir; küpün yeni tespitte açılması aşağıdaki özel davranıştır.
 
 ## Küp alarmı

@@ -3,7 +3,7 @@ const fs=require('node:fs'),path=require('node:path');
 const {pathToFileURL}=require('node:url');
 const native=require('./windows.cjs');
 const {allowMouseWithoutActivation}=require('./mouse-window.cjs');
-const {boundsFor,transparencyFor,resizeBounds}=require('./layout.cjs');
+const {boundsFor,transparencyFor,resizeBounds,migrateDpsLayout}=require('./layout.cjs');
 const {panelVisible}=require('./interaction.cjs');
 const {FocusSession}=require('./focus.cjs');
 const {shutdownBackend}=require('./shutdown.cjs');
@@ -26,6 +26,7 @@ diagnostics?.attachProcess();
 diagnostics?.record('runtime',{electron:process.versions.electron,node:process.versions.node,koffi:require('koffi').version});
 const windows=new Map(),ready=new Set(),focusSession=new FocusSession();let tray,layout={},interactive=false,drag=null,lastState=null,connected=false,pollTimer,keyTimer,saveTimer,commandTimer,requestBusy=false,desktopEdit=false,hiddenByUser=false,gameProcesses=new Set(),gameCheckAt=0;
 try{const value=JSON.parse(fs.readFileSync(path.join(profile,'layout.json'),'utf8'));if(value&&typeof value==='object')layout=value;}catch{}
+layout.dps=migrateDpsLayout(layout.dps);
 let settingsOpen=false,controlsOpen=false,suppressControlClickUntil=0,trayMenu,closingAll=false,manualDpsReveal=false;
 const inCombat=state=>state?.combat?.active??(state?.current?.damage>0);
 const cubeAlarm=new CubeAlarm();

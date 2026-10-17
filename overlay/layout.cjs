@@ -1,8 +1,13 @@
-const sizes={dps:{width:320,height:250},cube:{width:206,height:206},controls:{width:44,height:44}};
+const sizes={dps:{width:232,height:210},cube:{width:206,height:206},controls:{width:44,height:44}};
 const BAR_HEIGHT=36;
 const SETTINGS_HEIGHT=232,DEFAULT_TRANSPARENCY=8;
 const transparencyFor=value=>typeof value==='number'&&Number.isFinite(value)?Math.max(0,Math.min(100,Math.round(value))):DEFAULT_TRANSPARENCY;
-const dpsLimits={minWidth:260,minHeight:180,maxWidth:800,maxHeight:800};
+const dpsLimits={minWidth:220,minHeight:150,maxWidth:800,maxHeight:800};
+function migrateDpsLayout(saved){
+ if(saved?.compactVersion>=1)return saved;
+ // Apply the requested compact size once; later manual resizing stays intact.
+ return {...saved,...sizes.dps,compactVersion:1};
+}
 function dpsSize(saved){
  const dimension=(key,min,max)=>Number.isFinite(saved?.[key])?Math.max(min,Math.min(max,Math.round(saved[key]))):sizes.dps[key];
  return {width:dimension('width',dpsLimits.minWidth,dpsLimits.maxWidth),height:dimension('height',dpsLimits.minHeight,dpsLimits.maxHeight)};
@@ -21,4 +26,4 @@ function boundsFor(panel,saved,area){
  const value=(k)=>Number.isFinite(saved?.[k])?Math.round(saved[k]):fallback[k];
  return {x:Math.max(area.x,Math.min(value('x'),area.x+area.width-width)),y:Math.max(area.y,Math.min(value('y'),area.y+area.height-height)),width,height};
 }
-module.exports={sizes,BAR_HEIGHT,boundsFor,transparencyFor,dpsSize,resizeBounds};
+module.exports={sizes,BAR_HEIGHT,boundsFor,transparencyFor,dpsSize,resizeBounds,migrateDpsLayout};

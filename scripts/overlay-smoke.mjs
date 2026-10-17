@@ -119,7 +119,7 @@ try{
  assert.equal(await dps.locator('[data-player]').count(),0);assert.equal(await dps.locator('.skill-damage').textContent(),'450 K');
  assert.equal(await dps.locator('#back').isVisible(),false);await dps.screenshot({path:'tmp/overlay-individual.png'});
  const compactBounds=(await flags()).find(w=>w.panel==='dps').bounds;
- assert.ok(Math.abs(compactBounds.width-320)<=4&&Math.abs(compactBounds.height-250)<=4,JSON.stringify(compactBounds));
+ assert.ok(Math.abs(compactBounds.width-232)<=4&&Math.abs(compactBounds.height-210)<=4,JSON.stringify(compactBounds));
  await app.evaluate(()=>globalThis.overlayForTest.windows.get('dps').setPosition(100,100));
  async function cornerResize(dx,dy,releaseAlt=false){
   // Freeze only the test app's cursor reader, never move the system cursor.
@@ -131,18 +131,18 @@ try{
   }finally{await app.evaluate(({screen})=>{screen.getCursorScreenPoint=globalThis.realTestCursor;});}
  }
  const enlarged=await cornerResize(140,100);
- assert.equal(enlarged.saved.width,460);assert.equal(enlarged.saved.height,350);
- assert.ok(Math.abs(enlarged.bounds.width-460)<=4&&Math.abs(enlarged.bounds.height-350)<=4,JSON.stringify(enlarged));
+ assert.equal(enlarged.saved.width,372);assert.equal(enlarged.saved.height,310);
+ assert.ok(Math.abs(enlarged.bounds.width-372)<=4&&Math.abs(enlarged.bounds.height-310)<=4,JSON.stringify(enlarged));
  const minimum=await cornerResize(-9999,-9999);
- assert.equal(minimum.saved.width,260);assert.equal(minimum.saved.height,180);
+ assert.equal(minimum.saved.width,220);assert.equal(minimum.saved.height,150);
  const originalSkills=state.current.players[0].skills;
  state.current.players[0].skills=Array.from({length:8},(_,i)=>({...originalSkills[0],id:i+1,name:'Spinning Strike '+(i+1)}));
  await dps.waitForFunction(()=>document.querySelectorAll('#rows .row').length===8);
- const fit=await dps.evaluate(()=>{const rows=document.getElementById('rows');return {horizontal:rows.scrollWidth>rows.clientWidth,vertical:rows.scrollHeight>rows.clientHeight,grip:document.getElementById('resize-grip').hidden};});
- assert.deepEqual(fit,{horizontal:false,vertical:true,grip:false});await capture('dps','tmp/overlay-minimum.png');
+ const fit=await dps.evaluate(()=>{const rows=document.getElementById('rows');return {horizontal:rows.scrollWidth>rows.clientWidth,vertical:rows.scrollHeight>rows.clientHeight,readable:rows.clientHeight>=24,toolbarFits:document.querySelector('.meter-toolbar').scrollWidth<=document.querySelector('.meter-toolbar').clientWidth,grip:document.getElementById('resize-grip').hidden};});
+ assert.deepEqual(fit,{horizontal:false,vertical:true,readable:true,toolbarFits:true,grip:false});await capture('dps','tmp/overlay-minimum.png');
  state.current.players[0].skills=originalSkills;await dps.waitForFunction(()=>document.querySelectorAll('#rows .row').length===1);
  const resized=await cornerResize(100,100,true);
- assert.equal(resized.saved.width,360);assert.equal(resized.saved.height,280);
+ assert.equal(resized.saved.width,320);assert.equal(resized.saved.height,250);
  assert.ok((await flags()).every(w=>w.transparent&&w.noActivate));
  await app.evaluate(()=>globalThis.overlayForTest.setDesktopEdit(true));
  const own=state.current.players[0];state.current.players=state.current.players.slice(1);
@@ -181,7 +181,7 @@ try{
  assert.ok(collapsedHeight>=36&&collapsedHeight<=40,`Unexpected collapsed height: ${collapsedHeight}`);
  assert.equal(await dps.locator('#total-dps').isVisible(),false);
  assert.equal(await dps.locator('#resize-grip').isVisible(),false);
- assert.equal(await app.evaluate(()=>globalThis.overlayForTest.getLayout().dps.height),280);
+ assert.equal(await app.evaluate(()=>globalThis.overlayForTest.getLayout().dps.height),250);
  await dps.screenshot({path:'tmp/overlay-collapsed.png'});
  await dps.locator('#settings').click({force:true});await dps.waitForFunction(()=>!document.getElementById('settings-body').hidden);
  assert.equal(await dps.locator('#total-dps').isVisible(),false);
@@ -244,7 +244,7 @@ try{
  assert.equal(await dps.locator('#transparency').inputValue(),'65');assert.equal(await dps.locator('#settings-body').isVisible(),false);
  assert.equal((await dps.evaluate(()=>window.kamiOverlay.init())).autoHide,false,'Auto-hide preference must survive restart');
  const restored=await flags();assert.ok(restored.find(w=>w.panel==='dps').bounds.height>=36&&restored.find(w=>w.panel==='dps').bounds.height<=40);
- assert.equal(await app.evaluate(()=>globalThis.overlayForTest.getLayout().dps.height),280);
+ assert.equal(await app.evaluate(()=>globalThis.overlayForTest.getLayout().dps.height),250);
  const restoredCube=restored.find(w=>w.panel==='cube').bounds;
  assert.deepEqual({x:restoredCube.x,y:restoredCube.y},{x:afterDrag.x,y:afterDrag.y});
  assert.ok(Math.abs(restoredCube.width-206)<=4&&Math.abs(restoredCube.height-206)<=4,JSON.stringify(restoredCube));
@@ -258,7 +258,7 @@ try{
  await dps.locator('#auto-hide').check({force:true});await dps.waitForFunction(async()=>(await window.kamiOverlay.init()).autoHide);
  await dps.locator('#settings-close').click({force:true});
  const reopened=(await flags()).find(w=>w.panel==='dps').bounds;
- assert.ok(Math.abs(reopened.width-360)<=4&&Math.abs(reopened.height-280)<=4,JSON.stringify(reopened));
+ assert.ok(Math.abs(reopened.width-320)<=4&&Math.abs(reopened.height-250)<=4,JSON.stringify(reopened));
  assert.equal(await dps.locator('#total-dps').textContent(),'90 K');assert.equal(await dps.locator('.skill-damage').textContent(),'450 K');
  assert.deepEqual(errors,[]);
  const focusTransitions=await checkFocusTransitions(app,path.join(root,'overlay/windows.cjs'));

@@ -5,7 +5,7 @@ import {interactionFor,panelVisible} from '../overlay/interaction.cjs';
 const area={x:0,y:0,width:1920,height:1040};
 test('collapsed DPS is only the title bar and saved positions recover onto an available display',()=>{
  const small=layout.boundsFor('dps',{x:45,y:200,collapsed:true},area);
- assert.deepEqual(small,{x:45,y:200,width:320,height:36});
+ assert.deepEqual(small,{x:45,y:200,width:232,height:36});
  const recovered=layout.boundsFor('dps',{x:4000,y:2000},area);
  assert.equal(recovered.x+recovered.width,1920);assert.equal(recovered.y+recovered.height,1040);
  const left=layout.boundsFor('cube',{x:-1700,y:300},{x:-1920,y:0,width:1920,height:1080});
@@ -14,20 +14,31 @@ test('collapsed DPS is only the title bar and saved positions recover onto an av
 });
 test('custom DPS dimensions survive collapse and settings without becoming the temporary panel size',()=>{
  const saved={x:40,y:90,width:460,height:340};
- assert.equal(layout.boundsFor('dps',{},area).height,250);
+ assert.equal(layout.boundsFor('dps',{},area).height,210);
  assert.deepEqual(layout.dpsSize(saved),{width:460,height:340});
  const collapsed=layout.boundsFor('dps',{...saved,collapsed:true},area);
  assert.equal(collapsed.width,460);assert.equal(collapsed.height,36);
  const settings=layout.boundsFor('dps',{...saved,settingsOpen:true},area);
  assert.equal(settings.height,232);assert.equal(settings.width,460);
  assert.equal(layout.boundsFor('dps',saved,area).height,340);
- assert.deepEqual(layout.dpsSize({width:NaN,height:'300'}),{width:320,height:250});
- assert.deepEqual(layout.dpsSize({width:-10,height:99999}),{width:260,height:800});
+ assert.deepEqual(layout.dpsSize({width:NaN,height:'300'}),{width:232,height:210});
+ assert.deepEqual(layout.dpsSize({width:-10,height:99999}),{width:220,height:800});
+});
+
+test('compact migration changes old dimensions once and preserves all other preferences and later resizing',()=>{
+ const saved={x:0,y:109,width:333,height:305,collapsed:true,transparency:17,mode:'individual',metric:'healing',autoHide:false,enabled:false};
+ const migrated=layout.migrateDpsLayout(saved);
+ assert.deepEqual(migrated,{...saved,width:232,height:210,compactVersion:1});
+ assert.equal(saved.width,333);
+ const resized={...migrated,width:380,height:290};
+ assert.equal(layout.migrateDpsLayout(resized),resized);
+ assert.deepEqual(layout.dpsSize(resized),{width:380,height:290});
+ assert.deepEqual(layout.migrateDpsLayout(),{width:232,height:210,compactVersion:1});
 });
 test('corner resizing clamps to readable dimensions and the monitor while keeping the top-left fixed',()=>{
  const start={x:100,y:100,width:320,height:250};
  assert.deepEqual(layout.resizeBounds(start,{x:100,y:60},area),{x:100,y:100,width:420,height:310});
- assert.deepEqual(layout.resizeBounds(start,{x:-9999,y:-9999},area),{x:100,y:100,width:260,height:180});
+ assert.deepEqual(layout.resizeBounds(start,{x:-9999,y:-9999},area),{x:100,y:100,width:220,height:150});
  const edge=layout.resizeBounds({...start,x:1400,y:800},{x:9999,y:9999},area);
  assert.equal(edge.width,520);assert.equal(edge.height,240);
  const smallMonitor=layout.boundsFor('dps',{width:800,height:800},{x:-640,y:0,width:640,height:480});
