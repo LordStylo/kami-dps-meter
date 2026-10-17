@@ -6,7 +6,7 @@ const compact=n=>Number(n||0)>=1e6?(n/1e6).toLocaleString('tr-TR',{maximumFracti
 const percent=n=>Number(n||0).toLocaleString('tr-TR',{maximumFractionDigits:1})+'%';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const time=s=>`${String(Math.floor((s||0)/60)).padStart(2,'0')}:${String(Math.floor((s||0)%60)).padStart(2,'0')}`;
-let state,selected=null,targetsKey='',toastTimer;
+let state,selected=null,targetsKey='',toastTimer,metric='damage';
 const failedSkillIcons=new Set();
 $('skills').addEventListener('error',event=>{if(event.target.tagName==='IMG'){failedSkillIcons.add(event.target.getAttribute('src'));event.target.remove();}},true);
 const colors=['#a9eccb','#9dbfee','#d9ac81','#c5a5e4','#e6aeae','#99d4d6'];
@@ -34,11 +34,14 @@ function renderCube(s){
   $('cube-markers').textContent=(r.markers||[]).map(m=>new Date(m.at).toLocaleTimeString('tr-TR')+' '+m.label).join(' · ');
 }
 document.querySelectorAll('[data-scope]').forEach(b=>b.onclick=()=>action({action:'filter',scope:b.dataset.scope,target:state?.target??null}));
+document.querySelectorAll('[data-metric]').forEach(b=>b.onclick=()=>{metric=b.dataset.metric;if(state)render(state);});
 $('target').onchange=()=>action({action:'filter',scope:state.scope,target:$('target').value===''?null:Number($('target').value)});
 $('replay').onclick=async()=>{const id=$('recordings').value;if(!id)return;$('replay').disabled=true;try{await action({action:'replay',id});}finally{$('replay').disabled=false;}};
 const statusLabels={'starting':'Yakalama hazırlanıyor','waiting-for-game':'Oyun bekleniyor','waiting-for-connection':'Bağlantı bekleniyor','capturing':'Canlı yakalama açık','stalled':'Paket okuma yanıt vermiyor','delayed':'Paket okuma gecikiyor','stopped':'Yakalama durdu','demo':'Örnek veri','replay':'Yerel savaş kaydı','error':'Yakalama sorunu'};
 function render(s){
-  state=s;const c=s.current.damage?s.current:s.last||s.current;
+  state=s;const currentHasData=!!(s.current.damage||s.current.healing),c=currentHasData?s.current:s.last||s.current;
+  const healing=metric==='healing',amount=healing?'healing':'damage',rate=healing?'hps':'dps',rateLabel=healing?'HPS':'DPS';
+  const rows=healing?c.healers||[]:c.players,total=c[amount]||0;
   renderCube(s);
   cubeAlerts.render(s);
   $('connection').textContent=statusLabels[s.capture.state]||s.capture.state;$('led').classList.toggle('live',s.capture.state==='capturing');
@@ -50,29 +53,35 @@ function render(s){
   else if(s.capture.state==='capturing'){notice.textContent='CANLI · Aion 2 bağlantısı dinleniyor. Oyuncu bilgileri veya parti listesi eksikse ölçer açıkken bölge değiştir.';}
   else if(s.mode==='paused'){notice.textContent='Yakalama durduruldu. Mevcut savaş sonucu ekranda tutuluyor.';}
   else{notice.textContent='HAZIR · Aion 2’yi açıp bir savaşa gir. Bağlantı otomatik algılanacak. Beklerken yerel bir savaş kaydını inceleyebilirsin.';}
-  $('dps').textContent=c.damage?fmt(c.dps):'—';$('damage').textContent=c.damage?compact(c.damage):'—';$('duration').textContent=time(c.seconds);$('players-count').textContent=c.players.length;
-  $('target-count').textContent=c.targets.length?`${c.targets.length} hedefte ölçüldü`:'Henüz hedef yok';
-  $('mode-label').textContent=s.mode==='replay'?'Kayıttan yeniden hesaplandı':s.mode==='demo'?'Örnek oyuncular':s.last&&!s.current.damage?'Son tamamlanan savaş':'Algılanan oyuncular';
-  $('fight-label').textContent=s.mode==='demo'?'ÖRNEK':s.mode==='replay'?'KAYIT':s.last&&!s.current.damage?'TAMAMLANDI':c.damage?'SAVAŞ':'BEKLENİYOR';
+  $('rate-label').textContent=`TOPLAM ${rateLabel}`;$('amount-label').textContent=healing?'TOPLAM İYİLEŞTİRME':'TOPLAM HASAR';
+  $('dps').textContent=total?fmt(c[rate]):'—';$('damage').textContent=total?compact(total):'—';$('duration').textContent=time(healing?c.healingSeconds??c.seconds:c.seconds);$('players-count').textContent=rows.length;
+  $('target-count').textContent=healing?'Karşılaşmanın tüm iyileştirmeleri':c.targets.length?`${c.targets.length} hedefte ölçüldü`:'Henüz hedef yok';
+  $('mode-label').textContent=s.mode==='replay'?'Kayıttan yeniden hesaplandı':s.mode==='demo'?'Örnek oyuncular':s.last&&!currentHasData?'Son tamamlanan savaş':'Algılanan oyuncular';
+  $('fight-label').textContent=s.mode==='demo'?'ÖRNEK':s.mode==='replay'?'KAYIT':s.last&&!currentHasData?'TAMAMLANDI':c.damage||c.healing?'SAVAŞ':'BEKLENİYOR';
+  document.querySelectorAll('[data-metric]').forEach(b=>{const active=b.dataset.metric===metric;b.classList.toggle('selected',active);b.setAttribute('aria-pressed',String(active));});
+  $('ranking-title').textContent=healing?'İyileştirme sıralaması':'Hasar sıralaması';$('ranking-amount-label').textContent=healing?'İYİLEŞTİRME':'HASAR';$('ranking-rate-label').textContent=rateLabel;
+  $('detail-rate-label').textContent=`YETENEK BAŞINA ${rateLabel}`;$('skill-rate-label').textContent=rateLabel;$('skill-amount-label').textContent=healing?'İYİLEŞTİRME':'HASAR';
   document.querySelectorAll('[data-scope]').forEach(b=>b.classList.toggle('selected',b.dataset.scope===s.scope));
   const availableTargets=s.availableTargets||c.targets,key=JSON.stringify(availableTargets.map(t=>[t.entity,t.name]));
   if(key!==targetsKey&&document.activeElement!==$('target')){targetsKey=key;$('target').innerHTML='<option value="">Tüm hedefler</option>'+availableTargets.map(t=>`<option value="${t.entity}">${esc(t.name)}</option>`).join('');}
   $('target').value=s.target??'';
-  if(!c.players.some(p=>p.entity===selected))selected=c.players[0]?.entity??null;
-  $('ranking').innerHTML=c.players.length?c.players.map((p,i)=>`<button class="player-row ${selected===p.entity?'chosen':''}" data-player="${p.entity}" style="--fill:${Math.max(3,p.damage/(c.players[0]?.damage||1)*100)}%;--row-color:${colors[i%colors.length]}" aria-pressed="${selected===p.entity}"><span class="name"><span class="avatar">${String(i+1).padStart(2,'0')}</span><span class="identity"><b>${esc(p.name)}${p.self?'<em>SEN</em>':''}</b><small>${esc(p.class)} · ${percent(p.share)}</small></span></span><span>${compact(p.damage)}</span><span class="muted">${percent(p.critRate)}</span><span class="player-dps">${fmt(p.dps)}</span></button>`).join(''):'<div class="empty"><span class="empty-symbol">◇</span><span>Henüz savaş verisi yok.<br>Oyuna gir veya aşağıdan bir kayıt aç.</span></div>';
+  if(!rows.some(p=>p.entity===selected))selected=rows[0]?.entity??null;
+  $('ranking').innerHTML=rows.length?rows.map((p,i)=>`<button class="player-row ${selected===p.entity?'chosen':''}" data-player="${p.entity}" style="--fill:${Math.max(3,p[amount]/(rows[0]?.[amount]||1)*100)}%;--row-color:${colors[i%colors.length]}" aria-pressed="${selected===p.entity}"><span class="name"><span class="avatar">${String(i+1).padStart(2,'0')}</span><span class="identity"><b>${esc(p.name)}${p.self?'<em>SEN</em>':''}</b><small>${esc(p.class)} · ${percent(p.share)}</small></span></span><span>${compact(p[amount])}</span><span class="muted">${p.critRate===null||p.critRate===undefined?'—':percent(p.critRate)}</span><span class="player-dps">${fmt(p[rate])}</span></button>`).join(''):`<div class="empty"><span class="empty-symbol">◇</span><span>${healing?'Bu karşılaşmada iyileştirme kaydı yok.':'Henüz savaş verisi yok.<br>Oyuna gir veya aşağıdan bir kayıt aç.'}</span></div>`;
   document.querySelectorAll('[data-player]').forEach(b=>b.onclick=()=>{selected=Number(b.dataset.player);render(state);});
-  const p=c.players.find(p=>p.entity===selected);$('detail-name').textContent=p?`${p.name} · Yetenekler`:'Yetenek dökümü';
-  $('player-detail').innerHTML=p?`<span>DoT <b>${compact(p.dotDamage)}</b></span><span>Pet <b>${compact(p.petDamage)}</b></span><span>Vuruş <b>${fmt(p.hits)}</b></span>`:'';
+  const p=rows.find(p=>p.entity===selected);$('detail-name').textContent=p?`${p.name} · Yetenekler`:'Yetenek dökümü';
+  $('player-detail').innerHTML=p?(healing?`<span>İyileştirme <b>${compact(p.healing)}</b></span><span>Olay <b>${fmt(p.events)}</b></span>`:`<span>DoT <b>${compact(p.dotDamage)}</b></span><span>Pet <b>${compact(p.petDamage)}</b></span><span>Vuruş <b>${fmt(p.hits)}</b></span>`):'';
   $('skill-head').hidden=!p;
   $('skill-note').hidden=!p;
-  $('skills').innerHTML=p?p.skills.map(sk=>`<div class="skill" role="row" style="--skill-fill:${Math.min(100,sk.damage/Math.max(p.skills[0]?.damage||1,1)*100)}%">
-    <span class="skill-identity" role="cell" title="${esc(sk.name)} · #${sk.id} · ${fmt(sk.hits)} vuruş${sk.dotDamage?' · DoT '+fmt(sk.dotDamage):''}"><span class="skill-icon" aria-hidden="true">◇${sk.icon&&!failedSkillIcons.has(sk.icon)?`<img src="${esc(sk.icon)}" alt="" width="32" height="32" loading="lazy">`:''}</span><span class="skill-name">${esc(sk.name)}</span></span>
-    <span class="skill-dps" role="cell" title="${fmt(sk.dps)} DPS">${compact(sk.dps)}</span>
+  $('skill-note').textContent=healing?"Yetenek HPS'leri karşılaşmanın ortak savaş süresini kullanır. İyileştirmeler hedef filtresinden bağımsızdır; kritik bilgisi pakette bulunmaz.":"Yetenek DPS'leri aynı savaş süresini kullanır; toplamları oyuncunun DPS'sini verir. Kritik oranı doğrudan hasar olayları üzerinden hesaplanır.";
+  $('skills').innerHTML=p?p.skills.map(sk=>`<div class="skill" role="row" style="--skill-fill:${Math.min(100,sk[amount]/Math.max(p.skills[0]?.[amount]||1,1)*100)}%">
+    <span class="skill-identity" role="cell" title="${esc(sk.name)} · #${sk.id}${healing?` · ${fmt(sk.events)} iyileştirme olayı`:` · ${fmt(sk.hits)} vuruş${sk.dotDamage?' · DoT '+fmt(sk.dotDamage):''}`}"><span class="skill-icon" aria-hidden="true">◇${sk.icon&&!failedSkillIcons.has(sk.icon)?`<img src="${esc(sk.icon)}" alt="" width="32" height="32" loading="lazy">`:''}</span><span class="skill-name">${esc(sk.name)}</span></span>
+    <span class="skill-dps" role="cell" title="${fmt(sk[rate])} ${rateLabel}">${compact(sk[rate])}</span>
     <span class="skill-share" role="cell">${percent(sk.share)}</span>
-    <span class="skill-damage" role="cell" title="${fmt(sk.damage)} hasar">${compact(sk.damage)}</span>
-    <span class="skill-crit" role="cell" title="${fmt(sk.criticalHits)} kritik / ${fmt(sk.directHits)} doğrudan hasar olayı">${sk.critRate===null||sk.critRate===undefined?'—':percent(sk.critRate)}</span>
+    <span class="skill-damage" role="cell" title="${fmt(sk[amount])} ${healing?'iyileştirme':'hasar'}">${compact(sk[amount])}</span>
+    <span class="skill-crit" role="cell" title="${healing?'İyileştirme paketinde kritik bilgisi yok':`${fmt(sk.criticalHits)} kritik / ${fmt(sk.directHits)} doğrudan hasar olayı`}">${sk.critRate===null||sk.critRate===undefined?'—':percent(sk.critRate)}</span>
   </div>`).join(''):'<div class="empty">Bir oyuncu seçtiğinde yetenekleri burada görünür.</div>';
-  drawChart(c);$('chart-end').textContent=c.seconds?`${fmt(c.seconds)} sn`:'—';
+  $('chart-panel').hidden=healing;$('bottom-grid').classList.toggle('healing-view',healing);
+  if(!healing)drawChart(c);$('chart-end').textContent=c.seconds?`${fmt(c.seconds)} sn`:'—';
   $('comparison').textContent=s.comparison?(s.comparison.damageDelta===0&&Math.abs(s.comparison.secondsDelta)<.001?'✓ Toplam hasar ve süre kaynak raporla eşleşti.':`Kaynak rapora göre hasar farkı: ${fmt(s.comparison.damageDelta)} · süre farkı: ${s.comparison.secondsDelta.toFixed(3)} sn`):'';
   $('diagnostic-summary').textContent=`${fmt(s.capture.packetCount)} paket · ${fmt(s.capture.decoded)} çözülen mesaj`;
   const errors=Object.entries(s.capture.issues||{}).map(([k,v])=>`${k}: ${v}`).join('\n');

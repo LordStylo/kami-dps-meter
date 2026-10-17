@@ -177,10 +177,19 @@ define(0x3835, 'TargetUpdate_NT', r => { const entity = r.vi32(), f = r.u8(), ta
 define(0x8d00, 'CharPointUpdate_NT', r => {
   const entity = r.vi32(), f = r.u8(); const values = {};
   for (const bit of [0, 1]) if (f & (1 << bit)) r.list(x => { const id = x.u8(); values[id] = bit ? safeNumber(x.i64()) : x.i32(); });
-  return [{ type: 'hp', entity, hp: values[0], maxHp: values[7] }];
+  return values[0] === undefined ? [] : [{ type: 'hp', entity, hp: values[0], maxHp: values[7] }];
 });
 define(0x8d04, 'CharDie_NT', r => { const entity = r.vi32(); r.i32(); r.vi32(); r.u16(); r.str(); r.str(); r.u16(); r.vi32(); r.i32(); r.u8(); r.u8(); return [{ type: 'death', entity }]; });
 define(0x8d21, 'CombatStateUpdate_NT', r => { const entity = r.vi32(), f = r.u8(), combat = r.u8(); optional(f, 0, () => r.i64()); return [{ type: 'combat-state', entity, inCombat: combat !== 0 }]; });
+define(0xe005, 'UpdateGroggyInfo_NT', r => {
+  const entity=r.vi32(), flags=r.u8(); r.u8();
+  const max=optional(flags,0,()=>r.i32()), current=optional(flags,1,()=>r.i32());
+  optional(flags,2,()=>r.i32()); optional(flags,3,()=>r.i64()); optional(flags,4,()=>r.i64());
+  r.bool(); optional(flags,5,()=>r.i64()); r.bool();
+  if(entity<=0||max<0||current<0)throw new WireError('Invalid stagger state');
+  return [{type:'stagger',entity,max,current}];
+});
+define(0x572e, 'PartyDungeonRewardMiddleBossKill_NT', r => [{type:'dungeon-boss-killed',npc:r.i32()}]);
 define(0x9200, 'PartyInfo_NT', r => party(r));
 for (const [opcode, name] of [[0x920d, 'PartyAddMember_NT'], [0x9222, 'PartyReconnectMember_NT']]) define(opcode, name, r => [{ type: 'roster-add', members: [member(r)] }]);
 define(0x9219, 'PartyKickout_NT', r => { r.bool(); return [{ type: 'party-left' }]; });
@@ -194,7 +203,10 @@ define(0x961a, 'ForceDisband_NT', () => [{ type: 'party-left' }]);
 define(0x962e, 'ForceLeave_NT', r => { r.i64(); r.u8(); return [{ type: 'party-left' }]; });
 for (const opcode of [0x921b, 0x962b]) define(opcode, 'MemberHPMP_NT', r => {
   const entity = r.vi32(), hp = safeNumber(r.vi64()), maxHp = safeNumber(r.vi64()); r.skip(24); r.bool();
-  return [{ type: 'hp', entity, hp, maxHp }];
+  if (entity <= 0 || hp < 0 || maxHp < 0) throw new WireError('Invalid party member HP');
+  // These messages are sent for party/force members, not arbitrary nearby
+  // characters. Preserve that evidence even if the initial roster was missed.
+  return [{ type: 'party-member', entity, hp, maxHp }];
 });
 
 export const packetCoverage = () => [...readers].map(([opcode, v]) => ({ opcode, name: v.name, validation: v.complete ? 'full' : 'prefix' }));

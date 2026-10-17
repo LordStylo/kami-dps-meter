@@ -22,7 +22,7 @@ const clients = new Set();
 function view() {
   const live = meter.snapshot({ scope, target });
   const displayMeter = !meter.hits.length && meter.lastFight ? meter.lastFight : meter;
-  return { app: 'aion-dps-lab', mode, scope, target, capture: captureHealth(capture,workerStatusAt), source, comparison, research, cubes, current: live,
+  return { app: 'aion-dps-lab', mode, scope, target, combat: meter.combatState(), party: meter.partyState(), capture: captureHealth(capture,workerStatusAt), source, comparison, research, cubes, current: live,
     last: displayMeter !== meter ? displayMeter.snapshot({ scope, target }) : null,
     availableTargets: displayMeter.snapshot({ scope }).targets,
     history: meter.history.map(h => ({ id:h.id,damage:h.damage,seconds:h.seconds,reason:h.reason })),

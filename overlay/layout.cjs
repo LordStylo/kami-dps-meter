@@ -1,11 +1,24 @@
-const sizes={dps:{width:400,height:360},cube:{width:320,height:148}};
+const sizes={dps:{width:320,height:250},cube:{width:206,height:206},controls:{width:44,height:44}};
 const BAR_HEIGHT=36;
+const SETTINGS_HEIGHT=232,DEFAULT_TRANSPARENCY=8;
+const transparencyFor=value=>typeof value==='number'&&Number.isFinite(value)?Math.max(0,Math.min(100,Math.round(value))):DEFAULT_TRANSPARENCY;
+const dpsLimits={minWidth:260,minHeight:180,maxWidth:800,maxHeight:800};
+function dpsSize(saved){
+ const dimension=(key,min,max)=>Number.isFinite(saved?.[key])?Math.max(min,Math.min(max,Math.round(saved[key]))):sizes.dps[key];
+ return {width:dimension('width',dpsLimits.minWidth,dpsLimits.maxWidth),height:dimension('height',dpsLimits.minHeight,dpsLimits.maxHeight)};
+}
+function resizeBounds(start,delta,area){
+ const maxWidth=Math.max(1,Math.min(dpsLimits.maxWidth,area.x+area.width-start.x));
+ const maxHeight=Math.max(1,Math.min(dpsLimits.maxHeight,area.y+area.height-start.y));
+ const clamp=(value,min,max)=>Math.max(Math.min(min,max),Math.min(max,Math.round(value)));
+ return {x:start.x,y:start.y,width:clamp(start.width+delta.x,dpsLimits.minWidth,maxWidth),height:clamp(start.height+delta.y,dpsLimits.minHeight,maxHeight)};
+}
 function boundsFor(panel,saved,area){
- const size=sizes[panel];
+ const size=panel==='dps'?dpsSize(saved):panel==='controls'&&saved?.controlsOpen?{width:224,height:212}:sizes[panel];
  const collapsed=panel==='dps'&&saved?.collapsed===true;
- const width=Math.min(size.width,area.width),height=collapsed?BAR_HEIGHT:Math.min(size.height,area.height);
- const fallback={x:area.x+24,y:panel==='cube'?area.y+72:area.y+area.height-height-24};
+ const width=Math.min(size.width,area.width),height=panel==='dps'&&saved?.settingsOpen?Math.min(SETTINGS_HEIGHT,area.height):collapsed?BAR_HEIGHT:Math.min(size.height,area.height);
+ const fallback={x:area.x+24,y:panel==='controls'?area.y+16:panel==='cube'?area.y+72:area.y+area.height-height-24};
  const value=(k)=>Number.isFinite(saved?.[k])?Math.round(saved[k]):fallback[k];
  return {x:Math.max(area.x,Math.min(value('x'),area.x+area.width-width)),y:Math.max(area.y,Math.min(value('y'),area.y+area.height-height)),width,height};
 }
-module.exports={sizes,BAR_HEIGHT,boundsFor};
+module.exports={sizes,BAR_HEIGHT,boundsFor,transparencyFor,dpsSize,resizeBounds};

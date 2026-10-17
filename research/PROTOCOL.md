@@ -98,6 +98,7 @@ Kalkan mesajındaki remaining değerini hasar saymamak gerekir. Süreli iyileşt
 - Scan listesi bulunan parti varyantı kurulu referansta da tamamlanmamış okuyucuya düşüyor. Prototip bu varyantı açıkça desteklenmiyor olarak sayar.
 - Raid/force: `0x9602`, `0x960a`, `0x961b`, `0x9622`; üyeleri parti benzeri key/dbid eşleştirmesiyle takip etmek gerekir.
 - Bölge değişiminde entity key'ler yeniden kullanılabilir. Eski sahiplik ve kimlik önbelleğini yeni bölgeye taşımamak gerekir.
+- `0x921b` / `0x962b` parti/force HP mesajları yalnızca HP değil, üyelik kanıtı olarak da kullanılır. Bölge değişiminde entity key'ler atılır; doğrulanmış dbid veya isim+sunucu kimliği tutulup yeni görünme mesajıyla bağlanır. Bu, eksik scan-list roster yüzünden yakalanan parti hasarının filtrede kaybolmasını önler. Sıradan HP mesajı üyelik sayılmaz; ayrılma/atılma kimliği temizler.
 
 Sınıf kodu için incelenen dönüşüm: `floor((pcId - 1) / 4)`; 1 Gladiator, 2 Templar, 3 Ranger, 4 Assassin, 5 Elementalist, 6 Sorcerer, 7 Cleric, 8 Chanter, 11 Fighter. Eşleşmeyen değerler isim uydurulmadan gösterilir.
 
@@ -105,7 +106,25 @@ Sınıf kodu için incelenen dönüşüm: `floor((pcId - 1) / 4)`; 1 Gladiator, 
 
 Referansın seçilmiş hedef/oyuncu kapsamındaki DPS paydası `max(1 saniye, son hasar zamanı − ilk hasar zamanı)` olarak bulunmuştur. Aynı kapsamdaki bütün oyuncular ortak süre kullanır. İlk prototip bu açık tanımı uygular. Canlı ekranın saatine göre sürekli artan payda kullanılmaz.
 
-Karşılaşmalar ilk oyuncu hasarıyla başlar; prototipte 15 saniye oyuncu hasarı yokluğu veya bölge değişimiyle kapanır. Bu, referansın boss veritabanı, wipe, scripted despawn ve rDPS sisteminin tümünü yeniden üretmez. Hedef filtresiyle birden çok düşmanın hasarı ayrılabilir.
+Karşılaşma kuralları kurulu Questlog 0.1.24'ün statik incelemesindeki davranışa göre uygulanır:
+
+- Kendi karakteri biliniyorsa yeni karşılaşmayı yalnızca kendi/parti hasarı başlatır. Aktif karşılaşmada diğer oyuncular da toplanıp kapsam filtresiyle ayrılabilir. Yakalamaya ortadan katılıp kendi görünme paketini kaçırdığımız durumda kimlik toparlanana kadar hasar toplamaya devam edilir; bu açık bir kurtarma farkıdır.
+- Boss kataloğu `data/bosses.json` içindedir; kaynak ve indirme zamanı dosyada bulunur. `0xe005` groggy güncellemesi de NPC'yi boss olarak tanımlar. Görünme paketinin sonundaki groggy alanları henüz okunmadığı için katalogda olmayan ve güncelleme göndermeyen boss tanınmayabilir.
+- Parti hedefi boss için **ölüm olayı** hemen `kill` ile bitirir. Yalnızca HP=0 veya zindan ödül bildirimi bitiş sayılmaz. Normal yaratık ölümü: tüm parti hedefleri öldüğünde, parti savaş durumu bilinmiyorsa kapanır; biliniyorsa parti savaş çıkışı beklenir.
+- Normal savaşta bilinen katılımcıların hepsi savaş dışındaysa anında kapanır; bilinmeyen durumlar hesaba katılmaz. Boss varken kendi karakterinin savaş çıkışı karşılaşmayı bölmez. Hedeflerin tamamı öldü/savaş dışıysa boss karşılaşması `kill`/`wipe` ile biter.
+- Hasar almış boss HP'sinin tam dolması `wipe` sayılır. Boss kaybolması: `died` (3) ölüm olayını bekler; `despawned` (7) ve katalogdaki scripted-exit işareti `despawn`; diğerleri `wipe`. Sıradan yaratığın kaybolması tek başına bitirmez.
+- Son parti vuruşundan itibaren normal bekleme sınırı **15 saniye**; periyodik kontrolde parti boss hedefi varsa **90 saniye**. Yeni vuruştan önceki kontrolde 90 saniye yalnızca hayattaki bossun savaşta olduğu açıkça biliniyorsa kullanılır. Yakındaki yabancı oyuncular bu süreyi uzatmaz. Bölge değişimi `zone` ile kapatır.
+- Bitiş olayının zamanı/hasarsız bekleme DPS paydasına eklenmez. Seçili kapsamdaki olay sırasının ilk ve son hasarı kullanılır; alt sınır bir saniyedir. Kaybolan petin devam eden DoT'u sahibine yazılır; yeni appearance veya bölge değişimi eski sahipliği değiştirir.
+
+Pencere görünürlüğü karşılaşma hesabından ayrıdır: kendi karakterinin combat-state değeri varsa DPS overlay buna göre gizlenir/açılır; bilgi yoksa aktif karşılaşmaya döner. Boss arası savaş dışı durumu pencereyi gizleyebilir fakat tek başına boss hasarını silmez. Son savaş tarayıcıda korunur.
+
+Kaçırılmış bir combat-enter paketi sonrası eski `false` bilgisinin yeni vuruşu gizlememesi için, durum olayından sonra kabul edilen doğrudan kendi saldırısı 3 saniyelik görünürlük sağlar. Eşit zaman damgalarında olay işleme sırası kullanılır. Daha sonraki `false`, süre dolmasını beklemeden öncelik alır; pet/DoT/yabancı hasarı bu kanıtı üretmez. Bu, hesaplama veya karşılaşma bitirme kuralı değildir.
+
+İyileştirme miktarları mevcut doğrudan/periyodik heal olaylarından toplanır. Sahiplik ve üyelik olay anında kaydedilir; partinin ortak ilk/son hasar süresi HPS paydasıdır. Sadece iyileştirme yapan katılımcılar ayrı `healers` listesinde görünür, DPS sıralamasını değiştirmez. Düşman hedef filtresi iyileştirmeye uygulanmaz; hedef alanı iyileştirilen dosttur. Paketlerdeki miktar için effective/overheal ayrımı yapılmaz ve kritik yüzdesi üretilmez. İyileştirme tek başına karşılaşma başlatmaz veya bekleme süresini uzatmaz.
+
+`scripts/validate-encounters.mjs`, yerel ayrıştırılmış Questlog günlüklerini baştan sona kendi motorumuzdan geçirir; başlangıç/bitiş zamanlarını kesmeden otomatik sınırları, toplam/oyuncu hasarını ve bitiş nedenini kayıtlarla karşılaştırır. 17 Ekim 2026'da altı günlükteki **27/27** kayıt eşleşti (kill ve wipe dahil). Bu, ham ağ yakalamasındaki tüm paketlerin veya bütün boss mekaniklerinin eşitliğini kanıtlamaz. rDPS katkı modeli ve eksik-yakalama tahminleri uygulanmaz.
+
+Kayıttan inceleme, kaydedilmiş hedef **ve katılımcı** kapsamını uygular; aksi halde açık dünya bossunda yakın yabancıların hasarı kaydın parti/self toplamına eklenir.
 
 `data/effect-types.json` sürüme bağlı sayısal effect sınıflandırma verisidir. Oyun yaması sonrası bunun ve alan şemalarının tekrar doğrulanması gerekir. Bilinmeyen opcode'lar ve ayrıştırma hataları tanı sayaçlarında görünür.
 

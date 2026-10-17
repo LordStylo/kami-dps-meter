@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       koffi:
-        specifier: 2.15.2
-        version: 2.15.2
+        specifier: 2.16.3
+        version: 2.16.3
     devDependencies:
       prettier:
         specifier: 3.6.2
@@ -18,8 +18,8 @@ importers:
 
 packages:
 
-  koffi@2.15.2:
-    resolution: {integrity: sha512-r9tjJLVRSOhCRWdVyQlF3/Ugzeg13jlzS4czS82MAgLff4W+BcYOW7g8Y62t9O5JYjYOLAjAovAZDNlDfZNu+g==}
+  koffi@2.16.3:
+    resolution: {integrity: sha512-E9y1AsgYGlaxMhcZzHr8y96QF2U5XzA12GGVAfbWqIubTwPNMXQarfBzePNXHe0xtIEtNd6ifAv3GAKYGUeBAQ==}
 
   prettier@3.6.2:
     resolution: {integrity: sha512-I7AIg5boAr5R0FFtJ6rCfD+LFsWHp81dolrFD8S79U9tb8Az2nGrJncnMSnys+bpQJfRUzqs9hnA81OAA3hCuQ==}
@@ -28,6 +28,6 @@ packages:
 
 snapshots:
 
-  koffi@2.15.2: {}
+  koffi@2.16.3: {}
 
   prettier@3.6.2: {}

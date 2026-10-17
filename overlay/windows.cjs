@@ -1,12 +1,10 @@
-// Only Windows process metadata, foreground ownership and two input states.
+// Only Windows process metadata, foreground ownership and interaction/switch keys.
 // No process memory, hooks, injected input or game modifications.
 const koffi=require('koffi');
 const user=koffi.load('user32.dll'),kernel=koffi.load('kernel32.dll'),security=koffi.load('advapi32.dll');
 const foreground=user.func('uintptr __stdcall GetForegroundWindow()');
 const windowPid=user.func('uint32 __stdcall GetWindowThreadProcessId(uintptr window, _Out_ uint32 *pid)');
 const key=user.func('int16 __stdcall GetAsyncKeyState(int key)');
-const validWindow=user.func('int __stdcall IsWindow(uintptr window)');
-const setForeground=user.func('int __stdcall SetForegroundWindow(uintptr window)');
 const snapshot=kernel.func('uintptr __stdcall CreateToolhelp32Snapshot(uint32 flags, uint32 pid)');
 const first=kernel.func('int __stdcall Process32FirstW(uintptr snapshot, void *entry)');
 const next=kernel.func('int __stdcall Process32NextW(uintptr snapshot, void *entry)');
@@ -26,6 +24,5 @@ function elevated(pid){
  const handle=open(0x1000,0,pid),out=[0];if(!handle)return null;
  try{if(!token(handle,8,out))return null;try{const b=Buffer.alloc(4);return info(out[0],20,b,4,[0])?b.readUInt32LE(0)!==0:null;}finally{close(out[0]);}}finally{close(handle);}
 }
-function input(){const pid=[0],window=foreground();windowPid(window,pid);return {foregroundWindow:window,foregroundPid:pid[0],alt:!!(key(0x12)&0x8000),left:!!(key(1)&0x8000)};}
-function restoreGame(window,pids){if(!window||!validWindow(window))return false;const pid=[0];windowPid(window,pid);return pids.has(pid[0])&&!!setForeground(window);}
-module.exports={gamePids,elevated,input,restoreGame};
+function input(){const pid=[0],window=foreground();windowPid(window,pid);return {foregroundWindow:window,foregroundPid:pid[0],alt:!!(key(0x12)&0x8000),left:!!(key(1)&0x8000),tab:!!(key(0x09)&0x8000),escape:!!(key(0x1b)&0x8000),windows:!!((key(0x5b)|key(0x5c))&0x8000)};}
+module.exports={gamePids,elevated,input};

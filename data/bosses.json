@@ -1,0 +1,6791 @@
+{
+  "source": "https://questlog.gg/aion-2/api/trpc/combatLog.catalog.bosses",
+  "retrievedAt": "2026-10-17T03:26:12.9548751Z",
+  "bosses": [
+    {
+      "npc": 2090027,
+      "name": "Monster (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090161,
+      "name": "Test_M_EtheriaRift_Gartua_01_Obj",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090175,
+      "name": "Fediv Wraith",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090216,
+      "name": "Test_Sandback_01",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090218,
+      "name": "Test_Sandback_03",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090222,
+      "name": "Sealed Sura",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090223,
+      "name": "Sealed Sura",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090224,
+      "name": "Sealed Sura",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090225,
+      "name": "Sealed Sura",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090226,
+      "name": "Sealed Sura",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090227,
+      "name": "Sealed Sura",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090228,
+      "name": "Sealed Sura",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090229,
+      "name": "Sealed Sura",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090230,
+      "name": "Sealed Sura",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090231,
+      "name": "Sealed Sura",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090232,
+      "name": "Aultross",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090233,
+      "name": "Aultross",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090234,
+      "name": "Aultross",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090235,
+      "name": "Aultross",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090236,
+      "name": "Aultross",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090237,
+      "name": "Aultross",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090238,
+      "name": "Aultross",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090239,
+      "name": "Aultross",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090240,
+      "name": "Aultross",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090241,
+      "name": "Aultross",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090269,
+      "name": "Monster (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090270,
+      "name": "Monster (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090271,
+      "name": "Monster (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090275,
+      "name": "Monster (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090276,
+      "name": "Test_Owltros_01_V01_Summon_02",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090277,
+      "name": "Monster (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090397,
+      "name": "Monster (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090401,
+      "name": "Elyos Core",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090402,
+      "name": "Asmodian Core",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090428,
+      "name": "Transcendent Bakarma",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090433,
+      "name": "Fediv Wraith",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090435,
+      "name": "Fediv Wraith",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090437,
+      "name": "Test_FireGuard_01_Skill03_Casting_Obj",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090458,
+      "name": "Punching Bag",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090553,
+      "name": "Stagger Test_Persistent",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090554,
+      "name": "Stagger Test_Temporary_StaggerGuard",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090555,
+      "name": "Stagger Test_Temporary_StaggerAttack",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090623,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090680,
+      "name": "High Priestess's Illusion",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090681,
+      "name": "High Priestess's Illusion",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090682,
+      "name": "High Priestess's Illusion",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090691,
+      "name": "Monster (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090692,
+      "name": "Monster (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090718,
+      "name": "Nathara",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090719,
+      "name": "Eternal Ludra",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090720,
+      "name": "Terminator Bargott",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2090773,
+      "name": "Training Scarecrow (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2100003,
+      "name": "Neikel of the East",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2100027,
+      "name": "Collapsed Kouros",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2100040,
+      "name": "Rotten Kutar",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2100050,
+      "name": "Kernon of the West",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2100076,
+      "name": "Kusan the Mad Gladiator",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2100077,
+      "name": "Ritualist Garshim",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2100079,
+      "name": "Bodyguard Teegant",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2100141,
+      "name": "Blooming Korin",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2100177,
+      "name": "Furious Saursus",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2100178,
+      "name": "Bloodfang Pnyn",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2100582,
+      "name": "Heretic Layla",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2100604,
+      "name": "Nauton of the West Wind",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2100617,
+      "name": "Black Tentacle Lawa",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2100661,
+      "name": "Phantasm Kasia",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2100708,
+      "name": "Centurion Demiros",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2100718,
+      "name": "Divine Ansas",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2100875,
+      "name": "Overseer Gaztan",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2100876,
+      "name": "Harvest Manager Moshav",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2100877,
+      "name": "Sentinel K'nash",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2100988,
+      "name": "Scholar Aulla",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2100989,
+      "name": "Forest Warrior Aullamu",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2100990,
+      "name": "Dragon Shaman Maullard",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2100991,
+      "name": "Chaser Taulo",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101016,
+      "name": "Researcher Setram",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101074,
+      "name": "Eternal Gartua",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101104,
+      "name": "Worshiper Dekish",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101105,
+      "name": "Scouter Sahar",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101106,
+      "name": "Destroyer Tarka",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101107,
+      "name": "Watcher Sandha",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101108,
+      "name": "Personal Guard Irima",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101109,
+      "name": "Cold-Hearted Kandak",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101110,
+      "name": "Hunter Danahan",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101111,
+      "name": "Heartless Mozant",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101112,
+      "name": "Enraged Karsha",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101113,
+      "name": "Watcher Krache",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101114,
+      "name": "Executioner Nemok",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101115,
+      "name": "Officer Barha",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101116,
+      "name": "Cunning Dmark",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101117,
+      "name": "Scout Bagsh",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101118,
+      "name": "Tracker Dazran",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101120,
+      "name": "Silent Dartan",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101122,
+      "name": "Soul Ruler Kashapa",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101128,
+      "name": "Catecoa",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101131,
+      "name": "High Commander Lagta",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101217,
+      "name": "Agglomerated Verenom",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101218,
+      "name": "Old Boss Vigor",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101257,
+      "name": "Severed Wings Zvein",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101278,
+      "name": "Gluttonous Egetis",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101279,
+      "name": "Superbia, Sacred Beast of Life",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101306,
+      "name": "Rotten Root Meltlim",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101349,
+      "name": "Rabid Nihogg",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101350,
+      "name": "First Test Subject K'tima",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101415,
+      "name": "Three-Horned Mino",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101416,
+      "name": "Lamphus of Agony",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101600,
+      "name": "Third Unit Captain Karkoti",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101601,
+      "name": "Deputy Commander Vivajra",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2101602,
+      "name": "High Commander Taruna",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2110000,
+      "name": "Old Commander Mardel",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2110016,
+      "name": "Deputy Romlon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2110300,
+      "name": "Executor Selmar",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2110311,
+      "name": "Carlotte the Renegade",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2110350,
+      "name": "Leader Tyrkes",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2110360,
+      "name": "Captain Ugaros",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2110370,
+      "name": "Leader Miros",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2110377,
+      "name": "Leader Miros",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2110380,
+      "name": "Wanted Criminal Lofman",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2110390,
+      "name": "Wanted Criminal Gargos",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2110399,
+      "name": "Rogue Rogherr",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2110410,
+      "name": "Patrol Captain Mantasch",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2110418,
+      "name": "Poison Fluid Sabga",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2110437,
+      "name": "Expedition Leader Cohta",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2110443,
+      "name": "Outpost Captain Sehna",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2110453,
+      "name": "Commanding Captain Maktasha",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2110465,
+      "name": "Raider Paitron",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2110470,
+      "name": "Leader Hernon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2110515,
+      "name": "Fanatic Dvahn",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2110516,
+      "name": "Ascetic Narat",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2110517,
+      "name": "Truthseeker Taneetch",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2110518,
+      "name": "Executioner Varkash",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2110519,
+      "name": "Gruesome Moratya",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2110520,
+      "name": "Unyielding Batagon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2110521,
+      "name": "Swift Xanag",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2110600,
+      "name": "Lunatic Researcher Sellutey",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2110619,
+      "name": "Digunaka",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2110620,
+      "name": "Digunaka",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2110640,
+      "name": "Outpost Captain Tarakha",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2200031,
+      "name": "Bandit Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2200060,
+      "name": "Aullaeu Vagrant Boss",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2200101,
+      "name": "Rampaging High Guardite",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2200103,
+      "name": "Zumion's Projection",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2200104,
+      "name": "Zumion's Projection",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2200108,
+      "name": "Furious High Priestess's Apparition",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2200146,
+      "name": "Giant Venomous Insect",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2290156,
+      "name": "Tyrant Ursus",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2290158,
+      "name": "Aulamus",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300000,
+      "name": "Submerged Emon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300001,
+      "name": "Deep Sea Pydeon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300002,
+      "name": "Singing Ellyde",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300015,
+      "name": "Submerged Emon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300016,
+      "name": "Deep Sea Pydeon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300017,
+      "name": "Singing Ellyde",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300030,
+      "name": "Submerged Emon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300031,
+      "name": "Deep Sea Pydeon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300032,
+      "name": "Singing Ellyde",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300045,
+      "name": "Submerged Emon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300046,
+      "name": "Deep Sea Pydeon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300047,
+      "name": "Singing Ellyde",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300060,
+      "name": "Submerged Emon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300061,
+      "name": "Deep Sea Pydeon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300062,
+      "name": "Singing Ellyde",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300075,
+      "name": "Submerged Emon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300076,
+      "name": "Deep Sea Pydeon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300077,
+      "name": "Singing Ellyde",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300090,
+      "name": "Submerged Emon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300091,
+      "name": "Deep Sea Pydeon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300092,
+      "name": "Singing Ellyde",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300104,
+      "name": "Enhanced Harcon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300108,
+      "name": "Neglected Gadioton",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300116,
+      "name": "Submerged Emon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300117,
+      "name": "Deep Sea Pydeon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300118,
+      "name": "Singing Ellyde",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300131,
+      "name": "Submerged Emon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300132,
+      "name": "Deep Sea Pydeon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300133,
+      "name": "Singing Ellyde",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300153,
+      "name": "Manager Nasium",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300154,
+      "name": "Broodkeeper Nayatman",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300155,
+      "name": "Decaying Durvati",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300162,
+      "name": "Durvati's Poison Fluid",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300171,
+      "name": "Ultimate Berk",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300172,
+      "name": "Ultimate Berk",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300173,
+      "name": "Ultimate Berk",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300174,
+      "name": "Ultimate Berk",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300175,
+      "name": "M_PD_Krao_Boss_Invisible_01",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300176,
+      "name": "M_PD_Krao_Boss_Invisible_02",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300177,
+      "name": "M_PD_Krao_Boss_Invisible_03",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300178,
+      "name": "Ultimate Berk",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300179,
+      "name": "M_PD_Krao_Berc_Type02_Invisible_Skill01_2p",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300180,
+      "name": "M_PD_Krao_Berc_Type02_Invisible_Skill01_4p",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300182,
+      "name": "M_PD_Krao_Berc_Type02_Invisible_Skill02",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300188,
+      "name": "Awakened Alturadon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300189,
+      "name": "Wise Baumnute",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300190,
+      "name": "Expanding Xyrepe",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300200,
+      "name": "Awakened Alturadon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300206,
+      "name": "Guardian Captain Raur",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300207,
+      "name": "Judge Urahum",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300218,
+      "name": "Divine Auldor",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300219,
+      "name": "Wise Baumnute",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300230,
+      "name": "Expanding Xyrepe",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300243,
+      "name": "Awakened Alturadon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300244,
+      "name": "Wise Baumnute",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300245,
+      "name": "Expanding Xyrepe",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300258,
+      "name": "Ordeal of Love",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300259,
+      "name": "Rotar",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300260,
+      "name": "Robstino",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300261,
+      "name": "Kromede's Desolation",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300276,
+      "name": "Ordeal of Love",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300299,
+      "name": "Rotar",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300300,
+      "name": "Robstino",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300310,
+      "name": "Silver Blade Rotan",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300311,
+      "name": "Red Spark Ignus",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300312,
+      "name": "Black Smoke Murute",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300317,
+      "name": "Kromede's Desolation",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300333,
+      "name": "Ordeal of Love",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300334,
+      "name": "Rotar",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300335,
+      "name": "Robstino",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300336,
+      "name": "Kromede's Desolation",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300352,
+      "name": "Ordeal of Love",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300353,
+      "name": "Rotar",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300354,
+      "name": "Robstino",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300355,
+      "name": "Kromede's Desolation",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300364,
+      "name": "M_PD_MirrorHeart_G_01_Cromede_01_V02_002",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300365,
+      "name": "M_PD_MirrorHeart_G_02_Cromede_01_V02_002",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300367,
+      "name": "M_PD_MirrorHeart_G_03_Cromede_01_V02_002",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300368,
+      "name": "M_PD_MirrorHeart_G_04_Cromede_01_V02_002",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300371,
+      "name": "Kromede's Desire",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300397,
+      "name": "Ordeal of Love",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300398,
+      "name": "Ordeal of Love",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300399,
+      "name": "Ordeal of Love",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300400,
+      "name": "Ordeal of Love",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300401,
+      "name": "Phantasmal Lakshmi",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300403,
+      "name": "Predator Saraswati",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300470,
+      "name": "Afflicted Bakarma",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300471,
+      "name": "Transcendent Bakarma",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300473,
+      "name": "Kapu",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300474,
+      "name": "Dhakan",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300475,
+      "name": "Gargaum",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300491,
+      "name": "Kapu",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300492,
+      "name": "Dhakan",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300493,
+      "name": "Gargaum",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300502,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300507,
+      "name": "Manager Nasium",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300508,
+      "name": "Broodkeeper Nayatman",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300509,
+      "name": "Decaying Durvati",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300515,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300517,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300519,
+      "name": "Durvati's Poison Fluid",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300527,
+      "name": "Kapu",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300528,
+      "name": "Dhakan",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300529,
+      "name": "Gargaum",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300544,
+      "name": "Kapu",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300545,
+      "name": "Dhakan",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300546,
+      "name": "Gargaum",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300580,
+      "name": "Tiere",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300581,
+      "name": "Thamon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300582,
+      "name": "Vakron",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300601,
+      "name": "Atiel",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300615,
+      "name": "Nazmun",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300616,
+      "name": "Gelcos",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300707,
+      "name": "Siliator of Deceit",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300708,
+      "name": "Ruthilis of Pain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300709,
+      "name": "Talisra of the Void",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300810,
+      "name": "Tiere",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300811,
+      "name": "Thamon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300812,
+      "name": "Vakron",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300907,
+      "name": "Shining Mau Totem",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300908,
+      "name": "Watchdog Kwapo",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300909,
+      "name": "Necromancer Duanka",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2300910,
+      "name": "Ferocious Horn Nuakum",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301006,
+      "name": "Isolation Specialist Rahu",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301007,
+      "name": "Abyssal Wings Ketu",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301008,
+      "name": "Central Abyss Fusion Reactor",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301014,
+      "name": "Eternal Ludra",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301055,
+      "name": "Blazing Guardian Sword",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301059,
+      "name": "Iscariel",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301060,
+      "name": "Kaldrix",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301061,
+      "name": "Kaldrix",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301067,
+      "name": "Blazing Guardian Sword",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301085,
+      "name": "Blazing Guardian Sword",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301089,
+      "name": "Iscariel",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301090,
+      "name": "Kaldrix",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301091,
+      "name": "Kaldrix",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301097,
+      "name": "Blazing Guardian Sword",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301207,
+      "name": "Black Blood Blatt",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301208,
+      "name": "Terminator Bargott",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301209,
+      "name": "Devouring Klawfly",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301216,
+      "name": "Surveillance Device",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301301,
+      "name": "Afflicted Bakarma",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301302,
+      "name": "Multiverse Veltiras",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301303,
+      "name": "Solemn Valkan",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301401,
+      "name": "Glassvein",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301402,
+      "name": "Nazarak",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301403,
+      "name": "Nathara",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301415,
+      "name": "M_PD_PhantomsHall_Invisible_01_Easy",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301416,
+      "name": "M_PD_PhantomsHall_Invisible_02_Easy",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301501,
+      "name": "Submerged Emon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301502,
+      "name": "Deep Sea Pydeon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301503,
+      "name": "Singing Ellyde",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301601,
+      "name": "Willful Turgen",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301602,
+      "name": "Forbidden Hexbeast Griosa",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301603,
+      "name": "Basilus the False",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301701,
+      "name": "Willful Turgen",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301702,
+      "name": "Forbidden Hexbeast Griosa",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301703,
+      "name": "Basilus the False",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301721,
+      "name": "Willful Turgen",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301722,
+      "name": "Forbidden Hexbeast Griosa",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2301723,
+      "name": "Basilus the False",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310104,
+      "name": "Enhanced Harcon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310108,
+      "name": "Neglected Gadioton",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310171,
+      "name": "Ultimate Berk",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310172,
+      "name": "Ultimate Berk",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310173,
+      "name": "Ultimate Berk",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310174,
+      "name": "Ultimate Berk",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310175,
+      "name": "M_PD_Krao_Boss_Invisible_01_Easy",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310176,
+      "name": "M_PD_Krao_Boss_Invisible_02_Easy",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310177,
+      "name": "M_PD_Krao_Boss_Invisible_03_Easy",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310178,
+      "name": "Ultimate Berk",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310179,
+      "name": "M_PD_Krao_Berc_Type02_Invisible_Skill01_2p_Easy",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310180,
+      "name": "M_PD_Krao_Berc_Type02_Invisible_Skill01_4p_Easy",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310182,
+      "name": "M_PD_Krao_Berc_Type02_Invisible_Skill02_Easy",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310206,
+      "name": "Guardian Captain Raur",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310207,
+      "name": "Judge Urahum",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310218,
+      "name": "Divine Auldor",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310310,
+      "name": "Silver Blade Rotan",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310311,
+      "name": "Red Spark Ignus",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310312,
+      "name": "Black Smoke Murute",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310371,
+      "name": "Kromede's Desire",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310401,
+      "name": "Phantasmal Lakshmi",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310403,
+      "name": "Predator Saraswati",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310470,
+      "name": "Afflicted Bakarma",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310471,
+      "name": "Transcendent Bakarma",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310502,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310507,
+      "name": "Manager Nasium",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310508,
+      "name": "Broodkeeper Nayatman",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310509,
+      "name": "Decaying Durvati",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310515,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310517,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310519,
+      "name": "Durvati's Poison Fluid",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310601,
+      "name": "Atiel",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310615,
+      "name": "Nazmun",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310616,
+      "name": "Gelcos",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310810,
+      "name": "Tiere",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310811,
+      "name": "Thamon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310812,
+      "name": "Vakron",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310907,
+      "name": "Shining Mau Totem",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310908,
+      "name": "Watchdog Kwapo",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310909,
+      "name": "Necromancer Duanka",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2310910,
+      "name": "Ferocious Horn Nuakum",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2311301,
+      "name": "Afflicted Bakarma",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2311302,
+      "name": "Multiverse Veltiras",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2311303,
+      "name": "Solemn Valkan",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2311401,
+      "name": "Glassvein",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2311402,
+      "name": "Nazarak",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2311403,
+      "name": "Nathara",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2311416,
+      "name": "M_PD_PhantomsHall_Invisible_01",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2311417,
+      "name": "M_PD_PhantomsHall_Invisible_02",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320104,
+      "name": "Enhanced Harcon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320108,
+      "name": "Neglected Gadioton",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320171,
+      "name": "Ultimate Berk",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320172,
+      "name": "Ultimate Berk",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320173,
+      "name": "Ultimate Berk",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320174,
+      "name": "Ultimate Berk",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320175,
+      "name": "M_PD_Krao_Boss_Invisible_01_hard",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320176,
+      "name": "M_PD_Krao_Boss_Invisible_02_hard",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320177,
+      "name": "M_PD_Krao_Boss_Invisible_03_hard",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320178,
+      "name": "Ultimate Berk",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320179,
+      "name": "M_PD_Krao_Berc_Type02_Invisible_Skill01_2p_hard",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320180,
+      "name": "M_PD_Krao_Berc_Type02_Invisible_Skill01_4p_hard",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320182,
+      "name": "M_PD_Krao_Berc_Type02_Invisible_Skill02_hard",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320206,
+      "name": "Guardian Captain Raur",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320207,
+      "name": "Judge Urahum",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320218,
+      "name": "Divine Auldor",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320310,
+      "name": "Silver Blade Rotan",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320311,
+      "name": "Red Spark Ignus",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320312,
+      "name": "Black Smoke Murute",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320371,
+      "name": "Kromede's Desire",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320401,
+      "name": "Phantasmal Lakshmi",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320403,
+      "name": "Predator Saraswati",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320470,
+      "name": "Afflicted Bakarma",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320471,
+      "name": "Transcendent Bakarma",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320502,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320507,
+      "name": "Manager Nasium",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320508,
+      "name": "Broodkeeper Nayatman",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320509,
+      "name": "Decaying Durvati",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320515,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320517,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320601,
+      "name": "Atiel",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320615,
+      "name": "Nazmun",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320616,
+      "name": "Gelcos",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320810,
+      "name": "Tiere",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320811,
+      "name": "Thamon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320812,
+      "name": "Vakron",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320907,
+      "name": "Shining Mau Totem",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320908,
+      "name": "Watchdog Kwapo",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320909,
+      "name": "Necromancer Duanka",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2320910,
+      "name": "Ferocious Horn Nuakum",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2321301,
+      "name": "Afflicted Bakarma",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2321302,
+      "name": "Multiverse Veltiras",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2321303,
+      "name": "Solemn Valkan",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2321401,
+      "name": "Glassvein",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2321402,
+      "name": "Nazarak",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2321403,
+      "name": "Nathara",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2321416,
+      "name": "M_PD_PhantomsHall_Invisible_01_Hard",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2321417,
+      "name": "M_PD_PhantomsHall_Invisible_02_Hard",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2321502,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2321507,
+      "name": "Manager Nasium",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2321508,
+      "name": "Broodkeeper Nayatman",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2321509,
+      "name": "Decaying Durvati",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2321515,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2321517,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2322502,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2322507,
+      "name": "Manager Nasium",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2322508,
+      "name": "Broodkeeper Nayatman",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2322509,
+      "name": "Decaying Durvati",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2322515,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2322517,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2323502,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2323507,
+      "name": "Manager Nasium",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2323508,
+      "name": "Broodkeeper Nayatman",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2323509,
+      "name": "Decaying Durvati",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2323515,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2323517,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2324502,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2324507,
+      "name": "Manager Nasium",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2324508,
+      "name": "Broodkeeper Nayatman",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2324509,
+      "name": "Decaying Durvati",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2324515,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2324517,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2325502,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2325507,
+      "name": "Manager Nasium",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2325508,
+      "name": "Broodkeeper Nayatman",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2325509,
+      "name": "Decaying Durvati",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2325515,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2325517,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2326502,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2326507,
+      "name": "Manager Nasium",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2326508,
+      "name": "Broodkeeper Nayatman",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2326509,
+      "name": "Decaying Durvati",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2326515,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2326517,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2327502,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2327507,
+      "name": "Manager Nasium",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2327508,
+      "name": "Broodkeeper Nayatman",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2327509,
+      "name": "Decaying Durvati",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2327515,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2327517,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2328502,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2328507,
+      "name": "Manager Nasium",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2328508,
+      "name": "Broodkeeper Nayatman",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2328509,
+      "name": "Decaying Durvati",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2328515,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2328517,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2329502,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2329507,
+      "name": "Manager Nasium",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2329508,
+      "name": "Broodkeeper Nayatman",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2329509,
+      "name": "Decaying Durvati",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2329515,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2329517,
+      "name": "Decaying Durvati (Specimen)",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2330104,
+      "name": "Enhanced Harcon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2330108,
+      "name": "Neglected Gadioton",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2330171,
+      "name": "Ultimate Berk",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2330206,
+      "name": "Guardian Captain Raur",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2330207,
+      "name": "Judge Urahum",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2330218,
+      "name": "Divine Auldor",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2330310,
+      "name": "Silver Blade Rotan",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2330311,
+      "name": "Red Spark Ignus",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2330312,
+      "name": "Black Smoke Murute",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2330371,
+      "name": "Kromede's Desire",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2330401,
+      "name": "Phantasmal Lakshmi",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2330403,
+      "name": "Predator Saraswati",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2330423,
+      "name": "Afflicted Bakarma",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2330424,
+      "name": "Transcendent Bakarma",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2330601,
+      "name": "Atiel",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2330615,
+      "name": "Nazmun",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2330616,
+      "name": "Gelcos",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2330707,
+      "name": "Siliator of Deceit",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2330708,
+      "name": "Ruthilis of Pain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2330709,
+      "name": "Talisra of the Void",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2340057,
+      "name": "Grandios",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2340158,
+      "name": "Air Raiders Captain Tetrata",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2340255,
+      "name": "Executor of the Magical Sword",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2340601,
+      "name": "Atiel",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2340615,
+      "name": "Nazmun",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2340616,
+      "name": "Gelcos",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2340707,
+      "name": "Siliator of Deceit",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2340708,
+      "name": "Ruthilis of Pain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2340709,
+      "name": "Talisra of the Void",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2341601,
+      "name": "Atiel",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2341615,
+      "name": "Nazmun",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2341616,
+      "name": "Gelcos",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2342601,
+      "name": "Atiel",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2342615,
+      "name": "Nazmun",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2342616,
+      "name": "Gelcos",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2343601,
+      "name": "Atiel",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2343615,
+      "name": "Nazmun",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2343616,
+      "name": "Gelcos",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2344601,
+      "name": "Atiel",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2344615,
+      "name": "Nazmun",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2344616,
+      "name": "Gelcos",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2345107,
+      "name": "Grandios",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2345601,
+      "name": "Atiel",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2345615,
+      "name": "Nazmun",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2345616,
+      "name": "Gelcos",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2346601,
+      "name": "Atiel",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2346615,
+      "name": "Nazmun",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2346616,
+      "name": "Gelcos",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2347601,
+      "name": "Atiel",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2347615,
+      "name": "Nazmun",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2347616,
+      "name": "Gelcos",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2350707,
+      "name": "Siliator of Deceit",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2350708,
+      "name": "Ruthilis of Pain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2350709,
+      "name": "Talisra of the Void",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2351707,
+      "name": "Siliator of Deceit",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2351708,
+      "name": "Ruthilis of Pain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2351709,
+      "name": "Talisra of the Void",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2352707,
+      "name": "Siliator of Deceit",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2352708,
+      "name": "Ruthilis of Pain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2352709,
+      "name": "Talisra of the Void",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2353707,
+      "name": "Siliator of Deceit",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2353708,
+      "name": "Ruthilis of Pain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2353709,
+      "name": "Talisra of the Void",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2354707,
+      "name": "Siliator of Deceit",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2354708,
+      "name": "Ruthilis of Pain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2354709,
+      "name": "Talisra of the Void",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2355707,
+      "name": "Siliator of Deceit",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2355708,
+      "name": "Ruthilis of Pain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2355709,
+      "name": "Talisra of the Void",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2356707,
+      "name": "Siliator of Deceit",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2356708,
+      "name": "Ruthilis of Pain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2356709,
+      "name": "Talisra of the Void",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2357707,
+      "name": "Siliator of Deceit",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2357708,
+      "name": "Ruthilis of Pain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2357709,
+      "name": "Talisra of the Void",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370001,
+      "name": "High Commander Nahid",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370002,
+      "name": "Division Commander Radbima",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370003,
+      "name": "Beritra Air Raiders Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370004,
+      "name": "Beritra Strike Force Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370038,
+      "name": "High Commander Nahid",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370039,
+      "name": "Division Commander Radbima",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370040,
+      "name": "Beritra Air Raiders Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370041,
+      "name": "Beritra Strike Force Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370072,
+      "name": "High Commander Nahid",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370073,
+      "name": "Division Commander Radbima",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370074,
+      "name": "Beritra Air Raiders Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370075,
+      "name": "Beritra Strike Force Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370201,
+      "name": "High Commander Nahid",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370202,
+      "name": "Division Commander Radbima",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370203,
+      "name": "Beritra Air Raiders Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370204,
+      "name": "Beritra Strike Force Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370221,
+      "name": "High Commander Nahid",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370222,
+      "name": "Division Commander Radbima",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370223,
+      "name": "Beritra Air Raiders Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370224,
+      "name": "Beritra Strike Force Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370241,
+      "name": "High Commander Nahid",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370242,
+      "name": "Division Commander Radbima",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370243,
+      "name": "Beritra Air Raiders Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370244,
+      "name": "Beritra Strike Force Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370401,
+      "name": "Quartermaster General Advir",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370402,
+      "name": "Resource Warden Kabira",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370403,
+      "name": "Resource Base Shock Troopers Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370404,
+      "name": "Resource Base Scouts Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370430,
+      "name": "Quartermaster General Advir",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370431,
+      "name": "Resource Warden Kabira",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370432,
+      "name": "Resource Base Shock Troopers Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370433,
+      "name": "Resource Base Scouts Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370460,
+      "name": "Quartermaster General Advir",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370461,
+      "name": "Resource Warden Kabira",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370462,
+      "name": "Resource Base Shock Troopers Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370463,
+      "name": "Resource Base Scouts Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370502,
+      "name": "Quartermaster General Advir",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370503,
+      "name": "Resource Warden Kabira",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370504,
+      "name": "Resource Base Shock Troopers Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370505,
+      "name": "Resource Base Scouts Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370533,
+      "name": "Quartermaster General Advir",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370534,
+      "name": "Resource Warden Kabira",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370535,
+      "name": "Resource Base Shock Troopers Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370536,
+      "name": "Resource Base Scouts Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370564,
+      "name": "Quartermaster General Advir",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370565,
+      "name": "Resource Warden Kabira",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370566,
+      "name": "Resource Base Shock Troopers Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370567,
+      "name": "Resource Base Scouts Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370700,
+      "name": "Quartermaster General Advir",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370701,
+      "name": "Resource Warden Kabira",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370702,
+      "name": "Resource Base Shock Troopers Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370703,
+      "name": "Resource Base Scouts Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370735,
+      "name": "Quartermaster General Advir",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370736,
+      "name": "Resource Warden Kabira",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370737,
+      "name": "Resource Base Shock Troopers Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370738,
+      "name": "Resource Base Scouts Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370770,
+      "name": "Quartermaster General Advir",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370771,
+      "name": "Resource Warden Kabira",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370772,
+      "name": "Resource Base Shock Troopers Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370773,
+      "name": "Resource Base Scouts Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370800,
+      "name": "Quartermaster General Advir",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370801,
+      "name": "Resource Warden Kabira",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370802,
+      "name": "Resource Base Shock Troopers Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370803,
+      "name": "Resource Base Scouts Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370831,
+      "name": "Quartermaster General Advir",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370832,
+      "name": "Resource Warden Kabira",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370833,
+      "name": "Resource Base Shock Troopers Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370834,
+      "name": "Resource Base Scouts Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370862,
+      "name": "Quartermaster General Advir",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370863,
+      "name": "Resource Warden Kabira",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370864,
+      "name": "Resource Base Shock Troopers Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2370865,
+      "name": "Resource Base Scouts Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2400017,
+      "name": "Melted Danar",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2400074,
+      "name": "Black Warrior Aed",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2400140,
+      "name": "Faithful Rajit",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2400141,
+      "name": "Berserker Vargor",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2400212,
+      "name": "Predator Garsan",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2400223,
+      "name": "Blood Warrior Lannar",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2400274,
+      "name": "Deceiver Trid",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2400335,
+      "name": "Blue Wave Kelpina",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2400353,
+      "name": "High Overseer Nutah",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2400358,
+      "name": "Advisor Resana",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2400419,
+      "name": "Special Operations Leader Linx",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2400424,
+      "name": "Desecrator Newbold",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2400425,
+      "name": "Specter Archon Axios",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2400474,
+      "name": "Addicted Hardirun",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2400504,
+      "name": "Executioner Barthien",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2400593,
+      "name": "Drakan Battalion Weapon Guruta",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2400607,
+      "name": "Veteran Shujakan",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2400608,
+      "name": "Visionary Karuka",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2400659,
+      "name": "Dark Shadow Vishwada",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2400709,
+      "name": "Sharp Shylak",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2400800,
+      "name": "Immortal Gartua",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2400853,
+      "name": "High Commander Lagta",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2400854,
+      "name": "Soul Ruler Kashapa",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2400855,
+      "name": "Silent Dartan",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2404001,
+      "name": "Searcher Sudka",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2404002,
+      "name": "Brutal Zrash",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2404003,
+      "name": "Cruel Rodar",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2404004,
+      "name": "Disciplinant Corag",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2404005,
+      "name": "Officer Darc",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2404006,
+      "name": "Watcher Brons",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2404007,
+      "name": "Annihilator Kardon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2404008,
+      "name": "Mad Lucant",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2404009,
+      "name": "Predator Zrak",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2404010,
+      "name": "Ravager Krovan",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2404011,
+      "name": "Bonechilling Rokand",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2404012,
+      "name": "Immortal Garmon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2404013,
+      "name": "Destroyer Krosch",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2404014,
+      "name": "Torturer Tregon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2404015,
+      "name": "Slayer Kroms",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2405006,
+      "name": "Captain Rubek",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2405023,
+      "name": "Graverobber Gottfred",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2405045,
+      "name": "Patrol Captain Dinasha",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2405062,
+      "name": "Forester Scafid",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2405072,
+      "name": "Forester Scafid",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2405085,
+      "name": "Leader Torben",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2405106,
+      "name": "Blades Enforcer Nadin",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2405120,
+      "name": "Rejectionist Durec",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2405144,
+      "name": "Bierts Wraith",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2405150,
+      "name": "Commander Flauke",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2405151,
+      "name": "Commander Flauke",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2405152,
+      "name": "Commander Flauke",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2405175,
+      "name": "Wanted Granach",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2405194,
+      "name": "Chief Officer Latrima",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2405215,
+      "name": "Leader Detlef",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2405236,
+      "name": "Extermination Unit Captain Barahta",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2405256,
+      "name": "Watch Captain Amurahta",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2405276,
+      "name": "Guard Troopers Captain Andsha",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2406034,
+      "name": "Edgewalker Pargon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2406035,
+      "name": "Predator Colossus Balakh",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2406071,
+      "name": "Crimson Blizzard Renulf",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2406093,
+      "name": "Frostarmor Harkhan",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2406094,
+      "name": "Azure Tear Glacia",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2406129,
+      "name": "Wings of Hellfire Fios",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2406131,
+      "name": "Lava Heart Batu",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2406132,
+      "name": "Elite Inquisitor Verant",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2406181,
+      "name": "Mad Watcher Bulagan",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2406182,
+      "name": "Vulcanarch Grymnir",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2406990,
+      "name": "Third Unit Captain Minasara",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2406991,
+      "name": "Deputy Commander Sarvakha",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2406992,
+      "name": "High Commander Taytra",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2407000,
+      "name": "Revenant Alegos",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2407023,
+      "name": "Fully Mutated Steinun",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2407046,
+      "name": "Watch Captain Dharvata",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2407059,
+      "name": "Captor Kalahanta",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2407060,
+      "name": "Terminator Antakhara",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2407061,
+      "name": "Crusher Vajradant",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2407062,
+      "name": "Patalajya the Scourged",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2407063,
+      "name": "Archivist Varnaksha",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2407064,
+      "name": "Arbiter Meganodh",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2407065,
+      "name": "Sunderer Ugravahu",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2407075,
+      "name": "Pulke",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2407094,
+      "name": "Dinakra",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2500016,
+      "name": "Mutated Queen Klaw",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2500045,
+      "name": "Blades Assault Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2500072,
+      "name": "Role: Karas",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2500086,
+      "name": "Giant Drake Minusha",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2500107,
+      "name": "Blades Search Party Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2500119,
+      "name": "Marauder Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2500120,
+      "name": "Captain's Pet Karnif",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2500131,
+      "name": "Black Claw High Shaman",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2500138,
+      "name": "Mysterious Marauder Chief",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2500141,
+      "name": "Soulless Archon Warrior",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2590089,
+      "name": "Black Claw Chief Muqaka",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2590118,
+      "name": "Drakan Chaser Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2590120,
+      "name": "Elvida",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2590134,
+      "name": "Mumu Overseer",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600068,
+      "name": "Argo, the Spirit King",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600078,
+      "name": "Dimensional Core",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600079,
+      "name": "Dimensional Core",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600080,
+      "name": "Dimensional Core",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600081,
+      "name": "Dimensional Core",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600082,
+      "name": "Dimensional Core",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600083,
+      "name": "Dimensional Core",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600084,
+      "name": "Guardian Lord Nahma",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600089,
+      "name": "Watcher Kaira",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600093,
+      "name": "Guardian Lord Nahma",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600094,
+      "name": "Guardian Lord Nahma",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600096,
+      "name": "Executor Tamasa",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600097,
+      "name": "Executor Argo",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600098,
+      "name": "Executor Kaira",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600150,
+      "name": "Enraged Guardian Lord Nahma",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600151,
+      "name": "Dimensional Core",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600152,
+      "name": "Dimensional Core",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600153,
+      "name": "Dimensional Core",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600156,
+      "name": "Enraged Guardian Lord Nahma",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600368,
+      "name": "Argo, the Spirit King",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600381,
+      "name": "Daeva Reaper Akasha",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600382,
+      "name": "Heretic Remus",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600383,
+      "name": "Takshaka Air Raiders Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600384,
+      "name": "Takshaka Strike Force Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600385,
+      "name": "Division Commander Durdhara",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600386,
+      "name": "High Commander Nirmala",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600387,
+      "name": "Guardian Lord Prasada",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600468,
+      "name": "Argo, the Spirit King",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600478,
+      "name": "Enraged Guardian Lord Nahma",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600479,
+      "name": "Enraged Guardian Lord Nahma",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600480,
+      "name": "Enraged Guardian Lord Nahma",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600516,
+      "name": "Dimensional Core",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600517,
+      "name": "Dimensional Core",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600518,
+      "name": "Dimensional Core",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600520,
+      "name": "Executioner Dramos",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600521,
+      "name": "Turncoat Ducal",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2600522,
+      "name": "Ravager Marakha",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670001,
+      "name": "Ashpile Vasma",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670002,
+      "name": "Abandoned Apostle Shuska",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670003,
+      "name": "32nd Division Tamer Vaikul",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670004,
+      "name": "32nd Division Assault Captain Gavir",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670005,
+      "name": "32nd Division Latri the Pitch-Black",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670006,
+      "name": "Ekan the Long-Winded",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670007,
+      "name": "32nd Division Assault Trooper Vikri",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670008,
+      "name": "Eternal Doom Bestan",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670009,
+      "name": "Distorted Zarama",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670010,
+      "name": "Hermit Chayamu",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670011,
+      "name": "Wanderer Adar",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670012,
+      "name": "Executioner Vidala",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670013,
+      "name": "Blackstorm Tuhan",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670014,
+      "name": "Furious Rahasa",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670015,
+      "name": "Akula of Chaos",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670016,
+      "name": "Hallucinogenic Barama",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670017,
+      "name": "Greedy Lahas",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670018,
+      "name": "32nd Division Twisted Kutira",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670019,
+      "name": "Beguiling Varti",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670020,
+      "name": "32nd Division Fanatic Uraga",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670021,
+      "name": "32nd Division Evil Spirit Yatu",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670022,
+      "name": "32nd Division Arrogant Dirta",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670023,
+      "name": "Eroded Apostle Kalusha",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670024,
+      "name": "Withered Butam",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670025,
+      "name": "32nd Division Assault Captain Sahga",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670026,
+      "name": "32nd Division Vanguard Captain Tamatha",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670027,
+      "name": "Zalam the Fierce",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670028,
+      "name": "Guhamu the Savage",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670029,
+      "name": "Shuniam the Hollow",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670030,
+      "name": "32nd Division Harvest Manager Karda",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670031,
+      "name": "32nd Division Scouts Captain Rohita",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670032,
+      "name": "32nd Division Scouts Captain Arishu",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670033,
+      "name": "32nd Division Harvest Manager Ashat",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670034,
+      "name": "Upadhi the False",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670035,
+      "name": "Tenacious Amur",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670036,
+      "name": "Hungry Khumar",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670037,
+      "name": "32nd Division Berserker Gatu",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670038,
+      "name": "32nd Division Assault Troopers Captain Sharad",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670039,
+      "name": "Distorted Karotei",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670040,
+      "name": "Distorted Muka",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670041,
+      "name": "Air Raiders Captain Tahla",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670042,
+      "name": "Distorted Nishad",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670043,
+      "name": "Distorted Kavanda",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670044,
+      "name": "Distorted Yatudana",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670045,
+      "name": "Air Raiders Captain Gahana",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670046,
+      "name": "Distorted Gardha",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670047,
+      "name": "Soulless Rahald",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670048,
+      "name": "32nd Division Conscript Morien",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670049,
+      "name": "32nd Division Vakra",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670050,
+      "name": "32nd Division Prapha",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670051,
+      "name": "32nd Division Conscript Mostey",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670052,
+      "name": "Soulless Tarren",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670053,
+      "name": "Distorted High Commander Nahid",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670054,
+      "name": "Distorted High Commander Nirmala",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670055,
+      "name": "Distorted Division Commander Durdhara",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670056,
+      "name": "Distorted Laksha",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670057,
+      "name": "Distorted Archon Eldric",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670058,
+      "name": "Distorted High Commander Lagta",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670059,
+      "name": "Distorted High Commander Zunewgishe",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670060,
+      "name": "Distorted Guardian Lankris",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670061,
+      "name": "Distorted Thamon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670062,
+      "name": "Distorted Captain Bhasti",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670063,
+      "name": "Distorted Captain Vashid",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670064,
+      "name": "Distorted Captain Murak",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670065,
+      "name": "Twisted Vice Captain Urgan",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670066,
+      "name": "Twisted Vice Captain Anushan",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670067,
+      "name": "Twisted Vice Captain Samank",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670068,
+      "name": "Twisted Vice Captain Antados",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670069,
+      "name": "Abandoned Warrior Hector",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670070,
+      "name": "Accursed Pallarus",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670071,
+      "name": "Wanderer Hansamu",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670072,
+      "name": "Corrupted Archon Askolt",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670073,
+      "name": "32nd Division Assault Trooper Putika",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670074,
+      "name": "Granir the Solitary",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670075,
+      "name": "Corrupted Archon Duebledd",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670076,
+      "name": "32nd Division Samdiya of Twilight",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670077,
+      "name": "32nd Division Chadma of the Daybreak",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670078,
+      "name": "Corrupted Archon Ghatt",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670079,
+      "name": "Bewitching Ulos",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670080,
+      "name": "32nd Division Vanguard Brasha",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670081,
+      "name": "Corrupted Archon Verkron",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670082,
+      "name": "Steel Ayas",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670083,
+      "name": "Dim Larson",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670084,
+      "name": "Eroded Warrior Stakard",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670085,
+      "name": "Distorted Deputy Commander Laturini",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670086,
+      "name": "Distorted Captain Rakhta",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670087,
+      "name": "Distorted Captain Miunah",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670088,
+      "name": "Distorted Atman",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670089,
+      "name": "Distorted Captain Droha",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670090,
+      "name": "Distorted Captain Arunt",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670091,
+      "name": "Distorted Daithi",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670092,
+      "name": "Distorted Captain Vishaka",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670093,
+      "name": "Distorted Captain Uparha",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670094,
+      "name": "Distorted Captain Vaira",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670095,
+      "name": "32nd Division Warlord Grumghar",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670096,
+      "name": "32nd Division Warlord Dregthor",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670097,
+      "name": "32nd Division Skirmisher Zurta",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670098,
+      "name": "Samaf the Ebon Claw",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670099,
+      "name": "Heretic Vidara",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670100,
+      "name": "Eroded Oga",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670101,
+      "name": "Decaying Pshatcha",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670102,
+      "name": "Heretic Sharina",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670103,
+      "name": "Vengeful Claw Dosha",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670104,
+      "name": "32nd Division Skirmisher Rovha",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670105,
+      "name": "32nd Division Warlord Broksha",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670106,
+      "name": "32nd Division Warlord Tarkhan",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670107,
+      "name": "Distorted Captain Uchanda",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670108,
+      "name": "Distorted Tarva",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670109,
+      "name": "Distorted Captain Irisha",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670110,
+      "name": "Distorted Captain Samaya",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670111,
+      "name": "Distorted Kragvald",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670112,
+      "name": "Distorted Captain Narakha",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670113,
+      "name": "Twisted High Commander Zorshiv",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670114,
+      "name": "Twisted Deputy Commander Khuntala",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670115,
+      "name": "Rift Guardian Lord Mahabali",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670116,
+      "name": "Rift Guardian Lord Tamapala",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670117,
+      "name": "Twisted Deputy Commander Kaliya",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2670118,
+      "name": "Twisted High Commander Baranath",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700003,
+      "name": "Sealed Sura",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700009,
+      "name": "High Priestess's Illusion",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700089,
+      "name": "Gatekeeper Pinopi",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700091,
+      "name": "Aultross",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700092,
+      "name": "Aultross",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700099,
+      "name": "Wraith Giselle",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700100,
+      "name": "Heladrir",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700242,
+      "name": "Dream Guardian Eonos",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700265,
+      "name": "Oathbreaker Gartua",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700306,
+      "name": "Trafficker Duduri",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700374,
+      "name": "Incarnated Warding Feather",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700415,
+      "name": "Modified Bargott",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700440,
+      "name": "Enraged Reda",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700461,
+      "name": "Kaisinel's Illusion",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700552,
+      "name": "Sharp Aulak",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700553,
+      "name": "Ritualist Aulisa",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700691,
+      "name": "Tyrant Tassin",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700692,
+      "name": "Rampaging Tyrant Tassin",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700694,
+      "name": "Executioner Nua",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700695,
+      "name": "Executioner Nua",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700696,
+      "name": "Executioner Nua",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700703,
+      "name": "Soulreaper Rathman",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700715,
+      "name": "Warden Santras",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700716,
+      "name": "Furious Feruk",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700731,
+      "name": "Fafnir's Poison Blood",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700744,
+      "name": "Fortress Guardian Notun",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700746,
+      "name": "M_L1_StrigikAltar_Owlapri_01_Die_001",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700835,
+      "name": "Corrupted Deios",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700837,
+      "name": "Power-Possessed Kianah",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700840,
+      "name": "Obsessive Lithla",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700845,
+      "name": "Idris",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700847,
+      "name": "Zikel's Apparition",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700856,
+      "name": "Gerod",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700857,
+      "name": "Mutated Ulgorn",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700876,
+      "name": "Mature Baratuna",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700886,
+      "name": "Sentinel Nuraka",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700908,
+      "name": "Mutated Gerod",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700914,
+      "name": "Toblini",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700916,
+      "name": "Poacher Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700921,
+      "name": "Trickster Boss Korhe",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700942,
+      "name": "Captain Nagto",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700949,
+      "name": "Guardian Spirit Drant",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700952,
+      "name": "Priestess Soirel",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700963,
+      "name": "Pilgrim Santian",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700975,
+      "name": "Lieutenant Sineora",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700981,
+      "name": "Mutated Insectoid Valka",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2700988,
+      "name": "Seyron of the Lake",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701013,
+      "name": "Cruel Sumakhi",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701020,
+      "name": "Queen Karat",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701034,
+      "name": "Lake Guardian",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701035,
+      "name": "Scion Behit",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701043,
+      "name": "Kraka Ritualist",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701048,
+      "name": "Sanctuary Guardian",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701051,
+      "name": "Guardian's Illusion",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701055,
+      "name": "Vanguard Captain Vamana",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701072,
+      "name": "Wanted Criminal Kius",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701078,
+      "name": "Oathbreaker Gartua",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701090,
+      "name": "Mutated Bargott",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701096,
+      "name": "Forgotten Lenara",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701101,
+      "name": "Corpse-Eating Targoth",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701118,
+      "name": "Quartermaster Tyius",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701128,
+      "name": "Drakan Battle Officer",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701130,
+      "name": "Mutated Dehinon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701138,
+      "name": "Enraged Kernon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701142,
+      "name": "Reaver Lisansa",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701145,
+      "name": "Venomous Insect Sram",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701148,
+      "name": "Rampaging Neparan's Soul",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701151,
+      "name": "Hystan's Apparition",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701155,
+      "name": "Zikel's Nightmare",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701156,
+      "name": "Kaisinel's Nightmare",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701157,
+      "name": "Narun",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701184,
+      "name": "Mutant Dratona",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701202,
+      "name": "Fanatic Ullimus",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701227,
+      "name": "Legion Outlaws Leader",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701250,
+      "name": "Balhash",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701275,
+      "name": "Scouts Captain Lamnah",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701280,
+      "name": "Shaman Kumbahum",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701287,
+      "name": "Rare Fungpus",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701298,
+      "name": "Desperate Robere's Apparition",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701310,
+      "name": "Daine of Tears",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701344,
+      "name": "Fafnir's Poison Blood",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701361,
+      "name": "Lieutenant Hebran",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701373,
+      "name": "Culminant Paton",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701374,
+      "name": "Ascended Atheron",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701378,
+      "name": "Scout Captain Ked",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701388,
+      "name": "Rakut",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701399,
+      "name": "Sanctum Guardian Gauss",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701401,
+      "name": "Lake Guardian",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701409,
+      "name": "Chaser Stof",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701440,
+      "name": "Attendant Hugin",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701449,
+      "name": "Frozen Executor Erne",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701454,
+      "name": "Warrior Wasti",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701463,
+      "name": "Kromede's Desire",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701480,
+      "name": "Informant Zibro",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701485,
+      "name": "Custodian Chakkerman",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701492,
+      "name": "Mind-Controlled Pelleir",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701501,
+      "name": "Scouts Captain Nahram",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701521,
+      "name": "Caretaker Sinandash",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701525,
+      "name": "Reckless Jonas",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701544,
+      "name": "Plantation Storage Supply Captain",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701551,
+      "name": "Depository Manager Arya",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701568,
+      "name": "Prison Compound Warden Homish",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701569,
+      "name": "Supervisor Sinah",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701578,
+      "name": "Mad Lazekhi",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701585,
+      "name": "Mirror Guardian",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701697,
+      "name": "Jailor Iagosh",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701702,
+      "name": "Lamuatan",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701753,
+      "name": "Divided Aponos",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701774,
+      "name": "Featherstorm Duduri",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701788,
+      "name": "Watchful Raptor Dodori",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701789,
+      "name": "Divided Aponos",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701807,
+      "name": "Divided Aponos",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701829,
+      "name": "Featherstorm Duduri",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701830,
+      "name": "Watchful Raptor Dodori",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701841,
+      "name": "Featherstorm Duduri",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701842,
+      "name": "Watchful Raptor Dodori",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701853,
+      "name": "Featherstorm Duduri",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701854,
+      "name": "Watchful Raptor Dodori",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701866,
+      "name": "Divided Aponos",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701892,
+      "name": "Claudia",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701913,
+      "name": "Claudia",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701930,
+      "name": "Claudia",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701947,
+      "name": "Claudia",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701964,
+      "name": "Menoch",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2701990,
+      "name": "Menoch",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702001,
+      "name": "Menoch",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702012,
+      "name": "Menoch",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702026,
+      "name": "Mau Boss Tshulaga",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702076,
+      "name": "Steaming Arbellune",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702110,
+      "name": "Abyssal Chloris",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702111,
+      "name": "Scribe Vellum",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702132,
+      "name": "Marchutan's Shell",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702133,
+      "name": "Enraged Avelcatus",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702137,
+      "name": "Forgotten Rekhorn",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702161,
+      "name": "Idris",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702177,
+      "name": "Leader Korin",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702197,
+      "name": "Labyrinth Warden Hurukak",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702232,
+      "name": "Eiron Outlaw Drok",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702241,
+      "name": "Revenant Tifus",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702274,
+      "name": "Menoch",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702286,
+      "name": "Menoch",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702298,
+      "name": "Claudia",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702309,
+      "name": "Claudia",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702326,
+      "name": "Filthy Grollack",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702329,
+      "name": "Librarian Messa",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702359,
+      "name": "Eloen",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702372,
+      "name": "Featherstorm Duduri",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702373,
+      "name": "Watchful Raptor Dodori",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702384,
+      "name": "Featherstorm Duduri",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702385,
+      "name": "Watchful Raptor Dodori",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702396,
+      "name": "Divided Aponos",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702409,
+      "name": "Divided Aponos",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702461,
+      "name": "Karlix",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702462,
+      "name": "Eloen",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702475,
+      "name": "Eloen",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702488,
+      "name": "Eloen",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702501,
+      "name": "Eloen",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702514,
+      "name": "Forgotten Rekhorn",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702524,
+      "name": "Forgotten Rekhorn",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702534,
+      "name": "Forgotten Rekhorn",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702544,
+      "name": "Forgotten Rekhorn",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702564,
+      "name": "Mutated Malgerre",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702572,
+      "name": "Giant Karnif Istan",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702574,
+      "name": "Lamiphedon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702598,
+      "name": "Abyssal Sigebert",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702611,
+      "name": "Eloen",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702623,
+      "name": "Eloen",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702648,
+      "name": "Karlix",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702659,
+      "name": "Karlix",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702670,
+      "name": "Karlix",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702681,
+      "name": "Karlix",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702692,
+      "name": "Karlix",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2702703,
+      "name": "Karlix",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2920222,
+      "name": "Modified Bargott",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2920367,
+      "name": "Vakron's Thorn Vines",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2920445,
+      "name": "Atiel",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2920446,
+      "name": "Atiel",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2920710,
+      "name": "Kaisinel's Minion",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2920908,
+      "name": "Hydraulic Press",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2920935,
+      "name": "Nathara's Illusion",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2920973,
+      "name": "Klaw",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2921031,
+      "name": "Awakened Alturadon",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2921274,
+      "name": "Muspel Guardian Statue",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2921298,
+      "name": "Atiel",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2921299,
+      "name": "Atiel",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2921315,
+      "name": "Muspel Guardian Statue",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2921354,
+      "name": "Roar",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2921356,
+      "name": "Vakron's Thorn Vines",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2921357,
+      "name": "Vakron's Thorn Vines",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2921382,
+      "name": "Roar",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2921400,
+      "name": "N_Invisible_Summon_Askran_01_Affix_01",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2921401,
+      "name": "N_Invisible_Summon_Askran_01_Affix_02",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2921402,
+      "name": "N_Invisible_Summon_Askran_01_Affix_03",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2921418,
+      "name": "Vakron's Thorn Vines",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2921425,
+      "name": "Vakron's Thorn Vines",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2921426,
+      "name": "Vakron's Thorn Vines",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2921427,
+      "name": "Vakron's Thorn Root",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2921428,
+      "name": "Vakron's Thorn Root",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2921429,
+      "name": "Vakron's Thorn Vines",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2921430,
+      "name": "Vakron's Thorn Root",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980000,
+      "name": "High Priestess's Illusion",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980001,
+      "name": "High Priestess's Illusion",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980002,
+      "name": "High Priestess's Illusion",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980003,
+      "name": "High Priestess's Illusion",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980004,
+      "name": "High Priestess's Illusion",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980005,
+      "name": "High Priestess's Illusion",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980006,
+      "name": "High Priestess's Illusion",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980007,
+      "name": "High Priestess's Illusion",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980008,
+      "name": "High Priestess's Illusion",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980009,
+      "name": "High Priestess's Illusion",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980010,
+      "name": "Sealed Sura",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980011,
+      "name": "Sealed Sura",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980012,
+      "name": "Sealed Sura",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980013,
+      "name": "Sealed Sura",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980014,
+      "name": "Sealed Sura",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980015,
+      "name": "Sealed Sura",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980016,
+      "name": "Sealed Sura",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980017,
+      "name": "Sealed Sura",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980018,
+      "name": "Sealed Sura",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980019,
+      "name": "Sealed Sura",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980020,
+      "name": "Oathbreaker Gartua",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980021,
+      "name": "Oathbreaker Gartua",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980022,
+      "name": "Oathbreaker Gartua",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980023,
+      "name": "Oathbreaker Gartua",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980024,
+      "name": "Oathbreaker Gartua",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980025,
+      "name": "Oathbreaker Gartua",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980026,
+      "name": "Oathbreaker Gartua",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980027,
+      "name": "Oathbreaker Gartua",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980028,
+      "name": "Oathbreaker Gartua",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980029,
+      "name": "Oathbreaker Gartua",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980040,
+      "name": "Gatekeeper Pinopi",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980041,
+      "name": "Gatekeeper Pinopi",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980042,
+      "name": "Gatekeeper Pinopi",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980043,
+      "name": "Gatekeeper Pinopi",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980044,
+      "name": "Gatekeeper Pinopi",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980045,
+      "name": "Gatekeeper Pinopi",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980046,
+      "name": "Gatekeeper Pinopi",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980047,
+      "name": "Gatekeeper Pinopi",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980048,
+      "name": "Gatekeeper Pinopi",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980049,
+      "name": "Gatekeeper Pinopi",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980050,
+      "name": "Root Mythical Bird Aultross",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980051,
+      "name": "Root Mythical Bird Aultross",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980052,
+      "name": "Root Mythical Bird Aultross",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980053,
+      "name": "Root Mythical Bird Aultross",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980054,
+      "name": "Root Mythical Bird Aultross",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980055,
+      "name": "Root Mythical Bird Aultross",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980056,
+      "name": "Root Mythical Bird Aultross",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980057,
+      "name": "Root Mythical Bird Aultross",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980058,
+      "name": "Root Mythical Bird Aultross",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980059,
+      "name": "Root Mythical Bird Aultross",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980060,
+      "name": "Aulamus",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980061,
+      "name": "Aulamus",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980062,
+      "name": "Aulamus",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980063,
+      "name": "Aulamus",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980064,
+      "name": "Aulamus",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980065,
+      "name": "Aulamus",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980066,
+      "name": "Aulamus",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980067,
+      "name": "Aulamus",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980068,
+      "name": "Aulamus",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980069,
+      "name": "Aulamus",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980070,
+      "name": "Sharp Aulak",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980071,
+      "name": "Sharp Aulak",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980072,
+      "name": "Sharp Aulak",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980073,
+      "name": "Sharp Aulak",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980074,
+      "name": "Sharp Aulak",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980075,
+      "name": "Sharp Aulak",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980076,
+      "name": "Sharp Aulak",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980077,
+      "name": "Sharp Aulak",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980078,
+      "name": "Sharp Aulak",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980079,
+      "name": "Sharp Aulak",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980080,
+      "name": "Ritualist Aulisa",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980081,
+      "name": "Ritualist Aulisa",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980082,
+      "name": "Ritualist Aulisa",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980083,
+      "name": "Ritualist Aulisa",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980084,
+      "name": "Ritualist Aulisa",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980085,
+      "name": "Ritualist Aulisa",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980086,
+      "name": "Ritualist Aulisa",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980087,
+      "name": "Ritualist Aulisa",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980088,
+      "name": "Ritualist Aulisa",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980089,
+      "name": "Ritualist Aulisa",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980090,
+      "name": "Heladrir",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980091,
+      "name": "Heladrir",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980092,
+      "name": "Heladrir",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980093,
+      "name": "Heladrir",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980094,
+      "name": "Heladrir",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980095,
+      "name": "Heladrir",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980096,
+      "name": "Heladrir",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980097,
+      "name": "Heladrir",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980098,
+      "name": "Heladrir",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980099,
+      "name": "Heladrir",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980100,
+      "name": "Executioner Nua",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980101,
+      "name": "Executioner Nua",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980102,
+      "name": "Executioner Nua",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980103,
+      "name": "Executioner Nua",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980104,
+      "name": "Executioner Nua",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980105,
+      "name": "Executioner Nua",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980106,
+      "name": "Executioner Nua",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980107,
+      "name": "Executioner Nua",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980108,
+      "name": "Executioner Nua",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980109,
+      "name": "Executioner Nua",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980110,
+      "name": "Modified Bargott",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980111,
+      "name": "Modified Bargott",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980112,
+      "name": "Modified Bargott",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980113,
+      "name": "Modified Bargott",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980114,
+      "name": "Modified Bargott",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980115,
+      "name": "Modified Bargott",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980116,
+      "name": "Modified Bargott",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980117,
+      "name": "Modified Bargott",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980118,
+      "name": "Modified Bargott",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980119,
+      "name": "Modified Bargott",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980120,
+      "name": "Mutated Ulgorn",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980121,
+      "name": "Mutated Ulgorn",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980122,
+      "name": "Mutated Ulgorn",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980123,
+      "name": "Mutated Ulgorn",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980124,
+      "name": "Mutated Ulgorn",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980125,
+      "name": "Mutated Ulgorn",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980126,
+      "name": "Mutated Ulgorn",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980127,
+      "name": "Mutated Ulgorn",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980128,
+      "name": "Mutated Ulgorn",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980129,
+      "name": "Mutated Ulgorn",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980130,
+      "name": "Kaisinel's Illusion",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980131,
+      "name": "Kaisinel's Illusion",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980132,
+      "name": "Kaisinel's Illusion",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980133,
+      "name": "Kaisinel's Illusion",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980134,
+      "name": "Kaisinel's Illusion",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980135,
+      "name": "Kaisinel's Illusion",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980136,
+      "name": "Kaisinel's Illusion",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980137,
+      "name": "Kaisinel's Illusion",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980138,
+      "name": "Kaisinel's Illusion",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980139,
+      "name": "Kaisinel's Illusion",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980140,
+      "name": "Enraged Reda",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980141,
+      "name": "Enraged Reda",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980142,
+      "name": "Enraged Reda",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980143,
+      "name": "Enraged Reda",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980144,
+      "name": "Enraged Reda",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980145,
+      "name": "Enraged Reda",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980146,
+      "name": "Enraged Reda",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980147,
+      "name": "Enraged Reda",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980148,
+      "name": "Enraged Reda",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980149,
+      "name": "Enraged Reda",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980150,
+      "name": "Furious Feruk",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980151,
+      "name": "Furious Feruk",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980152,
+      "name": "Furious Feruk",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980153,
+      "name": "Furious Feruk",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980154,
+      "name": "Furious Feruk",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980155,
+      "name": "Furious Feruk",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980156,
+      "name": "Furious Feruk",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980157,
+      "name": "Furious Feruk",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980158,
+      "name": "Furious Feruk",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980159,
+      "name": "Furious Feruk",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980160,
+      "name": "Soulreaper Rathman",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980161,
+      "name": "Soulreaper Rathman",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980162,
+      "name": "Soulreaper Rathman",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980163,
+      "name": "Soulreaper Rathman",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980164,
+      "name": "Soulreaper Rathman",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980165,
+      "name": "Soulreaper Rathman",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980166,
+      "name": "Soulreaper Rathman",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980167,
+      "name": "Soulreaper Rathman",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980168,
+      "name": "Soulreaper Rathman",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980169,
+      "name": "Soulreaper Rathman",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980170,
+      "name": "Fortress Guardian Notun",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980171,
+      "name": "Fortress Guardian Notun",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980172,
+      "name": "Fortress Guardian Notun",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980173,
+      "name": "Fortress Guardian Notun",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980174,
+      "name": "Fortress Guardian Notun",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980175,
+      "name": "Fortress Guardian Notun",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980176,
+      "name": "Fortress Guardian Notun",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980177,
+      "name": "Fortress Guardian Notun",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980178,
+      "name": "Fortress Guardian Notun",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980179,
+      "name": "Fortress Guardian Notun",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980180,
+      "name": "Warden Santras",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980181,
+      "name": "Warden Santras",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980182,
+      "name": "Warden Santras",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980183,
+      "name": "Warden Santras",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980184,
+      "name": "Warden Santras",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980185,
+      "name": "Warden Santras",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980186,
+      "name": "Warden Santras",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980187,
+      "name": "Warden Santras",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980188,
+      "name": "Warden Santras",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980189,
+      "name": "Warden Santras",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980190,
+      "name": "Incarnated Warding Feather",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980191,
+      "name": "Incarnated Warding Feather",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980192,
+      "name": "Incarnated Warding Feather",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980193,
+      "name": "Incarnated Warding Feather",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980194,
+      "name": "Incarnated Warding Feather",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980195,
+      "name": "Incarnated Warding Feather",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980196,
+      "name": "Incarnated Warding Feather",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980197,
+      "name": "Incarnated Warding Feather",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980198,
+      "name": "Incarnated Warding Feather",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980199,
+      "name": "Incarnated Warding Feather",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980200,
+      "name": "Tyrant Tassin",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980201,
+      "name": "Tyrant Tassin",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980202,
+      "name": "Tyrant Tassin",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980203,
+      "name": "Tyrant Tassin",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980204,
+      "name": "Tyrant Tassin",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980205,
+      "name": "Tyrant Tassin",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980206,
+      "name": "Tyrant Tassin",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980207,
+      "name": "Tyrant Tassin",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980208,
+      "name": "Tyrant Tassin",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980209,
+      "name": "Tyrant Tassin",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980210,
+      "name": "Mutated Gerod",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980211,
+      "name": "Mutated Gerod",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980212,
+      "name": "Mutated Gerod",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980213,
+      "name": "Mutated Gerod",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980214,
+      "name": "Mutated Gerod",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980215,
+      "name": "Mutated Gerod",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980216,
+      "name": "Mutated Gerod",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980217,
+      "name": "Mutated Gerod",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980218,
+      "name": "Mutated Gerod",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980219,
+      "name": "Mutated Gerod",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980220,
+      "name": "Zikel's Apparition",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980221,
+      "name": "Zikel's Apparition",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980222,
+      "name": "Zikel's Apparition",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980223,
+      "name": "Zikel's Apparition",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980224,
+      "name": "Zikel's Apparition",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980225,
+      "name": "Zikel's Apparition",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980226,
+      "name": "Zikel's Apparition",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980227,
+      "name": "Zikel's Apparition",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980228,
+      "name": "Zikel's Apparition",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980229,
+      "name": "Zikel's Apparition",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980230,
+      "name": "Sanctum Guardian Gauss",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980231,
+      "name": "Sanctum Guardian Gauss",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980232,
+      "name": "Sanctum Guardian Gauss",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980233,
+      "name": "Sanctum Guardian Gauss",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980234,
+      "name": "Sanctum Guardian Gauss",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980235,
+      "name": "Sanctum Guardian Gauss",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980236,
+      "name": "Sanctum Guardian Gauss",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980237,
+      "name": "Sanctum Guardian Gauss",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980238,
+      "name": "Sanctum Guardian Gauss",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980239,
+      "name": "Sanctum Guardian Gauss",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980240,
+      "name": "Fafnir's Poison Blood",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980241,
+      "name": "Fafnir's Poison Blood",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980242,
+      "name": "Fafnir's Poison Blood",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980243,
+      "name": "Fafnir's Poison Blood",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980244,
+      "name": "Fafnir's Poison Blood",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980245,
+      "name": "Fafnir's Poison Blood",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980246,
+      "name": "Fafnir's Poison Blood",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980247,
+      "name": "Fafnir's Poison Blood",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980248,
+      "name": "Fafnir's Poison Blood",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980249,
+      "name": "Fafnir's Poison Blood",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980250,
+      "name": "Wraith Giselle",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980251,
+      "name": "Wraith Giselle",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980252,
+      "name": "Wraith Giselle",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980253,
+      "name": "Wraith Giselle",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980254,
+      "name": "Wraith Giselle",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980255,
+      "name": "Wraith Giselle",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980256,
+      "name": "Wraith Giselle",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980257,
+      "name": "Wraith Giselle",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980258,
+      "name": "Wraith Giselle",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980259,
+      "name": "Wraith Giselle",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980260,
+      "name": "Kromede's Desire",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980261,
+      "name": "Kromede's Desire",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980262,
+      "name": "Kromede's Desire",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980263,
+      "name": "Kromede's Desire",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980264,
+      "name": "Kromede's Desire",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980265,
+      "name": "Kromede's Desire",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980266,
+      "name": "Kromede's Desire",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980267,
+      "name": "Kromede's Desire",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980268,
+      "name": "Kromede's Desire",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980269,
+      "name": "Kromede's Desire",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980270,
+      "name": "Culminant Paton",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980271,
+      "name": "Culminant Paton",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980272,
+      "name": "Culminant Paton",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980273,
+      "name": "Culminant Paton",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980274,
+      "name": "Culminant Paton",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980275,
+      "name": "Culminant Paton",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980276,
+      "name": "Culminant Paton",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980277,
+      "name": "Culminant Paton",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980278,
+      "name": "Culminant Paton",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980279,
+      "name": "Culminant Paton",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980280,
+      "name": "Ascended Atheron",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980281,
+      "name": "Ascended Atheron",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980282,
+      "name": "Ascended Atheron",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980283,
+      "name": "Ascended Atheron",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980284,
+      "name": "Ascended Atheron",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980285,
+      "name": "Ascended Atheron",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980286,
+      "name": "Ascended Atheron",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980287,
+      "name": "Ascended Atheron",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980288,
+      "name": "Ascended Atheron",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980289,
+      "name": "Ascended Atheron",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980290,
+      "name": "Scout Captain Ked",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980291,
+      "name": "Scout Captain Ked",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980292,
+      "name": "Scout Captain Ked",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980293,
+      "name": "Scout Captain Ked",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980294,
+      "name": "Scout Captain Ked",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980295,
+      "name": "Scout Captain Ked",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980296,
+      "name": "Scout Captain Ked",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980297,
+      "name": "Scout Captain Ked",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980298,
+      "name": "Scout Captain Ked",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980299,
+      "name": "Scout Captain Ked",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980300,
+      "name": "Lieutenant Hebran",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980301,
+      "name": "Lieutenant Hebran",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980302,
+      "name": "Lieutenant Hebran",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980303,
+      "name": "Lieutenant Hebran",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980304,
+      "name": "Lieutenant Hebran",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980305,
+      "name": "Lieutenant Hebran",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980306,
+      "name": "Lieutenant Hebran",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980307,
+      "name": "Lieutenant Hebran",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980308,
+      "name": "Lieutenant Hebran",
+      "scriptedExit": true
+    },
+    {
+      "npc": 2980309,
+      "name": "Lieutenant Hebran",
+      "scriptedExit": true
+    }
+  ]
+}

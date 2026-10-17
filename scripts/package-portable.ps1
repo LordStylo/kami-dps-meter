@@ -44,11 +44,16 @@ foreach ($file in Get-ChildItem -LiteralPath (Join-Path $taskRoot 'src') -Recurs
   if ($file.Attributes -band [IO.FileAttributes]::ReparsePoint) { throw 'Linked source files are not allowed.' }
   Copy-PackageFile $file.FullName $file.FullName.Substring($taskRoot.Length + 1)
 }
-foreach ($relative in @('Baslat.cmd','Kapat.cmd','scripts\start.ps1','scripts\stop.ps1','public\index.html','public\app.js','public\cube-alerts.js','public\style.css','data\skills.json','data\effect-types.json')) {
+foreach ($relative in @('Baslat.cmd','Kapat.cmd','scripts\start.ps1','scripts\stop.ps1','public\index.html','public\app.js','public\cube-alerts.js','public\style.css','data\skills.json','data\bosses.json','data\effect-types.json')) {
   Copy-PackageFile (Join-Path $taskRoot $relative) $relative
 }
 foreach ($relative in @('Overlay.cmd','Overlay-Yenile.cmd','Tarayici.cmd','scripts\restart-overlay.ps1')) { Copy-PackageFile (Join-Path $taskRoot $relative) $relative }
-foreach ($file in Get-ChildItem -LiteralPath (Join-Path $taskRoot 'overlay') -File) { Copy-PackageFile $file.FullName ('overlay\'+$file.Name) }
+& (Join-Path $PSScriptRoot 'build-overlay-native.ps1') | Out-Host
+foreach ($file in Get-ChildItem -LiteralPath (Join-Path $taskRoot 'overlay') -File) {
+  if ($file.Extension -notin @('.cjs','.mjs','.js','.html','.css','.json','.dll')) { continue }
+  if ($file.Extension -eq '.dll' -and $file.Name -ne 'mouse-policy.win32-x64.dll') { throw "Unexpected overlay DLL: $($file.Name)" }
+  Copy-PackageFile $file.FullName ('overlay\'+$file.Name)
+}
 & (Join-Path $PSScriptRoot 'install-overlay.ps1') -Destination (Join-Path $taskPackage 'runtime\electron') | Out-Host
 $taskIcons = @(Get-ChildItem -LiteralPath (Join-Path $taskRoot 'public\icons\skills') -File -Filter '*.webp')
 if ($taskIcons.Count -eq 0) { throw 'Skill icons are missing. Run update:skills before packaging.' }

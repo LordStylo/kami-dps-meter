@@ -8,14 +8,34 @@ KAMI DPS METER - WINDOWS x64 TASINABILIR PAKET
    Klasoru Masaustu veya Belgeler gibi yazilabilir bir yere koy.
    Baslat.cmd, runtime, node_modules ve diger klasorleri birlikte tut.
 
-3. Baslat.cmd'ye cift tikla. DPS ve kup overlay pencereleri acilir.
+3. Baslat.cmd'ye cift tikla. DPS, kup ve kucuk kontrol kutusu acilir.
    Pencereler yalnizca Aion 2 ondeyken gorunur; masaustunde gizlenir.
+   DPS savas disinda otomatik gizlenir, savasa girince tekrar acilir.
+   Kontrol kutusundaki DPS'yi goster, son savasi gecici olarak acar;
+   yeni savasa girince otomatik davranisa doner. Kalici olarak acik tutmak
+   icin DPS dislisindeki Savas disinda otomatik gizle isaretini kaldir.
+   Kup ve kontrol kutusu acik kalir. Savas disinda DPS'yi duzenlemek
+   icin saat yanindaki K menusunden Masaustunde duzenle secilebilir.
    Oyun yonetici olarak calisiyorsa overlay icin Windows izin ister.
    Oyun acildiktan sonra etkilesim calismiyorsa Baslat.cmd'yi tekrar ac.
    Alt tusunu basili tutarken ust cubuklarindan surukleyebilirsin.
    Alt'i birakinca fare tiklamalari oyuna gecer.
+   Dort kareli kucuk kutuyu Alt ile tasi veya tiklayarak ac.
+   Kutudan DPS ve kup pencerelerini ayri ayri gizleyip gosterebilirsin.
+   Gizlemek olcumu ve acik kup sesini durdurmaz. Secimlerin saklanir.
+   DPS'de Party mode parti siralamasini, Individual mode yalnizca
+   kendi DPS'ni ve yeteneklerinin DPS / hasar / pay dokumunu gosterir.
+   Hasar / Iyilestirme secimi DPS yerine toplam iyilestirme, HPS ve
+   iyilestirme yeteneklerini gosterir. Fazla iyilestirme ayrimi yoktur.
+   Kare kup penceresinde Baslat alarmi acar, Durdur kapatir.
+   Sesi dene yalnizca test sesi calar; Sessiz otomatik sesi acip kapatir.
+   Gizle pencereyi kapatir; alarm aciksa yeni kupte tekrar gorunur.
    DPS'nin sag ustundeki eksi dugmesi sadece ust cubugu birakir;
    arti dugmesiyle tekrar genisletirsin. Konum ve kucultme hali saklanir.
+   Kompakt DPS penceresini Alt basiliyken sag alt kosesinden surukleyerek
+   buyutup kucultebilirsin. Sectigin boyut otomatik saklanir.
+   Yanindaki disli dugmesi DPS ayarlarini acar. Arka plan seffafligi
+   %0-100 arasinda degisir; yazilar ve ikonlar solmaz. Ayar saklanir.
    Pencereli veya kenarliksiz tam ekran oyun modunu kullan.
    Ayrintili tarayici ekrani icin Tarayici.cmd: http://127.0.0.1:4317/
    Aion 2 bu bilgisayarda calisiyor olmali. Oyun acikken bolgeye gir
@@ -27,9 +47,14 @@ KAMI DPS METER - WINDOWS x64 TASINABILIR PAKET
    Tarayicida sesi de acarsan iki yerden duyulur; ses icin tek arayuz kullan.
    Mesafeye gore ses degisimi kapali.
 
-5. Tamamen kapatmak icin Kapat.cmd'ye cift tikla.
+5. Tamamen kapatmak icin tepsi menusunden "Tamamen kapat" sec
+   veya Kapat.cmd'ye cift tikla. Veri toplama ve overlay birlikte kapanir.
    Sistem tepsisindeki Kami simgesinden yalnizca overlay'i gizleyebilir,
    konumlari sifirlayabilir veya overlay'i kapatabilirsin.
+   Overlay'i kapatmak veri toplamayi durdurmaz. Baslat.cmd tekrar acar;
+   "Veri toplama uygulamasi zaten acik" mesaji hata degildir.
+   Pencereler oyun odaktayken gorunur. Masaustunde gormek icin tepsi
+   menusunden "Masaustunde duzenle" secenegini kullan.
    "Masaustunde duzenle" secilirse Alt gerekmeden yerlestirebilirsin;
    secimi kaldirinca yeniden yalnizca oyun uzerinde gorunur.
    Guncelleme sonrasi sadece overlay'i yenilemek icin Overlay-Yenile.cmd

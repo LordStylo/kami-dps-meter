@@ -37,17 +37,24 @@ export async function replayEncounter(id) {
       // Event order matters: further events may share the killing blow's timestamp.
       if (summary.end === 'kill' && event.type === 'death' && bosses.has(event.entity) && event.at >= summary.endedAt) break;
       if (['damage', 'damage-over-time', 'heal'].includes(event.type)) {
-        if (event.at < summary.startedAt || !targets.has(event.target)) continue;
+        if (event.at < summary.startedAt || event.type !== 'heal' && !targets.has(event.target)) continue;
       }
       meter.ingest(event);
     }
   } finally { reader.close(); input.destroy(); }
+  // Saved encounters have a player scope as well as a target scope. Open-world
+  // logs include nearby strangers even when the saved summary is self/party.
+  // Retain exactly the saved participants for this scoped replay; damage is
+  // still calculated from events, never copied from the reference totals.
+  const participants = new Set(summary.participants.map(p => p.entity));
+  meter.hits = meter.hits.filter(hit => participants.has(hit.owner));
+  meter.heals = meter.heals.filter(heal => participants.has(heal.owner));
   const snapshot = meter.snapshot({ scope: 'all' });
   const comparisons = summary.participants.map(p => {
     const calculated = snapshot.players.find(row => row.entity === p.entity);
     return { entity: p.entity, expected: p.damage, calculated: calculated?.damage || 0, delta: (calculated?.damage || 0) - p.damage };
   });
-  return { meter, snapshot, source: { id, savedAt: record.savedAt, lines, kind: 'parsed-events', targets: [...targets] },
+  return { meter, snapshot, source: { id, savedAt: record.savedAt, lines, kind: 'parsed-events', targets: [...targets], participants: [...participants] },
     comparison: { expectedDamage: summary.damage, calculatedDamage: snapshot.damage, damageDelta: snapshot.damage - summary.damage,
       expectedSeconds: summary.durationSeconds, calculatedSeconds: snapshot.seconds, secondsDelta: snapshot.seconds - summary.durationSeconds,
       players: comparisons } };

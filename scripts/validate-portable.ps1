@@ -43,7 +43,7 @@ try {
   Push-Location -LiteralPath $taskPackage
   try {
     $taskNode = Join-Path $taskPackage 'runtime\node.exe'
-    $taskRuntime = & $taskNode -e "const k=require('koffi'); if(k.load('kernel32.dll').func('uint32 __stdcall GetCurrentProcessId()')()<=0) throw Error('Native module failed'); console.log(JSON.stringify({version:process.version,arch:process.arch,koffi:k.version}));"
+    $taskRuntime = & $taskNode -e "const k=require('koffi'),f=require('node:fs'),c=require('node:crypto'); if(k.load('kernel32.dll').func('uint32 __stdcall GetCurrentProcessId()')()<=0) throw Error('Native module failed'); const m=JSON.parse(f.readFileSync('./overlay/mouse-policy.build.json')); if(m.abi!==1||c.createHash('sha256').update(f.readFileSync('./overlay/mouse-policy.win32-x64.dll')).digest('hex')!==m.dllSHA256) throw Error('Mouse helper checksum failed'); console.log(JSON.stringify({version:process.version,arch:process.arch,koffi:k.version,mousePolicy:'native-v1'}));"
     if ($LASTEXITCODE -ne 0) { throw 'Bundled runtime/native module failed.' }
     $taskLaunched = $true
     & $taskPowerShell -NoProfile -ExecutionPolicy Bypass -File (Join-Path $taskPackage 'scripts\start.ps1') -NoBrowser -Port $taskPort

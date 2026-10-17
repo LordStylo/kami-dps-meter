@@ -7,15 +7,23 @@
   "scripts": {
     "start": "node src/server.mjs",
     "overlay:install": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/install-overlay.ps1",
+    "overlay:build-native": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/build-overlay-native.ps1",
     "test": "node --test test/*.test.mjs",
     "analyze": "node scripts/inspect-install.mjs",
     "analyze:cube": "node scripts/analyze-cube.mjs",
     "update:skills": "node scripts/update-skill-catalog.mjs",
     "validate:recordings": "node scripts/validate-recordings.mjs",
+    "validate:encounters": "node scripts/validate-encounters.mjs",
     "validate:npcap": "node scripts/validate-npcap-loopback.mjs",
     "test:ui": "node scripts/ui-smoke.mjs"
   },
-  "engines": { "node": ">=22" },
-  "dependencies": { "koffi": "2.15.2" },
-  "devDependencies": { "prettier": "3.6.2" }
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "koffi": "2.16.3"
+  },
+  "devDependencies": {
+    "prettier": "3.6.2"
+  }
 }

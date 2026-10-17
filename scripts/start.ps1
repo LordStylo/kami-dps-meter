@@ -7,6 +7,7 @@ if ($Overlay -and -not (Test-Path -LiteralPath $taskElectron)) { throw 'Overlay 
 function Show-Meter {
   if ($NoBrowser) { return }
   if (-not $Browser -and (Test-Path -LiteralPath $taskElectron)) {
+    if(-not (Test-Path -LiteralPath (Join-Path $taskRoot 'overlay\mouse-policy.win32-x64.dll')) -or -not (Test-Path -LiteralPath (Join-Path $taskRoot 'overlay\mouse-policy.build.json'))){throw 'Native overlay helper is missing. Run pnpm run overlay:build-native, or extract the complete portable ZIP.'}
     $env:ELECTRON_RUN_AS_NODE=$null
     $taskOverlayMain=Join-Path $taskRoot 'overlay\main.cjs'
     $taskOverlayNode=Join-Path $taskRoot 'runtime\node.exe'
@@ -26,12 +27,16 @@ function Show-Meter {
     } else {
       Start-Process -FilePath $taskElectron -ArgumentList ('"'+$taskOverlayMain+'" --port='+$Port) -WorkingDirectory $taskRoot -WindowStyle Hidden
     }
-  } else { Start-Process $taskUrl }
+    Write-Output 'Overlay acma istegi gonderildi. Pencereler oyun odaktayken gorunur.'
+  } else {
+    Start-Process $taskUrl
+    Write-Output "Tarayici arayuzu aciliyor: $taskUrl"
+  }
 }
 try { $taskStatus = Invoke-RestMethod -Uri "$taskUrl/api/state" -TimeoutSec 2 } catch { $taskStatus=$null }
 if ($taskStatus.app -eq 'aion-dps-lab') {
+    Write-Output "Veri toplama uygulamasi zaten acik: $taskUrl"
     Show-Meter
-    Write-Output "Aion DPS Lab is already running: $taskUrl"
     exit 0
 }
 $taskBundledNode = Join-Path $taskRoot 'runtime\node.exe'

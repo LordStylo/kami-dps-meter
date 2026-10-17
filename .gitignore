@@ -14,3 +14,7 @@ research/live-capture-validation.json
 *.pcap
 *.pcapng
 *.ndjson
+overlay/mouse-policy.win32-x64.dll
+overlay/mouse-policy.build.json
+overlay/mouse-policy.lib
+overlay/mouse-policy.win32-x64.pdb

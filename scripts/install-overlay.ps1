@@ -25,3 +25,4 @@ try { foreach ($entry in $taskArchive.Entries) { if ($entry.FullName -match '(^[
 [IO.Compression.ZipFile]::ExtractToDirectory($taskZip,$taskTarget)
 if (-not (Test-Path -LiteralPath (Join-Path $taskTarget 'electron.exe'))) { throw 'Overlay runtime executable is missing.' }
 Write-Output "Overlay runtime ready: $taskTarget"
+& (Join-Path $PSScriptRoot 'build-overlay-native.ps1')

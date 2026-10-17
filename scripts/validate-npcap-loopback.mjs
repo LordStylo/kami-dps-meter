@@ -21,16 +21,17 @@ let captured=0;
 try{
   assert.ok(tcpConnections(new Set([process.pid])).some(c=>c.localPort===client.localPort));
   peer.write(f.cat(f.player(),f.heartbeat(),f.heartbeat(),f.direct()));
-  await delay(80);peer.write(f.dot());
+  await delay(80);peer.write(f.cat(f.dot(),f.partyHp()));
   const deadline=Date.now()+2500;
   while(Date.now()<deadline){
     for(let i=0;i<100;i++){
       const packet=capture.next();if(!packet)break;const p=parseTcpFrame(packet.bytes,capture.linkType);if(!p)continue;
       captured++;tcp.push(p.sequence,p.payload,p.syn,packet.at);
     }
-    if(meter.snapshot({scope:'all'}).damage===13000)break;
+    if(meter.snapshot({scope:'party'}).damage===13000)break;
     await delay(20);
   }
   const snapshot=meter.snapshot({scope:'all'});assert.equal(snapshot.damage,13000);assert.equal(snapshot.players.length,1);assert.deepEqual(issues,[]);
-  console.log(JSON.stringify({realNpcap:'passed',processTcpTable:'passed',capturedFrames:captured,syntheticDamage:snapshot.damage,expectedDamage:13000,issues,liveGameValidated:false},null,2));
+  const party=meter.snapshot({scope:'party'});assert.equal(party.damage,13000);assert.equal(party.players.length,1);
+  console.log(JSON.stringify({realNpcap:'passed',processTcpTable:'passed',capturedFrames:captured,syntheticDamage:snapshot.damage,partyDamage:party.damage,expectedDamage:13000,issues,liveGameValidated:false},null,2));
 }finally{capture.close();client.destroy();peer?.destroy();await new Promise(resolve=>server.close(resolve));}
