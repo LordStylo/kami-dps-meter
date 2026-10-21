@@ -1,6 +1,6 @@
 # Kami DPS Meter (Aion DPS Lab)
 
-Windows için yerel Aion 2 DPS ölçer prototipi. DPS, küp bildirimi ve küçük arayüz kontrol kutusu ya da ayrıntılı tarayıcı arayüzü kullanılabilir; Npcap yakalama arka planda çalışır. Kurulu Questlog 0.1.24'ün statik incelemesinden belgelenen paket yapıları için ayrı bir okuyucu ve hesaplama motoru yazılmıştır. Çalışmak için Questlog uygulamasının açık olması gerekmez.
+Windows için yerel Aion 2 DPS ölçer prototipi. Oyun içi DPS/küp overlay'ine ek olarak ayrı Kami uygulamasında savaş ayrıntıları, kalıcı geçmiş, dungeon zamanlayıcısı ve pet koleksiyonu/haritası bulunur; Npcap yakalama arka planda çalışır. Bağımsız okuyucu ve hesap motorunun ilk protokol incelemesi Questlog 0.1.24'e, yeni katkı modeli ve sayısal meta verisi 0.1.35 incelemesine dayanır. Çalışmak için Questlog uygulamasının açık olması gerekmez.
 
 Geliştirmeye devam etmeden önce [instruction.md](instruction.md) dosyasını oku: mevcut özellikler, çözülen sorunlar, korunması gereken fare/odak davranışı, doğrulamalar ve açık kalan işler burada özetlenir.
 
@@ -75,6 +75,8 @@ Doğrulayıcı ZIP'in içindeki dosya karmalarını denetler; boş kullanıcı p
 
 ## İlk sürümün kapsamı
 
+Bu bölüm 14–17 Ekim ilk sürümünün kapsamını kaydeder. Güncel ayrıntı ve kalıcı arşiv özellikleri aşağıdaki 19 Ekim bölümündedir; okuyucu sayıları ilk sürümün tarihsel bilgisidir.
+
 - Gerçek Npcap FFI bağlantısı; süreç bazlı IPv4 TCP bağlantı keşfi; daraltılmış BPF filtresi.
 - TCP sıra/örtüşme/tekrar iletim yönetimi, boşluk tanılama, akış senkronizasyonu.
 - Aion 2 varint çerçeveleme ve raw LZ4 demetleri.
@@ -107,7 +109,7 @@ Kayıtlar `captures/cube-research/` altında ve Git dışında kalır. Bilinen h
 
 ## Hesap tanımı ve sınırlamalar
 
-DPS = seçilmiş hasar / `max(1 saniye, son seçilmiş hasar − ilk seçilmiş hasar)`. Oyuncular aynı süreyi paylaşır; hasarsız bekleme ve ölüm olayına kadar geçen süre paydaya eklenmez. Questlog 0.1.24'te incelenen boss ölümü, parti savaş çıkışı, HP sıfırlanması/wipe, scripted despawn ve bölge değişimi kuralları uygulanır. Normal bekleme 15 saniye, boss periyodik kontrolü 90 saniyedir; ayrıntılar [protokol notlarında](research/PROTOCOL.md). Kayıt oynatmada kaynak raporun hedefleri, katılımcıları ve zaman aralığı seçilir; hasar günlükten yeniden hesaplanır. Ölüm ve aynı zaman damgalı olayların sırası korunur.
+PvE DPS = seçilmiş hasar / `max(1 saniye, son seçilmiş hasar − ilk seçilmiş hasar)`. Oyuncular aynı süreyi paylaşır. Korunan boss karşılaşmasında ölmeden önceki ve döndükten sonraki vuruşların arasındaki süre bu aralığa dahildir; geri dönünce DPS'nin düşmesi tek başına hasarın silindiği anlamına gelmez. Normal bekleme 15 saniye, yaşayan boss için hem periyodik kontrolde hem yeni vuruş öncesinde 90 saniyedir. Ölümden dönüş kurtarması ve PvP'nin ortak olay penceresi için aşağıdaki 19 Ekim bölümüne ve [protokol notlarına](research/PROTOCOL.md) bak. Kayıt oynatmada kaynak raporun hedefleri, katılımcıları ve zaman aralığı seçilir; hasar günlükten yeniden hesaplanır. Ölüm ve aynı zaman damgalı olayların sırası korunur.
 
 `dmg` alanı ek vuruş hasarını zaten içerir. Kritik yüzdesi ek vuruş adetleriyle ağırlıklandırılmaz; doğrudan hasar olayları üzerinden hesaplanır. 11.000.000–19.999.999 aralığındaki skill varyantları 10.000'lik taban kimlikte gruplanır.
 
@@ -115,7 +117,7 @@ Kimliği henüz bilinmeyen saldıranların olayları oyuncu toplamına tahminle 
 
 Yetenek adları ve ikonları [Questlog'un herkese açık yetenek veritabanından](https://questlog.gg/aion-2/en-nc/db/skills) alınan yerel katalogla eşleştirilir. KR/TW İngilizce kataloğu kullanılır. Katalogda olmayan yeteneklerin kimlik numarası ve genel simgesi görünür; boss isimleri ayrı yerel katalogdan gelir, genel NPC isim kataloğu yoktur. Yetenek DPS'leri oyuncuyla aynı süreyi kullanır ve toplamları oyuncu DPS'sine eşittir. Yalnızca DoT içeren yeteneklerde kritik oranı uygulanmadığı için `—` gösterilir.
 
-rDPS/buff katkısı, raid mekanikleri ve kurulum EXE'si bu sürümde yoktur. Party scan-list dolu varyantı bilinçli olarak desteklenmiyor; hata sayacında belirtilir. Karakter/NPC görünme mesajlarının tamamı değil, gereken başlangıcı doğrulanır. Sürüm sonrası şema değişiklikleri yeniden incelenmelidir.
+Buff/rDPS ayrıntıları 19 Ekim sürümünde eklendi; doğrulama sınırları aşağıdadır. Raid mekaniklerinin tamamı ve kurulum EXE'si yoktur. Party scan-list dolu varyantı bilinçli olarak desteklenmiyor; hata sayacında belirtilir. Karakter/NPC görünme mesajlarının tamamı değil, gereken başlangıcı doğrulanır. Sürüm sonrası şema değişiklikleri yeniden incelenmelidir.
 
 **Canlı oyun bağlantısı bulundu ve gerçek paketler çözüldü; canlı DPS doğruluğu henüz karşılaştırılmadı.** Dummy savaşında hasar ve süre karşılaştırması bekleniyor. Sentetik testler ve önceden ayrıştırılmış gerçek günlükler bu adımın yerine geçmez.
 
@@ -172,6 +174,8 @@ UI smoke testi `scripts/ui-smoke.mjs`, kurulu Microsoft Edge ve Playwright ister
 - `src/meter.mjs`: kimlik, sahiplik, hedef ve istatistik.
 - `src/replay.mjs`: salt okunur yerel kayıt içe aktarma / karşılaştırma.
 - `src/server.mjs`, `public/`: yerel servis ve arayüz.
+- `src/pet-collection.mjs`, `src/pet-store.mjs`, `src/pet-tracker.mjs`: karaktere bağlı pet koleksiyonu, yerel kayıt ve canlı NPC gözlemleri.
+- `data/pets.json`, `data/pet-maps.json`, `public/pets.js`, `public/pets-map.js`: pet kataloğu, yerel pet haritaları ve uygulamadaki Petler menüsü.
 - `overlay/`: Electron ana süreç, kısıtlı preload köprüsü, meter pencereleri ve kontrol kutusu.
 - `data/effect-types.json`: kurulu sürümden çıkarılan sayısal effect sınıflandırmaları.
 - `data/skills.json`, `src/skills.mjs`, `public/icons/skills/`: ad/ikon kataloğu, eşleştirme ve yerel görseller.
@@ -179,3 +183,87 @@ UI smoke testi `scripts/ui-smoke.mjs`, kurulu Microsoft Edge ve Playwright ister
 - `research/private/`: orijinal uygulamadan araştırma kopyaları; `.gitignore` içinde. Uygulama bunları yüklemez.
 
 Genel format ve API başvuruları [protokol notlarında](research/PROTOCOL.md) listelenmiştir.
+
+## 19 Ekim 2026 — Kami uygulaması, kalıcı geçmiş ve devam eden boss
+
+**`Uygulama.cmd` dosyasına çift tıklayarak** ayrı Kami uygulamasını açabilirsin. Overlay DPS penceresindeki **Ayrıntılar** veya tepsi menüsündeki **Kami uygulamasını aç** da aynı, normal odak alabilen pencereyi açar. Aynı yerel arayüz tarayıcıda da kullanılabilir. Oyun içi üç overlay'in Alt/fare/odak kuralları değişmez. Ayrıntı penceresini kapatmak veri toplamayı durdurmaz.
+
+Canlı analiz ve kaydedilmiş savaşlarda **Özet, Hasar, Alınan hasar, İyileştirme, Bufflar, Destek / rDPS, Rotasyon, Boss HP / Stagger** görünümleri vardır. Alınan hasar kaynağı ve DTPS, savunma olayları, yakalanan buff süreleri/uptime ve destek etkileri, skill cast sırası/iptali/kesilmesi, gözlenen boss HP/stagger bilgisi gösterilir. Paketlerde gözlenmeyen rotasyon veya boss bilgisi tamamlanmış gibi üretilmez.
+
+Katkı modeli `src/combat-analytics.mjs` içinde bağımsız uygulanır; yerel `data/combat-analytics.json`, Questlog **0.1.35** modeline göre herkese açık buff etkileri/adları, stat kimlikleri ve boss toleransı meta verisini içerir. Temel tanım **rDPS = (hasar − alınan destek katkısı + verilen destek katkısı) / ortak süre**. Sayısal meta verisi bilinmeyen dış etkide ilgili sonuç **—** olur; eksik katkı sıfır sayılmaz. Yerel **11 savaş / 35 oyuncu satırında** hasar ve alınan hasar eşleşti. NPC `2300207` için eski raporun beş oyuncusundaki destek/rDPS sonuçları `1000` toleransla kayan nokta hassasiyetinde eşleşirken güncel katalog `2250` kullanır; tarihsel katalog farkı böylece ayrıştırıldı. Üretim güncel değeri korur; güncel meta veriyle bütün eski rDPS sayılarının veya kontrollü canlı Questlog eşitliğinin doğrulandığı iddia edilmez. DPS/HPS önceki toplama kurallarını korur; PvP ortak süresi oyuncular arasındaki gelen/giden hasarı ve ilgili ölüm olaylarını kapsar.
+
+**Savaş geçmişi** tamamlanan canlı karşılaşmaların tam analiz snapshot'larını `settings/archive/encounters/` altında atomik JSON dosyalarına kaydeder. Uygulama yeniden açılınca kayıtlar kalır; bellekteki son 30 savaş listesinin sınırı kalıcı arşive uygulanmaz. Kayıt açmak canlı yakalamayı, seçili hedefi veya aktif savaşı değiştirmez. **Veri ve araçlar → Questlog kaydını yeniden hesapla** ise önceki araştırma/replay aracıdır ve canlı yakalamayı durdurur. Arşiv hatası ekranda bildirilir; tek karşılaşma için 32 MiB sınırı veriyi sessizce kırpmak için kullanılmaz.
+
+**Zindanlar / Bölgeler** aynı bölgedeki gözlenen karşılaşmaları, boss öldürmelerini ve wipe'ları birlikte listeler. Gerçek dungeon zamanını ölçmek için girişte **Dungeon turunu başlat**, çıkışta **Tamamlandı** kullan. Tamamlama süresi bu iki kullanıcı işareti arasındadır; **Turu bitir**, kesilen turu clear saymadan kapatır. Yalnızca bölge değişimi veya bir boss ölümü otomatik dungeon clear kanıtı değildir. Gözlenen bölge süresi ile kullanıcı tarafından tamamlanan dungeon süresi ayrı gösterilir. Beklenmedik kapanıştan önce açık kalan tur yeniden açılışta **Kesildi** olur; uygulamanın kapalı olduğu saatler clear'a eklenmez.
+
+**Kişisel rekorlar**, sabit kimliği bilinen kendi karakterinin doğrulanmış boss öldürmelerindeki yerel sonuçlarını ayırır. Paket boşluğu/kırpılma bulunan kayıtlar ve birden çok bossun ayrılmamış toplamı rekor yapılmaz. **PvP** oturumları, yalnızca alınan hasar bulunan savaşlar dahil, ayrı listelenir. Öldürme/ölüm sayısı bilinen olaylara dayanır; bilinmeyen öldüren tahmin edilmez. **JSON indir** ve **Sohbete kopyala**, kullanıcı tarafından paylaşılabilecek yerel çıktılardır. Otomatik yükleme veya çevrimiçi sıralama yoktur; kopyalama oyuna yazı göndermez.
+
+Boss savaşında kendi ölümün veya görüş alanından çıkıp aynı haritaya dönmen hasarı hemen silmez. Kurtarma penceresi varsayılan **5 dakika**dır; aynı karakterin dbid veya tam ad+sunucu eşleşmesi yeni entity'ye bağlanır. Geçmiş vuruş/heal sahipliği, pet hasarı ve aktif buff sahipliği korunur. Gerçek bölge değişimi, hasar almış bossun tam HP'ye dönmesi ve doğrulanmış boss ölümü önceki sınır kurallarını uygular. Boss için normal idle kontrolü hem zamanlayıcıda hem yeni vuruşta **90 saniye**dir. Geri döndükten sonraki vuruş ilk vuruşla aynı zaman penceresini paylaştığı için aradaki boşluk DPS'yi düşürebilir.
+
+Bu sürümün motoru ve kalıcı arşivini etkinleştirmek için uygun bir zamanda backend'i **bir kez normal kapatıp yeniden başlatmak** gerekir; yalnızca `Overlay-Yenile.cmd` hesap motorunu yenilemez. Oyun açıkken gereksiz yeniden başlatma yapma. Yeniden başlatma sonrası kimlik henüz gelmediyse bölge değiştirmek/teleport yapmak önceki geçici çözümdür.
+
+Geliştirme testlerinde `AION_HISTORY_DIR` ayrı arşiv dizini seçer. Yeni ilgili testler `test/history-*.test.mjs`, `test/pvp-continuity.test.mjs`, `test/combat-analytics.test.mjs` ve `test/overlay-combat.test.mjs` içindedir. 17 Ekim test sayıları yukarıda tarihsel kayıt olarak korunmuştur; yeni testleri ve izole UI doğrulamasını güncel çalıştırma sonucu ile raporla. Eski `settings/overlay-4317/layout.json` tercihleri ve cube alarmının davranışı korunur; kişisel arşiv dahil `settings/` paylaşılacak temiz ZIP'e girmez.
+
+### 0.2.1 — Küpe yaklaşma göstergesi
+
+Küp overlay'i ve uygulamadaki Hidden cube ekranı, güncel konum gözlemleri yeterliyken **Yaklaşıyorsun / Uzaklaşıyorsun / Belirgin değişim yok** bilgisini ve yaklaşık **yatay** mesafeyi gösterir. Tahmini konum ayrıca belirtilir. Tek konum gözlemi hareket yönünü kanıtlamaz; yeni ölçüm beklenir. Aynı verinin tekrar gösterilmesi hareket sayılmaz. Küplerin ölçümleri ayrı tutulur; küçük koordinat oynamaları, teleport, veri boşluğu ve konum kaynağındaki değişimler geçerli yön bilgisi gibi sunulmaz.
+
+Konum veya bağlantı bayatlayınca gösterge **Yakınlık bilinmiyor** olur. Gösterge deneysel konum verisine dayanır; kesintisiz yürüyüş takibi ve fiziksel metre kalibrasyonu henüz doğrulanmamıştır. İlk görünme alarmı ve üç saniyelik ses tekrarı bu göstergeden bağımsız çalışır. Uygulamanın ekranda mesafe göstermesi, küp algılama menzilinin değiştirilmesi anlamına gelmez.
+
+### 0.3.0 — Yerel cube haritası ve yürüyüş paketleri
+
+**Uygulama → Hidden cube** sayfasında Poeta, Verteron, Eltnen, Ishalgen, Altgard, Morheim ve Chaotic Lower Reshanta haritaları yereldir. Algılanan cube'lar elmas, karakterin alınan konumu nokta ile gösterilir. Takip, yakınlaştırma, sürükleme ve katman kontrolleri bulunur. Yeni koordinat geldiğinde karakter noktası taşınır; güncelleme kesildiğinde son konum gri ve zaman bilgisiyle kalır. Yalnız aynı bağlantı/harita bağlamındaki koordinatlar eşleştirilir. Bilinmeyen veya desteklenmeyen bölgede yanlış haritaya pin çizilmez. Yeni başlatmada harita ve kendi kimliği henüz alınmadıysa ölçer açıkken bir kez bölge değiştir.
+
+Questlog 0.1.36'nın hareket okuyucusuyla karşılaştırmada `0x371a/b/c` için önceki dar bayrak/uzunluk kontrolünün geçerli hareket biçimlerini atladığı görüldü. Okuyucu artık doğrulanan tam bitmask şemalarını tüketir; yalnız global XYZ konum yapılır. Aynı TCP bağlantısındaki kısa çerçeve kesintisinde bilinen karakter kimliği korunur; eski koordinatlar, cube pinleri ve yaklaşma örnekleri temizlenir. Sonraki geçerli kendi hareketi yeniden takip başlatabilir. Bu sırada bölge son doğrulanan haritadan alınıyorsa ekranda belirtilir. Gerçek bölge değişimi, bağlantı kapanması ve yakalama hatası kimliği temizler.
+
+Harita görselleri NCSOFT'a aittir; herkese açık Questlog CDN kaynakları, koordinat dönüşümü ve SHA-256 değerleri `data/world-maps.json` içinde kayıtlıdır. `node scripts/update-map-catalog.mjs` yedi görseli doğrular; `--refresh` yeniler. Kullanım sırasında dış bağlantı gerekmez. Cube haritası oyunun henüz bildirmediği cube'ları keşfetmez. Petlerin bilinen spawn noktaları 0.5.0'da ayrı Petler menüsündedir; cube haritasına eklenmez.
+
+### 0.3.1 — Questlog ile aynı harita konumu
+
+Önceki harita dönüşümündeki dikey aynalama düzeltildi. Ham oyun koordinatı görselde `px=(x-originX)×tileSize/cellUnits`, `py=(y-originY)×tileSize/cellUnits` ile çizilir. Verteron'da `(0,-204000)` bağımsız kontrol noktası `(4096,2048)` pikselidir; Ishalgen'in alt/üst ham Y sınırları da ayrıca sınanır.
+
+`src/map-position.mjs`, Questlog 0.1.36'nın harita takibini bağımsız uygular: kendi karakterinin görünme, hareket ve warp konumları ile hedefi ve atanı kendi karakteri olan buff'ın sıfır olmayan `rangeBase` koordinatı kullanılır. NPC görünürlük çemberlerinden hesaplanan konum haritaya aktarılmaz. XYZ yuvarlanır; yeni gözlem gelmeden nokta yürütülmez. Konum 60 saniyeden önce güncel, sonra gri son konumdur. Aynı bağlantıdaki kısa framing kesintisi kimliği, bölgeyi ve son harita noktasının gerçek zamanını korur; eski küp pinleri temizlenir. Gerçek bölge değişimi veya bağlantı kapanması harita konumunu sıfırlar.
+
+Bu harita modeli yakınlık göstergesinden ayrıdır. Yaklaşma/uzaklaşma hesabı daha sıkı, üç saniyelik konum ve destekleyici kanıt koşullarını korur; self buff alanı bu hesapta tek başına bağımsız hareket ölçümü sayılmaz. Haritadaki buff kaynaklı nokta **Tahmini** olarak belirtilir. İlk alarm ve üç saniyelik ses tekrarı aynıdır.
+
+### 0.4.0 — Küp haritası overlay
+
+Oyunda **360×360** boyutunda ayrı **Küp haritası** penceresi bulunur. Karakter haritanın merkezinde kalır; yeni koordinatlar geldikçe zemin ve küp işaretleri onun çevresinde kayar. **Alt** basılıyken başlıktan taşıyabilir, **+/−** ile yakınlaştırabilir, **Gizle** ile kapatabilirsin. Küçük **Arayüz** menüsündeki **Küp haritası** anahtarı elle açıp kapatır. Konumu ve açık/gizli tercihi mevcut overlay profiline kaydedilir.
+
+İlk kullanımda harita gizlidir. Canlı yakalamada yeni, mevcut bir küp tespit edilince ses alarmı kapalı veya sessiz olsa da açılır. Gizlediğin aynı küpün yinelenen durum mesajları pencereyi tekrar açmaz; sonraki yeni küp açar. Geçmiş, demo veya sağlıksız yakalama bildirimleri otomatik açılmaz. Pencere oyunun odak kurallarına uyar; Alt+Tab ve genel pencereleri gizleme tercihi geçerlidir. Haritayı gizlemek veri toplamayı veya diğer küp alarmını durdurmaz.
+
+Mini harita, uygulamadaki `public/cube-map.js` bileşenini, aynı yerel görselleri ve 0.3.1'de doğrulanan Questlog konum modelini kullanır. Ayrı konum hesabı veya hareket tahmini yoktur; eski konum gri gösterilir. Harita ses üretmez, mevcut küp alarmı tek ses kaynağı kalır. Yeni dosyalar kurulduktan sonra **Overlay-Yenile.cmd → Yönetici olarak çalıştır** yalnız arayüzü yeniler; canlı veri okuyucusunu yeniden başlatmak gerekmez.
+
+### 0.5.0 — Pet koleksiyonu ve uygulama içi harita
+
+**Kami uygulaması → Petler**, **209 pet / 14.652 bilinen spawn** içerir. **Haritada aç** aynı menüdeki haritayı açar; native mini küp penceresine komut göndermez. İkonlar ve haritalar yereldir; Questlog'un açık olması gerekmez.
+
+- Koleksiyon tam **karakter adı + sunucu** eşleşmesiyle tutulur. Son yerel/Questlog kaydı **Son kaydedilen**, doğru karakterin tam başlangıç paketi **Canlı** gösterilir; güven kaybında kaydedilmiş veriye dönülebilir. Eksik tamlıkta pet yokluğu **Bilinmiyor** kalır. Kişisel dosya `settings/pets/collections.json` içindedir ve temiz pakete girmez.
+- **Cogni / Fera / Natura / Varian (Trans) / Özel tür seviyeleri**, karttaki **0–3 pet seviyesinden** ayrıdır. Bilinmeyen tür seviyesi **—** kalır. Ruh maliyetleri artımlı **5/25/75**; oyundan alınan seviye ve ruhlarla ulaşılabilir seviye ayrı etiketlenir. **Auto**, kapsam ve plana dahil petlerin en düşük ulaşılabilir seviyesinin bir üstünü, en çok 3'ü hedefler; bilinmeyende hedef 1 kalır. Plan dışı tercihi yerelde saklanır. **En az ruh gereken** coğrafi yakınlık değildir.
+- Arama, sahiplik, pet seviyesi, tür ve sıralama yanında bölge/taraf filtreleri vardır. Normal seçim o bölgede de bulunanları kapsar; **Sadece** başka bölgede bulunanları eler. **Bulunduğum bölge** alınan haritayı kullanır. Irka göre engel yoktur; Spacetime Rift sonrası **Altgard** da seçilebilir. Bilinmeyen dungeon ID'leri yalnız taraf kanıtı sayılmaz.
+- **Bilinen konumlar** boş halka, **canlı görülenler** yeşil, kendi konumun mavi noktadır; statik spawn petin şu anda orada olduğunu göstermez. Aynı NPC/bağlantı/harita bağlamı aranır. Yedi ana haritaya **Chaotic Middle Reshanta (22)** dört tile ile eklenir; desteklenmeyen bölge yanlış haritaya çizilmez. Konum gözlemler arasında yürütülmez; eski nokta gri kalır.
+
+21.10.2026'da **261 otomatik test + 41 Petler UI kontrolü** geçti. Gerçek başlangıç koleksiyon paketi, Verteron'da ayrı statik/canlı noktalar ve gap sonrası kaydedilmiş veriye dönüş ayrıca gözlendi. Ayrıntılar ve kanıt sınırları [protokol notlarındadır](research/PROTOCOL.md). Genel katalog araçları `scripts/update-pet-catalog.mjs` ve `scripts/update-pet-map-catalog.mjs` içindedir.
+
+#### Kompakt pet çalışma alanı
+
+Türler ve filtreler sol menüdedir; kompakt pet listesi ile harita masaüstünde yan yana kalır. Liste 3. seviyeye kalan ruha göre sıralanır; tamamlananları gizleme seçeneği vardır. Ruhları yetse de bilinen seviyesi henüz 3 olmayan pet listede kalır. Tür özetinde **sahip olunan / toplam** ve **3. seviye / toplam** ayrı gösterilir; bu sayılar liste filtreleriyle değişmez. Bilinmeyen seviyeler tamamlanmış veya eksik sayılmaz. Gelişmiş filtreler açılır bölümde korunur.
+Pet satırları bilinen spawn bölgelerine göre **Elyos / Asmodian / Abyss** etiketlerini birlikte gösterebilir; bunlar karakterin ırkı değildir. Bilinmeyen dungeon kimliğinden taraf türetilmez. Pet haritasında seçili petin bulunduğu bölgeler doğrudan düğmelerle seçilir; etkin düğme ve bilinen konum sayısı görünür. Sol menünün genel bölge filtresi ayrı kalır.
+## 0.6.0 — Oyun içi pet haritası
+
+Petler menüsünde seçili haritanın üstündeki **Oyun içinde göster**, ayrı **420×420 Pet haritası** penceresini açar. Yeni pet için tekrar basınca aynı pencere o pete geçer. Kendi konumu merkezde takip edilir; bilinen spawn halkaları ve canlı görülen NPC noktaları ayrı kalır. Bulunduğun bölge bu petin konumları arasındaysa takip o bölgeye geçer; başka bölgenin haritasına karakter noktası taşınmaz. Yeni veri gelmeden hareket üretilmez; eski konum ayrı gösterilir.
+
+**Alt** ile başlıktan taşı, **+/−** ile yakınlaştır, **Gizle** ile kapat. Arayüz kutusu veya tepsi **Pet haritası** seçeneği son seçili peti yeniden açar. Pencere yalnız oyun öndeyken veya masaüstünde düzenleme açıkken görünür. Kalıcı NOACTIVATE / click-through politikası diğer dört pencereyle aynıdır; pet haritası ses üretmez ve küp pencereleri bağımsızdır.
+
+Pet adının yanındaki başlık, bilinen pet seviyesini, ruh bakiyesini ve **bir sonraki seviyeye kalan ruhu** gösterir. Örneğin `Sv. 1 · 14/25 ruh · 11 kaldı`; 3. seviyede **Tamamlandı** yazar. Seviye artışı otomatiktir; yeni oyun verisi geldiğinde başlık güncellenir. Son kayıt kullanılıyorsa bu, başlığın açıklamasında belirtilir; bilinmeyen seviye veya ruh sayısı sıfır sayılmaz.
+
+
+## 0.7.0 — Windows kurulumu ve güncellemeler
+
+Windows için Kami DPS Meter.exe başlatıcı ve Türkçe Inno Setup kurulum paketi eklenir. Kurulumda masaüstü kısayolu varsayılan seçili, Windows açılışında başlatma isteğe bağlıdır. Otomatik başlangıç ana pencereyi açmaz; tepsi ve oyun üstü pencereleri başlatır. Tepsideki Tamamen kapat okuyucuyu ve overlay'i birlikte kapatır. Windows Ayarlar/Uygulamalar kaldırma girişi bulunur. Npcap ayrı önkoşuldur; eksikse resmi indirme bağlantısı gösterilir.
+
+Kurulum dosyaları kullanıcı verisinden ayrıdır. Kurulu sürümün verisi %LOCALAPPDATA%/Kami DPS Meter/data içinde; portable sürüm eski settings/captures düzenini korur. Kurulumdaki isteğe bağlı portable aktarımı kaynakları silmeden ve mevcut hedef dosyaları ezmeden kopyalar. Normal kaldırma kişisel verileri korur. AION_DATA_DIR ve eski özel dizin değişkenleri ile testler ayrı veri alanlarında çalışır. Başlat/kapat işlemleri portta çalışan uygulamanın kökünü ve veri kimliğini doğrular; başka bir checkout'u sessizce kullanmaz veya kapatmaz.
+
+Hakkında ekranındaki güncelleme kontrolü GitHub Releases'teki kararlı sürümleri ve tam eşleşen Kami-DPS-Meter-Setup-X.Y.Z.exe dosyasını arar. İndir ve kur yalnız kurulu Windows sürümünde kullanılabilir. Dosyanın yayıncı deposu/HTTPS adresi, boyutu, PE başlığı ve GitHub SHA-256 özeti doğrulanır. Uygulama savaş, test kaydı veya açık elle zamanlanan dungeon turu sırasında güncellenmez. Ayrı yardımcı önce tam süreç kapanışını bekler, normal kurulum penceresini açar ve iptalde mevcut sürümü yeniden açar. İnternet/kontrol hatası ölçümü durdurmaz. Kod değişikliği sürümü yayımlamaz; yeni installer ve sürüm etiketi GitHub Releases'e ayrıca yüklenmelidir.
+
+Üretim: powershell -NoProfile -ExecutionPolicy Bypass -File scripts/package-installer.ps1. Mevcut temiz staging için -PortableStaging kullanılabilir. Derleyici kullanıcı sistemine kurulmadan doğrulanmış resmi Inno dosyasından çalışma klasörüne çıkarılır. Paket üretiminde özel settings/captures/tmp dosyaları dışlanır; her çıktı için SHA-256 ve derleme raporu üretilir.

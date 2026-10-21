@@ -22,7 +22,7 @@ let app,exitPromise,processOutput='';
 const errors=[];
 const started=Date.now();
 try{
- app=await _electron.launch({executablePath:path.join(root,'runtime/electron/electron.exe'),args:['--js-flags=--expose-gc',entry,`--port=${port}`,`--profile=${profile}`,'--test-overlay'],env,timeout:30000});
+ app=await _electron.launch({executablePath:process.env.AION_OVERLAY_TEST_RUNTIME||process.env.AION_ELECTRON_PATH||path.join(root,'runtime/electron/electron.exe'),args:['--js-flags=--expose-gc',entry,`--port=${port}`,`--profile=${profile}`,'--test-overlay'],env,timeout:30000});
  const child=app.process();
  exitPromise=new Promise(resolve=>child.once('exit',(code,signal)=>resolve({code,signal})));
  for(const stream of [child.stdout,child.stderr])stream?.on('data',chunk=>{processOutput=(processOutput+chunk).slice(-16000);});
@@ -30,7 +30,7 @@ try{
  const versions=await app.evaluate((_electron,paths)=>{
   const overlay=process.mainModule.require(paths.entry);
   overlay.pauseKeys();
-  if(overlay.windows.size!==3)throw Error('Three overlay windows are required');
+  if(overlay.windows.size!==5)throw Error('Five overlay windows are required');
   if(typeof global.gc!=='function')throw Error('GC stress requires --js-flags=--expose-gc');
   const koffi=process.mainModule.require(paths.koffi);
   const user=koffi.load('user32.dll');

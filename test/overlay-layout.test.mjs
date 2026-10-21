@@ -63,9 +63,29 @@ test('the control launcher remains available when both meters are hidden, and st
  const hidden={dps:{enabled:false},cube:{enabled:false}};
  assert.equal(panelVisible('controls',hidden,true),true);
  assert.equal(panelVisible('dps',hidden,true),false);assert.equal(panelVisible('cube',hidden,true),false);
- for(const panel of ['dps','cube','controls'])assert.equal(panelVisible(panel,hidden,false),false);
+ for(const panel of ['dps','cube','cube-map','pet-map','controls'])assert.equal(panelVisible(panel,hidden,false),false);
  assert.equal(panelVisible('dps',{},true),true);
  const square=layout.boundsFor('controls',{},area);assert.equal(square.width,44);assert.equal(square.height,44);
  const open=layout.boundsFor('controls',{controlsOpen:true,x:1900,y:1030},area);
- assert.equal(open.width,224);assert.equal(open.height,212);assert.equal(open.x+open.width,area.width);assert.equal(open.y+open.height,area.height);
+ assert.equal(open.width,224);assert.equal(open.height,292);assert.equal(open.x+open.width,area.width);assert.equal(open.y+open.height,area.height);
+});
+
+test('the cube map starts hidden, retains saved coordinates and obeys the same game focus boundary',()=>{
+ assert.equal(panelVisible('cube-map',{},true),false);
+ const saved={'cube-map':{enabled:true,x:900,y:300}};
+ assert.equal(panelVisible('cube-map',saved,true),true);assert.equal(panelVisible('cube-map',saved,false),false);
+ assert.equal(panelVisible('cube-map',{'cube-map':{enabled:false}},true,{desktopEdit:true}),false);
+ assert.deepEqual(layout.boundsFor('cube-map',saved['cube-map'],area),{x:900,y:300,width:360,height:360});
+ const small=layout.boundsFor('cube-map',{x:900,y:300},{x:0,y:0,width:300,height:240});
+ assert.deepEqual(small,{x:0,y:0,width:300,height:240});
+});
+
+test('the pet map is an independent optional panel with recoverable square bounds and the common focus boundary',()=>{
+ assert.equal(panelVisible('pet-map',{},true),false);
+ const saved={'pet-map':{enabled:true,x:980,y:410,petId:1016,mapId:1110}};
+ assert.equal(panelVisible('pet-map',saved,true),true);assert.equal(panelVisible('pet-map',saved,false),false);
+ assert.equal(panelVisible('pet-map',{'pet-map':{enabled:false}},true,{desktopEdit:true}),false);
+ assert.deepEqual(layout.boundsFor('pet-map',saved['pet-map'],area),{x:980,y:410,width:420,height:420});
+ assert.deepEqual(layout.boundsFor('pet-map',{x:4000,y:2000},{x:0,y:0,width:320,height:240}),{x:0,y:0,width:320,height:240});
+ assert.equal(panelVisible('cube-map',saved,true),false,'Opening a pet map must not implicitly enable the cube map');
 });

@@ -30,11 +30,13 @@ try {
   await page.screenshot({path:'tmp/ui-mobile.png',fullPage:true});
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,'Mobile horizontal overflow');
   await page.setViewportSize({width:1440,height:1150});
+  await page.locator('[data-view="settings"]').click();
   const value=await page.locator('#recordings').inputValue();
   if(value){
     await page.getByRole('button',{name:/Kaydı aç/}).click();
     await page.waitForFunction(()=>document.querySelector('#notice').textContent.startsWith('YEREL KAYIT'));
     assert.match(await page.locator('#comparison').textContent(),/eşleşti/);
+    await page.locator('[data-view="live"]').click();
     const self=page.locator('.player-row').filter({has:page.locator('.identity em')});
     if(await self.count())await self.first().click();
     await page.waitForFunction(()=>[...document.querySelectorAll('.skill-icon img')].every(i=>i.complete&&i.naturalWidth>0));

@@ -1,5 +1,12 @@
 import {createCubeAlerts} from './cube-alerts.js';
+import {createWorkbench} from './workbench.js';
+import {createCubeMap} from './cube-map.js';
+import {createPetsView} from './pets.js';
 const cubeAlerts=createCubeAlerts();
+const workbench=createWorkbench();
+const cubeMap=createCubeMap();
+const petsView=createPetsView();
+createUpdatesView();
 const $=id=>document.getElementById(id);
 const fmt=n=>Number(n||0).toLocaleString('tr-TR',{maximumFractionDigits:0});
 const compact=n=>Number(n||0)>=1e6?(n/1e6).toLocaleString('tr-TR',{maximumFractionDigits:2})+' M':Number(n||0)>=1000?(n/1000).toLocaleString('tr-TR',{maximumFractionDigits:1})+' K':fmt(n);
@@ -39,15 +46,17 @@ $('target').onchange=()=>action({action:'filter',scope:state.scope,target:$('tar
 $('replay').onclick=async()=>{const id=$('recordings').value;if(!id)return;$('replay').disabled=true;try{await action({action:'replay',id});}finally{$('replay').disabled=false;}};
 const statusLabels={'starting':'Yakalama hazırlanıyor','waiting-for-game':'Oyun bekleniyor','waiting-for-connection':'Bağlantı bekleniyor','capturing':'Canlı yakalama açık','stalled':'Paket okuma yanıt vermiyor','delayed':'Paket okuma gecikiyor','stopped':'Yakalama durdu','demo':'Örnek veri','replay':'Yerel savaş kaydı','error':'Yakalama sorunu'};
 function render(s){
-  state=s;const currentHasData=!!(s.current.damage||s.current.healing),c=currentHasData?s.current:s.last||s.current;
+  state=s;const currentHasData=!!(s.current.damage||s.current.healing||s.current.details?.pvp?.taken||s.current.details?.pvp?.dealt),c=currentHasData?s.current:s.last||s.current;
   const healing=metric==='healing',amount=healing?'healing':'damage',rate=healing?'hps':'dps',rateLabel=healing?'HPS':'DPS';
   const rows=healing?c.healers||[]:c.players,total=c[amount]||0;
   renderCube(s);
   cubeAlerts.render(s);
+  cubeMap.update(s);
+  petsView.update(s);
   $('connection').textContent=statusLabels[s.capture.state]||s.capture.state;$('led').classList.toggle('live',s.capture.state==='capturing');
   $('stop').hidden=!['live','demo'].includes(s.mode);$('start').hidden=s.mode==='live';
   const notice=$('notice');notice.className='notice';
-  if(s.mode==='demo'){notice.classList.add('warning');notice.textContent='ÖRNEK SAVAŞ · Bu ekrandaki veriler sentetiktir. Gerçek oyun verisi için Canlı başlat seçeneğini kullan.';}
+  if(s.mode==='demo'){notice.classList.add('warning');notice.textContent='ÖRNEK SAVAŞ · Canlı paneldeki örnek veri sentetiktir; arşiv kayıtları bu moddan etkilenmez. Gerçek oyun verisi için Canlı başlat seçeneğini kullan.';}
   else if(s.mode==='replay'){notice.classList.add('replay');notice.textContent='YEREL KAYIT · Bu savaş, bilgisayarındaki olay günlüğünden yeniden hesaplandı. Canlı yakalama kapalı.';}
   else if(s.capture.error){notice.classList.add('warning');notice.textContent=s.capture.error;}
   else if(s.capture.state==='capturing'){notice.textContent='CANLI · Aion 2 bağlantısı dinleniyor. Oyuncu bilgileri veya parti listesi eksikse ölçer açıkken bölge değiştir.';}
@@ -57,7 +66,7 @@ function render(s){
   $('dps').textContent=total?fmt(c[rate]):'—';$('damage').textContent=total?compact(total):'—';$('duration').textContent=time(healing?c.healingSeconds??c.seconds:c.seconds);$('players-count').textContent=rows.length;
   $('target-count').textContent=healing?'Karşılaşmanın tüm iyileştirmeleri':c.targets.length?`${c.targets.length} hedefte ölçüldü`:'Henüz hedef yok';
   $('mode-label').textContent=s.mode==='replay'?'Kayıttan yeniden hesaplandı':s.mode==='demo'?'Örnek oyuncular':s.last&&!currentHasData?'Son tamamlanan savaş':'Algılanan oyuncular';
-  $('fight-label').textContent=s.mode==='demo'?'ÖRNEK':s.mode==='replay'?'KAYIT':s.last&&!currentHasData?'TAMAMLANDI':c.damage||c.healing?'SAVAŞ':'BEKLENİYOR';
+  $('fight-label').textContent=s.mode==='demo'?'ÖRNEK':s.mode==='replay'?'KAYIT':s.last&&!currentHasData?'TAMAMLANDI':currentHasData?'SAVAŞ':'BEKLENİYOR';
   document.querySelectorAll('[data-metric]').forEach(b=>{const active=b.dataset.metric===metric;b.classList.toggle('selected',active);b.setAttribute('aria-pressed',String(active));});
   $('ranking-title').textContent=healing?'İyileştirme sıralaması':'Hasar sıralaması';$('ranking-amount-label').textContent=healing?'İYİLEŞTİRME':'HASAR';$('ranking-rate-label').textContent=rateLabel;
   $('detail-rate-label').textContent=`YETENEK BAŞINA ${rateLabel}`;$('skill-rate-label').textContent=rateLabel;$('skill-amount-label').textContent=healing?'İYİLEŞTİRME':'HASAR';
@@ -86,6 +95,7 @@ function render(s){
   $('diagnostic-summary').textContent=`${fmt(s.capture.packetCount)} paket · ${fmt(s.capture.decoded)} çözülen mesaj`;
   const errors=Object.entries(s.capture.issues||{}).map(([k,v])=>`${k}: ${v}`).join('\n');
   $('diagnostics').innerHTML=`<div class="diagnostic-grid"><span><b>${s.capture.adapters||0}</b>Adaptör</span><span><b>${s.capture.connections||0}</b>Oyun bağlantısı</span><span><b>${s.coverage.full} + ${s.coverage.prefix}</b>Tam / kısmi mesaj okuyucu</span><span><b>${c.issues.gaps}</b>Akış boşluğu</span><span><b>${c.issues.unknownHits}</b>Kimliği çözülemeyen olay</span></div><pre>${esc(errors||'Bildirilen paket hatası yok.')}${c.issues.truncated?'\nOlay sınırına ulaşıldı; bu karşılaşma eksik.':''}</pre>`;
+  workbench.update(s);
 }
 function drawChart(c){
   let svg='';for(const y of [15,50,85,120])svg+=`<line x1="0" y1="${y}" x2="800" y2="${y}" stroke="#25313b" stroke-dasharray="3 5"/>`;
@@ -94,4 +104,39 @@ function drawChart(c){
   $('chart').innerHTML=svg;
 }
 async function recordings(){try{const r=await fetch('/api/encounters');const data=await r.json();$('recordings').innerHTML=data.length?data.map(x=>`<option value="${esc(x.id)}">${new Date(x.savedAt).toLocaleString('tr-TR',{timeZone:'Europe/Istanbul',day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'})} · ${time(x.seconds)} · ${x.players} oyuncu · ${compact(x.damage)}</option>`).join(''):'<option value="">Yerel kayıt bulunamadı</option>';$('replay').disabled=!data.length;}catch{$('recordings').innerHTML='<option value="">Kayıtlar okunamadı</option>';}finally{if(state)renderCube(state);}}
-const stream=new EventSource('/api/events');stream.onmessage=e=>render(JSON.parse(e.data));stream.onerror=()=>{$('connection').textContent='Uygulama bağlantısı kesildi';$('led').classList.remove('live');cubeAlerts.disconnected();};recordings();
+const stream=new EventSource('/api/events');stream.onmessage=e=>render(JSON.parse(e.data));stream.onerror=()=>{$('connection').textContent='Uygulama bağlantısı kesildi';$('led').classList.remove('live');cubeAlerts.disconnected();cubeMap.disconnected();petsView.disconnected();};recordings();
+
+function createUpdatesView(){
+ const root=document.querySelector('[data-app-updates]');if(!root)return;
+ const find=name=>root.querySelector('[data-updates-'+name+']'),visible=()=>location.hash==='#settings';
+ let current=null,actionBusy=false,loading=false,revision=0;
+ const inProgress=value=>['checking','downloading','installing'].includes(value?.status);
+ const megabytes=value=>(Number(value||0)/1024/1024).toLocaleString('tr-TR',{maximumFractionDigits:1})+' MB';
+ function show(value){
+  current=value;const status=value.status||'idle';root.dataset.state=status;
+  find('current').textContent=typeof value.currentVersion==='string'?value.currentVersion:'—';
+  const messages={idle:'Yeni sürümler açılışta kontrol edilir.',checking:'Yeni sürüm kontrol ediliyor…','up-to-date':'Güncel sürümü kullanıyorsun.',available:`${value.latestVersion||'Yeni'} sürümü indirilebilir.`,unavailable:'Henüz yayımlanmış kurulum paketi bulunamadı.',downloading:'Kurulum dosyası indiriliyor…',installing:'Kurulum açılıyor. Kami yeniden başlatılacak.',error:value.error||'Güncelleme denetlenemedi.'};
+  find('status').textContent=messages[status]||messages.idle;
+  find('check').disabled=actionBusy||inProgress(value);find('install').hidden=!value.canInstall;
+  find('install').disabled=actionBusy||inProgress(value);find('download').hidden=status!=='downloading';
+  find('progress').max=Math.max(1,Number(value.downloadTotal)||1);find('progress').value=Math.max(0,Number(value.downloadBytes)||0);
+  find('bytes').textContent=megabytes(value.downloadBytes)+' / '+megabytes(value.downloadTotal);
+  find('checked').textContent=value.checkedAt?'Son kontrol · '+new Date(value.checkedAt).toLocaleString('tr-TR',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'}):'';
+ }
+ async function load(){
+  if(!visible()||loading)return;loading=true;const token=revision;
+  try{const response=await fetch('/api/updates',{signal:AbortSignal.timeout(8000)}),value=await response.json();if(!response.ok)throw Error(value.error||'Sürüm bilgisi alınamadı.');if(token===revision)show(value);}
+  catch(error){if(token===revision)find('status').textContent=error.message||'Sürüm bilgisi alınamadı.';}
+  finally{loading=false;}
+ }
+ async function action(name){
+  if(actionBusy||inProgress(current))return;actionBusy=true;const token=++revision;
+  if(current)show({...current,status:name==='check'?'checking':'downloading'});
+  try{const response=await fetch('/api/updates/'+name,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'}),value=await response.json();if(!response.ok)throw Error(value.error||'Güncelleme işlemi tamamlanamadı.');if(token===revision)show(value);}
+  catch(error){if(token===revision)show({...current,status:'error',canInstall:false,error:error.message});}
+  finally{revision++;actionBusy=false;if(current)show(current);}
+ }
+ find('check').onclick=()=>action('check');find('install').onclick=()=>action('install');
+ window.addEventListener('hashchange',load);window.addEventListener('focus',load);
+ setInterval(()=>{if(!document.hidden)void load();},1500);void load();
+}

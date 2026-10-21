@@ -65,11 +65,11 @@ test('removal uses boss membership and reason, keeping died distinct from script
  }
  const m=setup(false);hit(m);event(m,'removed',{entity:99,reason:7},2000);assert.equal(m.history.length,0);
 });
-test('timer waits 90s for boss, while a new hit uses 15s unless boss is explicitly in combat',()=>{
+test('timer and returning hits both wait 90s for a boss with missing or stale combat state',()=>{
  const timer=setup();hit(timer);timer.tick(16001);assert.equal(timer.history.length,0);timer.tick(91001);assert.equal(timer.history[0].reason,'idle');
  for(const inCombat of [undefined,false,true]){
   const m=setup();if(inCombat!==undefined)event(m,'combat-state',{entity:99,inCombat});
-  hit(m);hit(m,99,17000);assert.equal(m.history.length,inCombat===true?0:1);
+  hit(m);hit(m,99,17000);assert.equal(m.history.length,0);
  }
 });
 test('nearby strangers cannot start encounters or extend the party idle timeout',()=>{
@@ -92,7 +92,7 @@ test('replay mode suppresses encounter splitting even for deaths, combat exit, a
 test('groggy packets identify uncatalogued bosses and reject malformed payloads',()=>{
  const payload=f.cat(f.vu(99),f.u8(63),f.u8(1),f.i32(500),f.i32(400),f.i32(1),f.i64(10),f.i64(20),f.u8(3),f.i64(30));
  const decoded=decodePacket(0xe005,payload,1000);assert.equal(decoded.complete,true);
- assert.deepEqual(decoded.events,[{type:'stagger',entity:99,max:500,current:400,at:1000}]);
+ assert.deepEqual(decoded.events,[{type:'stagger',entity:99,max:500,current:400,state:1,broken:false,at:1000}]);
  for(const bad of [payload.subarray(0,-1),f.cat(payload,f.u8(0))])assert.throws(()=>decodePacket(0xe005,bad,1000));
  const m=setup(false);m.ingest(decoded.events[0]);hit(m);event(m,'combat-state',{entity:1,inCombat:true});event(m,'death',{entity:99},2000);
  assert.equal(m.history[0].reason,'kill');

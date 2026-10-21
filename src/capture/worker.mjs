@@ -6,11 +6,16 @@ import { listDevices, openDevice, gamePids, tcpConnections } from './npcap.mjs';
 import { parseTcpFrame, TcpStream } from './tcp.mjs';
 import { FrameStream } from '../protocol/framing.mjs';
 import { CubeDetector } from '../cube-detector.mjs';
+import { PetTracker } from '../pet-tracker.mjs';
+import { PetCollectionTracker } from '../pet-collection.mjs';
+import runtimePathTools from '../../overlay/runtime-paths.cjs';
 
 const handles = new Map(), streams = new Map(), issues = new Map(), opcodes = new Map();
-const recorder = new CubeRecorder(workerData?.researchDirectory || fileURLToPath(new URL('../../captures/cube-research/', import.meta.url)));
+const recorder = new CubeRecorder(workerData?.researchDirectory || runtimePathTools.runtimePaths({root:fileURLToPath(new URL('../../',import.meta.url))}).research);
 const detector = new CubeDetector({onChange:event=>recorder.annotation(event),onPosition:event=>recorder.annotation(event)});
+const pets = new PetTracker({collection:new PetCollectionTracker({seeds:workerData?.petCollections||[]})});
 let cubeRevision = -1;
+let petRevision = '';
 let streamNumber = 0, researchError = null;
 let stopped = false, refreshing = false, events = [], packetCount = 0, decoded = 0, unknown = 0;
 let status = { state: 'starting', connections: 0, adapters: 0, error: null };
@@ -23,17 +28,17 @@ const hotkeys = createCubeHotkeys(action => {
 const issue = (key, stream = null) => {
   if (issues.size < 100 || issues.has(key)) issues.set(key, (issues.get(key) || 0) + 1);
   recorder.issue(key, stream);
-  if(['stream-gap','bad-frame','sync-discard','unrecognized-stream'].includes(key)||key.includes(':0xffff:'))detector.invalidate(stream,key);
+  if(['stream-gap','bad-frame','sync-discard','unrecognized-stream'].includes(key)||key.includes(':0xffff:')){detector.invalidate(stream,key);pets.invalidate(stream,key);}
 };
 const researchStatus = () => ({ ...recorder.status(), commandError: researchError, hotkeys: hotkeys.status() });
-const sendStatus = () => parentPort.postMessage({ type: 'status', ...status, lastMessageAt, processingLagMs, packetCount, decoded, unknown, issues: Object.fromEntries(issues), opcodes: Object.fromEntries(opcodes), duplicates: [...streams.values()].reduce((n,s)=>n+s.tcp.duplicates,0), research: researchStatus(), cubes:detector.snapshot() });
+const sendStatus = () => {const cubes=detector.snapshot();parentPort.postMessage({ type: 'status', ...status, lastMessageAt, processingLagMs, packetCount, decoded, unknown, issues: Object.fromEntries(issues), opcodes: Object.fromEntries(opcodes), duplicates: [...streams.values()].reduce((n,s)=>n+s.tcp.duplicates,0), research: researchStatus(), cubes, pets:pets.snapshot(cubes.map.contexts) });};
 function newStream() {
   const id = `flow-${++streamNumber}`;
   const frame = new FrameStream(packet => {
     const code = `0x${packet.opcode.toString(16)}`;
     if (opcodes.size < 256 || opcodes.has(code)) opcodes.set(code, (opcodes.get(code) || 0) + 1);
     if (packet.known) { decoded++; events.push(...packet.events); } else unknown++;
-  }, code => issue(code, id), packet => { lastMessageAt=packet.at;processingLagMs=Math.max(0,Date.now()-packet.at);recorder.message(packet, id); detector.message(packet, id); });
+  }, code => issue(code, id), packet => { lastMessageAt=packet.at;processingLagMs=Math.max(0,Date.now()-packet.at);recorder.message(packet, id); detector.message(packet, id);pets.message(packet,id,detector.context(id,packet.at)); });
   const tcp = new TcpStream((bytes, at) => frame.push(bytes, at), at => { frame.gap(); events.push({ type: 'capture-gap', at }); });
   return { frame, tcp, id };
 }
@@ -43,7 +48,7 @@ async function refresh() {
   try {
     const pids = await gamePids(); if (stopped) return;
     const connections = tcpConnections(pids), devices = listDevices(), active = new Set(connections.map(c => c.key));
-    for (const key of streams.keys()) if (!active.has(key)) { const id=streams.get(key).id;recorder.issue('connection-closed', id);detector.invalidate(id,'connection-closed');streams.delete(key); }
+    for (const key of streams.keys()) if (!active.has(key)) { const id=streams.get(key).id;recorder.issue('connection-closed', id);detector.invalidate(id,'connection-closed');pets.invalidate(id,'connection-closed');streams.delete(key); }
     for (const key of active) if (!streams.has(key)) streams.set(key, newStream());
     const plans = new Map();
     for (const c of connections) {
@@ -66,7 +71,8 @@ async function refresh() {
     }
     status = { state: !pids.size ? 'waiting-for-game' : !connections.length ? 'waiting-for-connection' : handles.size ? 'capturing' : 'error', processes: pids.size, connections: connections.length, adapters: handles.size,
       error: errors.join('; ') || (connections.length && !handles.size ? 'Oyun bağlantısına ait IPv4 adaptörü bulunamadı.' : null), deviceCount: devices.length };
-  } catch (error) { status = { ...status, state: 'error', error: error.message };detector.invalidate(null,'capture-error'); }
+    if(status.state==='error')pets.invalidate(null,'capture-error');
+  } catch (error) { status = { ...status, state: 'error', error: error.message };detector.invalidate(null,'capture-error');pets.invalidate(null,'capture-error'); }
   finally { refreshing = false; if (!stopped) sendStatus(); }
 }
 const poll = setInterval(() => {
@@ -82,11 +88,13 @@ const poll = setInterval(() => {
         stream?.tcp.push(tcp.sequence, tcp.payload, tcp.syn, packet.at);
         if(performance.now()>=deadline)break; // let commands/status run between busy batches
       }
-    } catch (error) { issue(`capture:${error.message}`);detector.invalidate(null,'capture-error'); handle.device.close(); handles.delete(name); }
+    } catch (error) { issue(`capture:${error.message}`);detector.invalidate(null,'capture-error');pets.invalidate(null,'capture-error'); handle.device.close(); handles.delete(name); }
   }
   for (const stream of streams.values()) stream.tcp.tick(Date.now());
   if (events.length) { parentPort.postMessage({ type: 'events', events }); events = []; }
   if(cubeRevision!==detector.revision){cubeRevision=detector.revision;sendStatus();parentPort.postMessage({type:'cube-status',cubes:detector.snapshot()});}
+  const currentPetRevision=`${pets.revision}:${detector.revision}`;
+  if(petRevision!==currentPetRevision){const cubes=detector.snapshot();const snapshot=pets.snapshot(cubes.map.contexts);petRevision=`${pets.revision}:${detector.revision}`;parentPort.postMessage({type:'pet-status',pets:snapshot});}
 }, 20);
 const discovery = setInterval(refresh, 2000), reports = setInterval(sendStatus, 1000);
 parentPort.on('message', message => {
@@ -108,11 +116,12 @@ parentPort.on('message', message => {
   }
   if (message === 'stop') {
     detector.invalidate(null,'capture-stopped');
+    pets.invalidate(null,'capture-stopped');
     recorder.stop('capture-stopped');
     hotkeys.close();
     stopped = true; clearInterval(poll); clearInterval(discovery); clearInterval(reports);
     for (const { device } of handles.values()) device.close();
-    handles.clear(); parentPort.postMessage({ type: 'stopped', research: researchStatus(), cubes:detector.snapshot() }); parentPort.close();
+    handles.clear();const cubes=detector.snapshot();parentPort.postMessage({ type: 'stopped', research: researchStatus(), cubes, pets:pets.snapshot(cubes.map.contexts) }); parentPort.close();
   }
 });
 refresh();

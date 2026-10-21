@@ -3,6 +3,7 @@ function interactionFor({gameFocused,alt,desktopEdit,hiddenByUser}){
  return {visible,interactive:visible&&(!!desktopEdit||!!alt)};
 }
 function panelVisible(panel,layout,visible,{state,connected=true,desktopEdit=false,manualDpsReveal=false,settingsOpen=false}={}){
+ if(['cube-map','pet-map'].includes(panel)&&layout[panel]?.enabled!==true)return false;
  if(!visible||(panel!=='controls'&&layout[panel]?.enabled===false))return false;
  if(panel!=='dps'||desktopEdit||manualDpsReveal||settingsOpen||layout.dps?.autoHide===false)return true;
  // Completed damage stays accessible in the browser; only the native DPS

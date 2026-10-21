@@ -7,7 +7,9 @@ import {checkFocusTransitions} from './overlay-focus-regression.mjs';
 const require=createRequire(import.meta.url);
 const {_electron}=require(process.env.PLAYWRIGHT_PATH||path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright'));
 const root=path.resolve(process.env.AION_OVERLAY_TEST_ROOT||'.'),profile=path.resolve('tmp','overlay-smoke-'+Date.now());
-const runtime=path.join(root,'runtime/electron/electron.exe'),entry=path.join(root,'overlay/main.cjs');
+const runtime=process.env.AION_OVERLAY_TEST_RUNTIME||path.join(root,'runtime/electron/electron.exe'),entry=path.join(root,'overlay/main.cjs');
+const panels=['dps','cube','cube-map','pet-map','controls'];
+const panelPage=(pages,panel)=>pages.find(page=>new URL(page.url()).searchParams.get('panel')===panel);
 const state={app:'aion-dps-lab',mode:'live',capture:{state:'capturing'},scope:'party',cubes:{epoch:'test',total:0,active:[]},current:{id:1,damage:600000,dps:120000,seconds:5,players:[{entity:1,name:'Kamielle',self:true,dps:90000,damage:450000,share:75,skills:[{id:18290000,name:'Spinning Strike',icon:'/icons/skills/ICON_CH_SKILL_029.webp',dps:90000,damage:450000,share:100}]},{entity:2,name:'Nyra',dps:30000,damage:150000,share:25,skills:[]}]}};
 let shutdownRequests=0;
 const server=http.createServer(async(req,res)=>{
@@ -29,22 +31,25 @@ async function capture(panel,filename){
 async function launch(){
  app=await _electron.launch({executablePath:runtime,args:[entry,`--port=${port}`,`--profile=${profile}`,'--test-overlay'],env,timeout:30000});
  await app.firstWindow();
- await app.evaluate((_e,filename)=>{globalThis.overlayForTest=process.mainModule.require(filename);if(globalThis.overlayForTest.windows.size!==3)throw Error('Missing native windows');globalThis.overlayForTest.pauseKeys();},entry);
+ await app.evaluate((_e,{filename,panels})=>{globalThis.overlayForTest=process.mainModule.require(filename);if(globalThis.overlayForTest.windows.size!==panels.length||panels.some(panel=>!globalThis.overlayForTest.windows.has(panel)))throw Error('Missing native windows');globalThis.overlayForTest.pauseKeys();},{filename:entry,panels});
  console.log('Native overlay windows loaded');
- for(let attempt=0;app.windows().length<3&&attempt<100;attempt++)await new Promise(r=>setTimeout(r,50));
- const pages=app.windows();for(const p of pages){p.on('pageerror',e=>errors.push(e.message));await p.waitForURL(/panel=(dps|cube|controls)/);}
- const dps=pages.find(p=>p.url().includes('panel=dps')),cube=pages.find(p=>p.url().includes('panel=cube')),controls=pages.find(p=>p.url().includes('panel=controls'));
- if(!dps||!cube||!controls)throw Error('All panels must load');
+ for(let attempt=0;app.windows().length<panels.length&&attempt<100;attempt++)await new Promise(r=>setTimeout(r,50));
+ const pages=app.windows();assert.equal(pages.length,panels.length);
+ for(const p of pages){p.on('pageerror',e=>errors.push(e.message));await p.waitForURL(url=>panels.includes(url.searchParams.get('panel')));}
+ const dps=panelPage(pages,'dps'),cube=panelPage(pages,'cube'),cubeMap=panelPage(pages,'cube-map'),controls=panelPage(pages,'controls');
+ if(!dps||!cube||!cubeMap||!controls)throw Error('All panels must load');
  await dps.waitForFunction(()=>!!window.kamiOverlay);await cube.waitForFunction(()=>!!window.kamiOverlay);
- await controls.waitForFunction(()=>!!window.kamiOverlay);
- return {dps,cube,controls};
+ await cubeMap.waitForFunction(()=>!!window.kamiOverlay);await controls.waitForFunction(()=>!!window.kamiOverlay);
+ const host=JSON.parse(fs.readFileSync(path.join(profile,'host.json'),'utf8'));
+ assert.ok(['cube-map-overlay','pet-map-overlay'].every(feature=>host.features.includes(feature)));assert.equal(host.version,JSON.parse(fs.readFileSync(path.join(root,'package.json'),'utf8')).version);
+ return {dps,cube,cubeMap,controls};
 }
 async function flags(){return app.evaluate((_e,koffiPath)=>{
  const k=process.mainModule.require(koffiPath),u=k.load('user32.dll'),get=u.func('intptr __stdcall GetWindowLongPtrW(uintptr hwnd, int index)');
  return [...globalThis.overlayForTest.windows].map(([panel,w])=>{const style=Number(get(w.getNativeWindowHandle().readBigUInt64LE(),-20));return {panel,transparent:!!(style&0x20),noActivate:!!(style&0x8000000),topmost:w.isAlwaysOnTop(),focusable:w.isFocusable(),bounds:w.getBounds()};});
 },path.join(root,'node_modules/koffi'));}
 try{
- let {dps,cube,controls}=await launch();
+ let {dps,cube,cubeMap,controls}=await launch();
  await dps.waitForFunction(()=>document.querySelectorAll('[data-player]').length===2);
  assert.equal(await dps.locator('#total-dps').textContent(),'120 K');
  assert.match(await cube.locator('#cube-status').textContent(),/Kapalı/);
@@ -52,7 +57,9 @@ try{
  assert.equal(await cube.locator('#sound').textContent(),'Sesi dene');
  const cubeFit=await cube.locator('#cube-body').evaluate(el=>({horizontal:el.scrollWidth>el.clientWidth,vertical:el.scrollHeight>el.clientHeight}));
  assert.deepEqual(cubeFit,{horizontal:false,vertical:false});
- const before=await flags();assert.ok(before.every(w=>w.transparent&&w.noActivate&&w.topmost&&!w.focusable));
+ const before=await flags();assert.equal(before.length,panels.length);assert.ok(before.every(w=>w.transparent&&w.noActivate&&w.topmost&&!w.focusable));
+ const mapBounds=before.find(w=>w.panel==='cube-map').bounds;
+ assert.ok(Math.abs(mapBounds.width-360)<=4&&Math.abs(mapBounds.height-360)<=4,JSON.stringify(mapBounds));
  await app.evaluate(()=>globalThis.overlayForTest.setDesktopEdit(true));
  const after=await flags();assert.ok(after.every(w=>!w.transparent&&w.noActivate&&!w.focusable));
  // Ask the actual HWND how it handles a mouse activation request. This is a
@@ -75,6 +82,8 @@ try{
  assert.equal((await controls.evaluate(()=>window.kamiOverlay.init())).controlsOpen,false);
  await controls.waitForTimeout(350);
  await controls.locator('#launcher').click({force:true});await controls.waitForFunction(()=>!document.getElementById('controls-body').hidden);
+ const expandedControls=(await flags()).find(w=>w.panel==='controls').bounds;
+ assert.ok(Math.abs(expandedControls.width-224)<=4&&Math.abs(expandedControls.height-292)<=4,JSON.stringify(expandedControls));
  // Combat auto-hide status must not alter user visibility preferences or the
  // persistent non-activating window policy. Windows stay hidden in this test.
  await app.evaluate(()=>globalThis.overlayForTest.setDesktopEdit(false));
@@ -232,14 +241,20 @@ try{
  await cube.locator('#cube-hide').click({force:true});await controls.waitForFunction(async()=>!(await window.kamiOverlay.init()).panels.cube);
  state.cubes.total=3;state.cubes.active=[{id:'cube-stopped',sequence:3,status:'present',detectedAt:Date.now()}];
  await cube.waitForTimeout(800);assert.equal((await controls.evaluate(()=>window.kamiOverlay.init())).panels.cube,false,'Stopped alerts never reopen a hidden window');
+ await controls.waitForFunction(async()=>(await window.kamiOverlay.init()).panels['cube-map']);
+ assert.equal((await cubeMap.evaluate(()=>window.kamiOverlay.init())).cubeAlarm.running,false,'Map auto-open must not start audio monitoring');
+ await cubeMap.locator('#cube-map-hide').click({force:true});
+ await controls.waitForFunction(async()=>!(await window.kamiOverlay.init()).panels['cube-map']);
+ await cubeMap.waitForTimeout(800);
+ assert.equal((await controls.evaluate(()=>window.kamiOverlay.init())).panels['cube-map'],false,'Repeated snapshots of the same cube cannot reopen a manually hidden map');
  state.cubes.active=[];await cube.waitForFunction(()=>document.getElementById('cube-count').textContent==='0');
  const count=await cube.evaluate(()=>window.__sounds.length);await cube.waitForTimeout(3300);assert.equal(await cube.evaluate(()=>window.__sounds.length),count);
  await app.evaluate(()=>globalThis.overlayForTest.setInteraction(false));assert.ok((await flags()).every(w=>w.transparent&&w.noActivate));
  await dps.waitForTimeout(300);
  const exitRequested=new Promise((resolve,reject)=>{const timer=setTimeout(()=>reject(Error('Quit-file request did not close the overlay')),5000);app.process().once('exit',()=>{clearTimeout(timer);resolve();});});
  fs.writeFileSync(path.join(profile,'quit.request'),'quit');await exitRequested;app=null;
- ({dps,cube,controls}=await launch());await dps.waitForFunction(()=>document.getElementById('dps-body').hidden);
- const savedControlState=await controls.evaluate(()=>window.kamiOverlay.init());assert.deepEqual(savedControlState.panels,{dps:false,cube:false});assert.equal(savedControlState.controlsOpen,false);assert.equal(savedControlState.dpsMode,'individual');
+ ({dps,cube,cubeMap,controls}=await launch());await dps.waitForFunction(()=>document.getElementById('dps-body').hidden);
+ const savedControlState=await controls.evaluate(()=>window.kamiOverlay.init());assert.deepEqual(savedControlState.panels,{dps:false,cube:false,'cube-map':false,'pet-map':false});assert.equal(savedControlState.controlsOpen,false);assert.equal(savedControlState.dpsMode,'individual');
  const restoredControls=await app.evaluate(()=>globalThis.overlayForTest.windows.get('controls').getBounds());assert.equal(restoredControls.x,controlsMoved.x);assert.equal(restoredControls.y,controlsMoved.y);assert.ok(restoredControls.width<=48,JSON.stringify(restoredControls));
  assert.equal(await dps.locator('#transparency').inputValue(),'65');assert.equal(await dps.locator('#settings-body').isVisible(),false);
  assert.equal((await dps.evaluate(()=>window.kamiOverlay.init())).autoHide,false,'Auto-hide preference must survive restart');
@@ -270,5 +285,5 @@ try{
  assert.equal(shutdownRequests,1);assert.equal(server.listening,false);
  assert.equal(fs.existsSync(path.join(profile,'host.json')),false);
  assert.equal(JSON.parse(fs.readFileSync(path.join(profile,'layout.json'),'utf8')).dps.mode,'individual');
- console.log(JSON.stringify({threeWindows:'passed',nativeClickThrough:'passed',altInteraction:'always nonactivating; native mouse activation returns MA_NOACTIVATE',drag:'passed including launcher click suppression',cornerResize:'compact default, enlarge/shrink, 100-tick stability, minimum scrolling, Alt-release save, collapse/settings/restart persistence',controls:'hide/show both meters, restart persistence, compact recovery',dpsModes:'party totals, self skills and damage, missing-self guard, persistence',collapsedHeight,dpsHiddenWhenCollapsed:true,persistedLayout:'passed',appearanceSettings:'0–100%, reset, restart persistence, collapsed access; text stays opaque',skillIcons:'passed',threeSecondAudio:'passed while cube hidden, with muted output',removal:'silent',quitRequest:'passed',fullShutdown:'tray action stops backend, exits overlay and saves layout',errors},null,2));
+ console.log(JSON.stringify({fiveWindows:'passed',nativeClickThrough:'passed',altInteraction:'always nonactivating; native mouse activation returns MA_NOACTIVATE',miniMap:'360px bounds, auto-opens with audio stopped, manual hide suppresses same-cube reopening, hidden preference survives restart',drag:'passed including launcher click suppression',cornerResize:'compact default, enlarge/shrink, 100-tick stability, minimum scrolling, Alt-release save, collapse/settings/restart persistence',controls:'292px menu, hide/show both meters, restart persistence, compact recovery',dpsModes:'party totals, self skills and damage, missing-self guard, persistence',collapsedHeight,dpsHiddenWhenCollapsed:true,persistedLayout:'passed',appearanceSettings:'0–100%, reset, restart persistence, collapsed access; text stays opaque',skillIcons:'passed',threeSecondAudio:'passed while cube hidden, with muted output',removal:'silent',quitRequest:'passed',fullShutdown:'tray action stops backend, exits overlay and saves layout',errors},null,2));
 }finally{if(app)await app.close();server.close();}

@@ -1,0 +1,34 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import net from 'node:net';
+import {spawn} from 'node:child_process';
+import {fileURLToPath} from 'node:url';
+
+test('update routes require local JSON requests and cannot install from a portable source checkout',async t=>{
+  const directory=fs.mkdtempSync(path.join(os.tmpdir(),'kami-update-http-'));
+  const listener=net.createServer();await new Promise(resolve=>listener.listen(0,'127.0.0.1',resolve));const port=listener.address().port;await new Promise(resolve=>listener.close(resolve));
+  const cwd=fileURLToPath(new URL('..',import.meta.url));
+  const child=spawn(process.execPath,['src/server.mjs','--idle'],{cwd,windowsHide:true,env:{...process.env,AION_METER_PORT:String(port),AION_DATA_DIR:directory,AION_PETS_DIR:path.join(directory,'pets'),AION_DISABLE_UPDATES:'1'},stdio:['ignore','pipe','pipe']});let stderr='';child.stderr.on('data',chunk=>stderr+=chunk);
+  t.after(async()=>{child.kill();await new Promise(resolve=>child.exitCode!==null?resolve():child.once('exit',resolve));assert.equal(path.dirname(directory),path.resolve(os.tmpdir()));fs.rmSync(directory,{recursive:true,force:true});});
+  await new Promise((resolve,reject)=>{const timer=setTimeout(()=>reject(Error(stderr||'Update test server timeout')),10000);child.stdout.on('data',chunk=>{if(String(chunk).includes('Aion DPS Lab:')){clearTimeout(timer);resolve();}});child.once('exit',code=>{clearTimeout(timer);reject(Error(`Update server exit ${code}: ${stderr}`));});});
+  const origin=`http://127.0.0.1:${port}`,get=async url=>await(await fetch(origin+url)).json();
+  const before=await get('/api/state'),snapshot=await get('/api/updates');
+  assert.equal(before.instance.pid,child.pid);assert.equal(before.instance.dataDir,directory);assert.equal(before.instance.root,path.resolve(cwd));assert.match(before.instance.id,/^[a-f0-9]{64}$/);
+  assert.equal(snapshot.currentVersion,before.version);assert.equal(snapshot.status,'idle');assert.equal(snapshot.canInstall,false);
+  const post=(route,body='{}',headers={})=>fetch(origin+route,{method:'POST',headers:{'Content-Type':'application/json',...headers},body});
+  assert.equal((await post('/api/updates/install')).status,409);
+  assert.equal((await post('/api/updates/check','{}',{'Content-Type':'text/plain'})).status,415);
+  for(const body of ['[]','null','{"url":"https://untrusted.example/file.exe"}'])assert.equal((await post('/api/updates/check',body)).status,400);
+  assert.equal((await post('/api/updates/install','{}',{Origin:'https://untrusted.example'})).status,403);
+  assert.equal((await post('/api/updates/check','{}',{'Sec-Fetch-Site':'cross-site'})).status,403);
+  assert.equal((await post('/api/control',JSON.stringify({action:'shutdown',expectedPid:child.pid+1,requireIdle:true}))).status,409);
+  assert.deepEqual(await get('/api/state'),before);
+  assert.equal(fs.existsSync(path.join(directory,'updates')),false);
+  assert.equal((await post('/api/control',JSON.stringify({action:'demo'}))).status,200);
+  const combat=await get('/api/state');assert.equal(combat.combat.active,true);
+  assert.equal((await post('/api/control',JSON.stringify({action:'shutdown',expectedPid:child.pid,requireIdle:true}))).status,409);
+  assert.equal((await get('/api/state')).instance.pid,child.pid);
+});

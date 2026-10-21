@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "retrievedAt": "2026-10-21T03:30:15.726Z",
+  "attribution": {
+    "artwork": "NCSOFT",
+    "delivery": "Questlog public CDN",
+    "referenceApplication": "Questlog 0.1.36"
+  },
+  "maps": [
+    {
+      "id": 22,
+      "name": "Chaotic Middle Reshanta",
+      "key": "Abyss_Reshanta_C",
+      "image": null,
+      "width": 2048,
+      "height": 2048,
+      "originX": -102000,
+      "originY": -102000,
+      "rows": 2,
+      "columns": 2,
+      "cellUnits": 102000,
+      "tileSize": 1024,
+      "tiles": [
+        {
+          "image": "/pet-maps/Abyss_Reshanta_C_00_00.webp",
+          "x": 0,
+          "y": 0,
+          "width": 1024,
+          "height": 1024,
+          "source": "https://cdn.questlog.gg/aion-2/assets/Game/UI/Map/WorldMap/Abyss_Reshanta_C/Res/Abyss_Reshanta_C_00_00.webp",
+          "sha256": "ca88b938444ce52aae3d4c12d9bdb4cae5e1026ef2ecc1c40d6a3f50f93c1494",
+          "bytes": 67324
+        },
+        {
+          "image": "/pet-maps/Abyss_Reshanta_C_01_00.webp",
+          "x": 1024,
+          "y": 0,
+          "width": 1024,
+          "height": 1024,
+          "source": "https://cdn.questlog.gg/aion-2/assets/Game/UI/Map/WorldMap/Abyss_Reshanta_C/Res/Abyss_Reshanta_C_01_00.webp",
+          "sha256": "579791b00ff3ebe0268428cb5e9bf1b555f504b98135f68504ab3ef53e4fcb3b",
+          "bytes": 51218
+        },
+        {
+          "image": "/pet-maps/Abyss_Reshanta_C_00_01.webp",
+          "x": 0,
+          "y": 1024,
+          "width": 1024,
+          "height": 1024,
+          "source": "https://cdn.questlog.gg/aion-2/assets/Game/UI/Map/WorldMap/Abyss_Reshanta_C/Res/Abyss_Reshanta_C_00_01.webp",
+          "sha256": "738f3702ce42c3569a26f7a53da8a97c77149faedae3756a46dd952260b2cc54",
+          "bytes": 48396
+        },
+        {
+          "image": "/pet-maps/Abyss_Reshanta_C_01_01.webp",
+          "x": 1024,
+          "y": 1024,
+          "width": 1024,
+          "height": 1024,
+          "source": "https://cdn.questlog.gg/aion-2/assets/Game/UI/Map/WorldMap/Abyss_Reshanta_C/Res/Abyss_Reshanta_C_01_01.webp",
+          "sha256": "229dc4f2a3f695af4fd7e2ce344661b1bb35f844381a709e75fc14a1a0f09eaa",
+          "bytes": 68150
+        }
+      ]
+    }
+  ]
+}

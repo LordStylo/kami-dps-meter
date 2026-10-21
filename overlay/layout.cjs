@@ -1,4 +1,4 @@
-const sizes={dps:{width:232,height:210},cube:{width:206,height:206},controls:{width:44,height:44}};
+const sizes={dps:{width:232,height:210},cube:{width:206,height:206},'cube-map':{width:360,height:360},'pet-map':{width:420,height:420},controls:{width:44,height:44}};
 const BAR_HEIGHT=36;
 const SETTINGS_HEIGHT=232,DEFAULT_TRANSPARENCY=8;
 const transparencyFor=value=>typeof value==='number'&&Number.isFinite(value)?Math.max(0,Math.min(100,Math.round(value))):DEFAULT_TRANSPARENCY;
@@ -19,10 +19,10 @@ function resizeBounds(start,delta,area){
  return {x:start.x,y:start.y,width:clamp(start.width+delta.x,dpsLimits.minWidth,maxWidth),height:clamp(start.height+delta.y,dpsLimits.minHeight,maxHeight)};
 }
 function boundsFor(panel,saved,area){
- const size=panel==='dps'?dpsSize(saved):panel==='controls'&&saved?.controlsOpen?{width:224,height:212}:sizes[panel];
+ const size=panel==='dps'?dpsSize(saved):panel==='controls'&&saved?.controlsOpen?{width:224,height:292}:sizes[panel];
  const collapsed=panel==='dps'&&saved?.collapsed===true;
  const width=Math.min(size.width,area.width),height=panel==='dps'&&saved?.settingsOpen?Math.min(SETTINGS_HEIGHT,area.height):collapsed?BAR_HEIGHT:Math.min(size.height,area.height);
- const fallback={x:area.x+24,y:panel==='controls'?area.y+16:panel==='cube'?area.y+72:area.y+area.height-height-24};
+ const fallback={x:area.x+(panel==='pet-map'?638:panel==='cube-map'?254:24),y:panel==='controls'?area.y+16:['cube','cube-map','pet-map'].includes(panel)?area.y+72:area.y+area.height-height-24};
  const value=(k)=>Number.isFinite(saved?.[k])?Math.round(saved[k]):fallback[k];
  return {x:Math.max(area.x,Math.min(value('x'),area.x+area.width-width)),y:Math.max(area.y,Math.min(value('y'),area.y+area.height-height)),width,height};
 }

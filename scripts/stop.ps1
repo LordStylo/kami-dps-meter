@@ -1,19 +1,53 @@
-param([ValidateRange(1024,65535)][int]$Port = 4317)
-$ErrorActionPreference = 'Stop'
-try {
-  $taskUrl = "http://127.0.0.1:$Port"
-  $taskStatus = Invoke-RestMethod -Uri "$taskUrl/api/state" -TimeoutSec 2
-  if ($taskStatus.app -ne 'aion-dps-lab') { throw 'The service on port 4317 is not Aion DPS Lab.' }
-  Invoke-RestMethod -Method Post -Uri "$taskUrl/api/control" -ContentType 'application/json' -Body '{"action":"shutdown"}' | Out-Null
-  Write-Output 'Aion DPS Lab stopped.'
-} catch { Write-Output $_.Exception.Message }
+param([ValidateRange(1024,65535)][int]$Port=4317,[ValidateRange(0,2147483647)][int]$ExpectedBackendPid=0,[switch]$RequireIdle)
+$ErrorActionPreference='Stop'
 $taskRoot=Split-Path -Parent $PSScriptRoot
-$taskElectron=Join-Path $taskRoot 'runtime\electron\electron.exe'
-if (Test-Path -LiteralPath $taskElectron) {
-  $env:ELECTRON_RUN_AS_NODE=$null
-  $taskOverlayMain=Join-Path $taskRoot 'overlay\main.cjs'
-  Start-Process -FilePath $taskElectron -ArgumentList ('"'+$taskOverlayMain+'" --port='+$Port+' --quit-overlay') -WorkingDirectory $taskRoot -WindowStyle Hidden -Wait
-  $taskHostFile=Join-Path $taskRoot "settings\overlay-$Port\host.json"
-  for($taskWait=0;$taskWait -lt 30 -and (Test-Path -LiteralPath $taskHostFile);$taskWait++){Start-Sleep -Milliseconds 100}
-  if(Test-Path -LiteralPath $taskHostFile){Write-Warning 'The previous overlay did not close. Use its tray menu to close it.'}
-}
+. (Join-Path $PSScriptRoot 'runtime-paths.ps1')
+try {
+  $taskContext=Get-KamiRuntimeContext -Root $taskRoot -Port $Port
+  $taskPaths=$taskContext.Paths
+  $taskUrl="http://127.0.0.1:$Port"
+  try{$taskStatus=Invoke-RestMethod -Uri "$taskUrl/api/state" -TimeoutSec 2}catch{$taskStatus=$null}
+  if($taskStatus){
+    Assert-KamiInstance -State $taskStatus -Paths $taskPaths
+    $taskBackendPid=$taskStatus.instance.pid -as [int]
+    if(-not $taskBackendPid -or $taskBackendPid -le 0){throw 'Veri toplama uygulamasinin kimligi dogrulanamadi; kapatma istegi gonderilmedi.'}
+    if($ExpectedBackendPid -and $ExpectedBackendPid -ne $taskBackendPid){throw 'Kami islemi degisti; kapatma istegi gonderilmedi.'}
+    $taskShutdown=@{action='shutdown'}
+    if($ExpectedBackendPid){$taskShutdown.expectedPid=$ExpectedBackendPid}
+    if($RequireIdle){$taskShutdown.requireIdle=$true}
+    $taskShutdownBody=$taskShutdown | ConvertTo-Json -Compress
+    $taskDeadline=[DateTime]::UtcNow.AddSeconds(10)
+    for(;;){
+      $taskChecked=Invoke-RestMethod -Uri "$taskUrl/api/state" -TimeoutSec 2
+      Assert-KamiInstance -State $taskChecked -Paths $taskPaths
+      if($taskChecked.instance.pid -ne $taskBackendPid){throw 'Kami islemi degisti; kapatma istegi gonderilmedi.'}
+      try{Invoke-RestMethod -Method Post -Uri "$taskUrl/api/control" -ContentType 'application/json' -Body $taskShutdownBody -TimeoutSec 3 | Out-Null;break}
+      catch{if($RequireIdle -or [int]$_.Exception.Response.StatusCode -ne 409 -or $_.ErrorDetails.Message -notmatch 'devam ediyor' -or [DateTime]::UtcNow -ge $taskDeadline){throw};Start-Sleep -Milliseconds 100}
+    }
+    # A shutdown acknowledgement is not process exit. Never force-kill a PID.
+    while(Get-Process -Id $taskBackendPid -ErrorAction SilentlyContinue){
+      if([DateTime]::UtcNow -ge $taskDeadline){throw 'Veri toplama islemi zamaninda kapanmadi; dosyalar guncellenmedi.'}
+      Start-Sleep -Milliseconds 100
+    }
+    Write-Output 'Kami veri toplama islemi tamamen kapandi.'
+  }else{
+    $taskPidFile=Join-Path $taskPaths.tmp 'server.pid'
+    if(Test-Path -LiteralPath $taskPidFile){
+      $taskPreviousPid=(Get-Content -LiteralPath $taskPidFile -Raw).Trim() -as [int]
+      if($taskPreviousPid -and (Get-Process -Id $taskPreviousPid -ErrorAction SilentlyContinue)){throw 'Veri toplama uygulamasi yanit vermiyor. Kendi menusunden tamamen kapat; baska bir islem zorla sonlandirilmadi.'}
+    }
+  }
+  $taskHostFile=Join-Path $taskPaths.profile 'host.json'
+  if(Test-Path -LiteralPath $taskHostFile){
+    $taskHost=Get-Content -LiteralPath $taskHostFile -Raw | ConvertFrom-Json
+    Assert-KamiOverlayHost -HostState $taskHost -Paths $taskPaths
+    $taskOverlayPid=[int]$taskHost.pid
+    Set-Content -LiteralPath (Join-Path $taskPaths.profile 'quit.request') -Value 'quit' -Encoding ascii
+    $taskDeadline=[DateTime]::UtcNow.AddSeconds(8)
+    while((Test-Path -LiteralPath $taskHostFile) -or (Get-Process -Id $taskOverlayPid -ErrorAction SilentlyContinue)){
+      if([DateTime]::UtcNow -ge $taskDeadline){throw 'Overlay zamaninda kapanmadi. Kendi tepsi menusunden kapat; guncelleme yapma.'}
+      Start-Sleep -Milliseconds 100
+    }
+    Write-Output 'Kami overlay tamamen kapandi.'
+  }
+}catch{Write-Error $_.Exception.Message;exit 1}

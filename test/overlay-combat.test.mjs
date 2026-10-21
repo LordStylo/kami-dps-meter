@@ -37,3 +37,11 @@ test('healing view selects healers and their skill totals using encounter durati
  assert.equal(combatView(pure,'individual',null,'healing').player,healer);
  assert.equal(combatView(pure,'individual',null,'healing').previous,false);
 });
+
+test('incoming-only current PvP replaces the previous fight even when outgoing damage and healing are zero',()=>{
+ const current={kind:'pvp',damage:0,dps:0,healing:0,seconds:3.5,players:[],details:{pvp:{taken:400,dealt:0,kills:0,deaths:1}}};
+ for(const mode of ['party','individual']){
+  const view=combatView({current,last:fight},mode,null);
+  assert.equal(view.fight,current);assert.equal(view.previous,false);assert.equal(view.damage,0);assert.equal(view.seconds,3.5);
+ }
+});

@@ -2,10 +2,13 @@ param([ValidateRange(1024,65535)][int]$Port=4317)
 $ErrorActionPreference='Stop'
 if(-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) { throw 'Right-click Overlay-Yenile.cmd and choose Run as administrator. This restarts only the overlay.' }
 $taskRoot=Split-Path -Parent $PSScriptRoot
+. (Join-Path $PSScriptRoot 'runtime-paths.ps1')
+$taskContext=Get-KamiRuntimeContext -Root $taskRoot -Port $Port
+$taskPaths=$taskContext.Paths
 $taskElectron=Join-Path $taskRoot 'runtime\electron\electron.exe'
 $taskEntry=Join-Path $taskRoot 'overlay\main.cjs'
-$taskHostFile=Join-Path $taskRoot "settings\overlay-$Port\host.json"
-$taskLogs=Join-Path $taskRoot 'tmp'
+$taskHostFile=Join-Path $taskPaths.profile 'host.json'
+$taskLogs=$taskPaths.tmp
 New-Item -ItemType Directory -Force -Path $taskLogs | Out-Null
 $taskLogPrefix=Join-Path $taskLogs ('overlay-refresh-'+(Get-Date -Format 'yyyyMMdd-HHmmss-fff'))
 $env:ELECTRON_RUN_AS_NODE=$null
@@ -15,6 +18,7 @@ try {
 # confirms that its process no longer exists; never kill a process by stale PID.
 if(Test-Path -LiteralPath $taskHostFile){
   $taskPreviousHost=Get-Content -LiteralPath $taskHostFile -Raw | ConvertFrom-Json
+  Assert-KamiOverlayHost -HostState $taskPreviousHost -Paths $taskPaths
   $taskPreviousPid=0
   if(-not [int]::TryParse([string]$taskPreviousHost.pid,[ref]$taskPreviousPid) -or $taskPreviousPid -le 0){throw 'Invalid overlay host marker.'}
   $taskPreviousProcess=Get-CimInstance Win32_Process -Filter ('ProcessId = '+$taskPreviousPid)
@@ -31,7 +35,9 @@ if(Test-Path -LiteralPath $taskHostFile){
 if(Test-Path -LiteralPath $taskHostFile){Set-Content -LiteralPath (Join-Path (Split-Path -Parent $taskHostFile) 'quit.request') -Value 'quit' -Encoding ascii}
 for($taskAttempt=0;$taskAttempt -lt 30 -and (Test-Path -LiteralPath $taskHostFile);$taskAttempt++){Start-Sleep -Milliseconds 200}
 if(Test-Path -LiteralPath $taskHostFile){throw 'The previous overlay did not close; no duplicate was started.'}
-$taskNewOverlay=Start-Process -FilePath $taskElectron -ArgumentList ('"'+$taskEntry+'" --port='+$Port) -WorkingDirectory $taskRoot -WindowStyle Hidden -PassThru -RedirectStandardOutput ($taskLogPrefix+'-out.log') -RedirectStandardError ($taskLogPrefix+'-error.log')
+$taskOverlayArguments='"'+$taskEntry+'" --port='+$Port+' --profile="'+$taskPaths.profile+'"'
+if($taskPaths.installed){$taskOverlayArguments+=' --data-dir="'+$taskPaths.dataDir+'"'}
+$taskNewOverlay=Start-Process -FilePath $taskElectron -ArgumentList $taskOverlayArguments -WorkingDirectory $taskRoot -WindowStyle Hidden -PassThru -RedirectStandardOutput ($taskLogPrefix+'-out.log') -RedirectStandardError ($taskLogPrefix+'-error.log')
 for($taskAttempt=0;$taskAttempt -lt 50;$taskAttempt++) {
   Start-Sleep -Milliseconds 200
   $taskNewOverlay.Refresh()

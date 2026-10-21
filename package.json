@@ -1,6 +1,6 @@
 {
   "name": "aion-dps-lab",
-  "version": "0.1.0",
+  "version": "0.7.0",
   "private": true,
   "type": "module",
   "description": "Local Aion 2 combat protocol research and DPS meter prototype",

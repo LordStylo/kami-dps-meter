@@ -4,6 +4,16 @@ export function cubeRepeatDue(state, now, lastSoundAt) {
   return state?.mode==='live'&&state.capture?.state==='capturing'&&
     (state.cubes?.active||[]).some(c=>c.status==='present')&&now-lastSoundAt>=3000;
 }
+// Presentation only. Proximity never changes the presence alarm or its cadence.
+export function cubeProximityPresentation(cube,{healthy=true,lastUpdate=Date.now(),now=Date.now()}={}) {
+  const p=cube?.proximity,elapsed=Math.max(0,now-lastUpdate);
+  const age=Number.isFinite(p?.at)?now-p.at:Number.isFinite(p?.ageMs)?p.ageMs+elapsed:null;
+  if(!healthy||elapsed>=2500||cube?.status!=='present'||!p?.fresh||!Number.isFinite(p.distance)||p.distance<0||age===null||age< -1000||age>3000)
+    return {known:false,distance:'',quality:'',trend:'Yakınlık bilinmiyor',direction:'unknown'};
+  const labels={approaching:'Yaklaşıyorsun',receding:'Uzaklaşıyorsun',steady:'Belirgin değişim yok'};
+  return {known:true,distance:`≈ ${Math.round(p.distance).toLocaleString('tr-TR')} m yatay`,quality:p.quality==='estimated'?'Tahmini':p.quality==='observed'?'Gözlenen':'Deneysel',
+    trend:labels[p.trend]||'Ölçüm bekleniyor',direction:labels[p.trend]?p.trend:'unknown'};
+}
 const el=id=>document.getElementById(id);
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
@@ -58,7 +68,7 @@ export function createCubeAlerts(){
       const present=live&&c.status==='present';
       const label=present?'Algılandı':c.status==='disappeared'?'Kayboldu':'Durumu belirsiz';
       const detected=new Date(c.detectedAt).toLocaleTimeString('tr-TR');
-      return `<li class="${present?'cube-present':''}"><span class="cube-symbol" aria-hidden="true">◇</span><span><b>Hidden cube adayı #${escape(c.sequence)}</b><small>İlk bildirim ${escape(detected)}${c.endedAt?' · Son durum '+escape(new Date(c.endedAt).toLocaleTimeString('tr-TR')):''}</small></span><strong>${label}</strong></li>`;
+      return `<li class="${present?'cube-present':''}"><span class="cube-symbol" aria-hidden="true">◇</span><span class="cube-detection-identity"><b>Hidden cube adayı #${escape(c.sequence)}</b><small>İlk bildirim ${escape(detected)}${c.endedAt?' · Son durum '+escape(new Date(c.endedAt).toLocaleTimeString('tr-TR')):''}</small><span class="cube-proximity-hint" data-cube-proximity="${escape(c.id??c.sequence)}" aria-label="Cube yakınlığı"></span></span><strong>${label}</strong></li>`;
     }).join('')||'<li class="cube-list-empty">Henüz cube bildirimi alınmadı. Ölçer açıkken gezinmeye devam et.</li>';
     const total=cubes.total||0;
     // Initial page load establishes a baseline. After the user enables sound,
@@ -72,8 +82,20 @@ export function createCubeAlerts(){
     lastSequence=Math.max(lastSequence,total);updateSound();
     updateReminder();
   }
+  function updateProximity(now=Date.now()) {
+    const healthy=connected&&lastState?.mode==='live'&&lastState.capture?.state==='capturing';
+    const cubes=[...(lastState?.cubes?.active||[]),...(lastState?.cubes?.recent||[])];
+    for(const node of el('cube-detections').querySelectorAll('[data-cube-proximity]')){
+      const cube=cubes.find(c=>String(c.id??c.sequence)===node.dataset.cubeProximity);
+      const p=cubeProximityPresentation(cube,{healthy,lastUpdate,now});
+      node.dataset.direction=p.direction;
+      const text=p.known?`${p.distance} · ${p.quality} · ${p.trend}`:p.trend;
+      if(node.textContent!==text)node.textContent=text;
+    }
+  }
   function updateReminder(){
     const now=Date.now();
+    updateProximity(now);
     if(!connected||now-lastUpdate>=2500||!enabled||context?.state!=='running')return;
     if(cubeRepeatDue(lastState,now,lastSoundAt))tone();
   }

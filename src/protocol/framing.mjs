@@ -33,12 +33,12 @@ export function decompressLz4(bytes, length) {
   return output;
 }
 
-function decodeFrame(frame, header, at, depth = 0, budget = { frames: 0, bytes: 0 }, includePayload = false) {
+function decodeFrame(frame, header, at, depth = 0, budget = { frames: 0, bytes: 0 }, includePayload = false, context = undefined) {
   if (depth > 4 || ++budget.frames > 4096) throw new WireError('Bundle nesting/count limit');
   const payload = frame.subarray(header.width + 2);
   const wire = includePayload ? { payload } : {};
   if (header.opcode !== 0xffff) {
-    try { return [{ ...decodePacket(header.opcode, payload, at), ...wire }]; }
+    try { return [{ ...decodePacket(header.opcode, payload, at, context), ...wire }]; }
     catch (error) {
       if (!(error instanceof WireError)) throw error;
       return [{ opcode: header.opcode, known: true, complete: false, events: [], error: `${error.constructor.name}:${error.message}`, ...wire }];
@@ -51,13 +51,13 @@ function decodeFrame(frame, header, at, depth = 0, budget = { frames: 0, bytes: 
   for (let p = 0; p < expanded.length;) {
     const h = frameHeader(expanded, p);
     if (!h || p + h.size > expanded.length) throw new WireError('Incomplete bundled message');
-    result.push(...decodeFrame(expanded.subarray(p, p + h.size), h, at, depth + 1, budget, includePayload)); p += h.size;
+    result.push(...decodeFrame(expanded.subarray(p, p + h.size), h, at, depth + 1, budget, includePayload, context)); p += h.size;
   }
   return result;
 }
 
 export class FrameStream {
-  constructor(onPacket, onIssue = () => {}, onMessage = null) { this.onPacket = onPacket; this.onIssue = onIssue; this.onMessage = onMessage; this.buffer = Buffer.alloc(0); this.locked = false; this.probed = 0; this.ignored = false; this.resetScan(); }
+  constructor(onPacket, onIssue = () => {}, onMessage = null) { this.onPacket = onPacket; this.onIssue = onIssue; this.onMessage = onMessage; this.context = {}; this.buffer = Buffer.alloc(0); this.locked = false; this.probed = 0; this.ignored = false; this.resetScan(); }
   resetScan() { this.scanOffset = 0; this.scanPending = []; }
   gap() { this.buffer = Buffer.alloc(0); this.locked = false; this.probed = 0; this.ignored = false; this.resetScan(); this.onIssue('stream-gap'); }
   anchor(bytes, offset, at) {
@@ -143,7 +143,10 @@ export class FrameStream {
       catch { this.buffer = this.buffer.subarray(pos + 1); this.locked = false; this.resetScan(); this.onIssue('bad-frame'); return; }
       if (!h || pos + h.size > this.buffer.length) break;
       try {
-        for (const packet of decodeFrame(this.buffer.subarray(pos, pos + h.size), h, at, 0, undefined, !!this.onMessage)) {
+        const context = { ...this.context };
+        const packets = decodeFrame(this.buffer.subarray(pos, pos + h.size), h, at, 0, undefined, !!this.onMessage, context);
+        this.context = context;
+        for (const packet of packets) {
           // Only observe committed frames, never speculative synchronization probes.
           // Whole bundles are structurally validated before any child is observed.
           if (this.onMessage) this.onMessage({ ...packet, at });

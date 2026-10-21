@@ -1,7 +1,7 @@
 // Keep the same encounter duration as the party rows. Switching presentation
 // never changes the capture session or the browser's filters.
 export function combatView(state,mode,selected,metric='damage'){
- const currentHasData=!!(state?.current?.damage||state?.current?.healing);
+ const currentHasData=!!(state?.current?.damage||state?.current?.healing||state?.current?.details?.pvp?.taken||state?.current?.details?.pvp?.dealt);
  const fight=currentHasData?state.current:state?.last||state?.current;
  const healing=metric==='healing',players=(healing?fight?.healers:fight?.players)||[],individual=mode==='individual';
  const player=individual?players.find(p=>p.self===true):players.find(p=>p.entity===selected);
